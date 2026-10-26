@@ -469,6 +469,505 @@
       text-transform: uppercase;
     }
 
+<!-- BEHIND THE SCENES -->
+<section class="bts-section" id="behind-the-scenes">
+
+  <div class="bts-heading">
+    <span class="bts-eyebrow">THE ART IN MOTION</span>
+    <h2>Behind the <em>Scenes.</em></h2>
+    <p>
+      A glimpse into the moments, movement and magic
+      behind every photograph.
+    </p>
+  </div>
+
+  <div class="bts-toolbar">
+    <div class="bts-filters">
+      <button class="bts-filter active" data-type="all">All films</button>
+      <button class="bts-filter" data-type="vertical">Vertical</button>
+      <button class="bts-filter" data-type="horizontal">Horizontal</button>
+    </div>
+
+    <span class="bts-count" id="btsCount">06 FILM SLOTS</span>
+  </div>
+
+  <div class="bts-grid" id="btsGrid">
+
+    <!-- VIDEO 01: replace YOUR-VIDEO-01.mp4 -->
+    <article class="bts-card" data-type="vertical">
+      <button class="bts-video" type="button"
+        data-video="YOUR-VIDEO-01.mp4"
+        data-title="The Art of Portraiture"
+        aria-label="Play The Art of Portraiture">
+        <video muted playsinline preload="none"
+          poster="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80">
+          <source src="YOUR-VIDEO-01.mp4" type="video/mp4">
+        </video>
+        <span class="bts-play">▶</span>
+        <span class="bts-format">VERTICAL · 01</span>
+      </button>
+      <div class="bts-caption">
+        <h3>The Art of Portraiture</h3>
+        <span>BEHIND THE LENS</span>
+      </div>
+    </article>
+
+    <!-- VIDEO 02 -->
+    <article class="bts-card" data-type="horizontal">
+      <button class="bts-video" type="button"
+        data-video="YOUR-VIDEO-02.mp4"
+        data-title="In Between Moments"
+        aria-label="Play In Between Moments">
+        <video muted playsinline preload="none"
+          poster="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80">
+          <source src="YOUR-VIDEO-02.mp4" type="video/mp4">
+        </video>
+        <span class="bts-play">▶</span>
+        <span class="bts-format">CINEMATIC · 02</span>
+      </button>
+      <div class="bts-caption">
+        <h3>In Between Moments</h3>
+        <span>THE PROCESS</span>
+      </div>
+    </article>
+
+    <!-- VIDEO 03 -->
+    <article class="bts-card" data-type="vertical">
+      <button class="bts-video" type="button"
+        data-video="YOUR-VIDEO-03.mp4"
+        data-title="Natural Light"
+        aria-label="Play Natural Light">
+        <video muted playsinline preload="none"
+          poster="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80">
+          <source src="YOUR-VIDEO-03.mp4" type="video/mp4">
+        </video>
+        <span class="bts-play">▶</span>
+        <span class="bts-format">VERTICAL · 03</span>
+      </button>
+      <div class="bts-caption">
+        <h3>Natural Light</h3>
+        <span>LIGHT & SHADOW</span>
+      </div>
+    </article>
+
+    <!-- VIDEO 04 -->
+    <article class="bts-card" data-type="horizontal">
+      <button class="bts-video" type="button"
+        data-video="YOUR-VIDEO-04.mp4"
+        data-title="The Creative Process"
+        aria-label="Play The Creative Process">
+        <video muted playsinline preload="none"
+          poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80">
+          <source src="YOUR-VIDEO-04.mp4" type="video/mp4">
+        </video>
+        <span class="bts-play">▶</span>
+        <span class="bts-format">CINEMATIC · 04</span>
+      </button>
+      <div class="bts-caption">
+        <h3>The Creative Process</h3>
+        <span>ON SET</span>
+      </div>
+    </article>
+
+    <!-- VIDEO 05 -->
+    <article class="bts-card" data-type="vertical">
+      <button class="bts-video" type="button"
+        data-video="YOUR-VIDEO-05.mp4"
+        data-title="A Study in Elegance"
+        aria-label="Play A Study in Elegance">
+        <video muted playsinline preload="none"
+          poster="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80">
+          <source src="YOUR-VIDEO-05.mp4" type="video/mp4">
+        </video>
+        <span class="bts-play">▶</span>
+        <span class="bts-format">VERTICAL · 05</span>
+      </button>
+      <div class="bts-caption">
+        <h3>A Study in Elegance</h3>
+        <span>THE DETAILS</span>
+      </div>
+    </article>
+
+    <!-- VIDEO 06 -->
+    <article class="bts-card" data-type="horizontal">
+      <button class="bts-video" type="button"
+        data-video="YOUR-VIDEO-06.mp4"
+        data-title="The Final Frame"
+        aria-label="Play The Final Frame">
+        <video muted playsinline preload="none"
+          poster="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=80">
+          <source src="YOUR-VIDEO-06.mp4" type="video/mp4">
+        </video>
+        <span class="bts-play">▶</span>
+        <span class="bts-format">CINEMATIC · 06</span>
+      </button>
+      <div class="bts-caption">
+        <h3>The Final Frame</h3>
+        <span>MADE WITH INTENTION</span>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="bts-footer">
+    <span>EVERY FRAME TELLS A STORY</span>
+    <span>BEHIND THE SCENES — © <span id="btsYear"></span></span>
+  </div>
+</section>
+
+<!-- FULLSCREEN VIDEO PLAYER -->
+<div class="bts-modal" id="btsModal"
+  role="dialog" aria-modal="true" aria-label="Video player">
+  <button class="bts-close" id="btsClose"
+    type="button" aria-label="Close video">×</button>
+  <video id="btsPlayer" controls playsinline preload="metadata"></video>
+  <p id="btsModalTitle"></p>
+</div>
+
+<style>
+  .bts-section {
+    --bts-bg: #f7f4ef;
+    --bts-ink: #292722;
+    --bts-muted: #847b70;
+    --bts-line: #d9d1c6;
+    --bts-gold: #a48a6b;
+    background: var(--bts-bg);
+    color: var(--bts-ink);
+    padding: 105px 7% 55px;
+    font-family: "DM Sans", Arial, sans-serif;
+  }
+
+  .bts-section * { box-sizing: border-box; }
+
+  .bts-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 65px;
+  }
+
+  .bts-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--bts-gold);
+  }
+
+  .bts-heading h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(48px, 7vw, 86px);
+    font-weight: 400;
+    line-height: 1;
+    margin: 22px 0;
+  }
+
+  .bts-heading h2 em { font-weight: 400; }
+
+  .bts-heading p {
+    color: var(--bts-muted);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .bts-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding-bottom: 17px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--bts-line);
+  }
+
+  .bts-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .bts-filter {
+    border: 0;
+    border-bottom: 1px solid transparent;
+    padding: 8px 0;
+    background: transparent;
+    color: var(--bts-muted);
+    cursor: pointer;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .bts-filter.active {
+    color: var(--bts-ink);
+    border-color: var(--bts-gold);
+  }
+
+  .bts-count, .bts-format, .bts-caption span,
+  .bts-footer {
+    font-size: 9px;
+    letter-spacing: 1.7px;
+  }
+
+  .bts-count { color: var(--bts-muted); }
+
+  .bts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 42px 20px;
+    align-items: start;
+  }
+
+  .bts-card { min-width: 0; }
+  .bts-card[hidden] { display: none; }
+
+  .bts-video {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    background: #e4ded5;
+    cursor: pointer;
+    color: white;
+    text-align: left;
+  }
+
+  .bts-card[data-type="vertical"] .bts-video {
+    aspect-ratio: 9 / 12;
+  }
+
+  .bts-card[data-type="horizontal"] .bts-video {
+    aspect-ratio: 16 / 10;
+  }
+
+  .bts-video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    transition: transform .8s ease;
+  }
+
+  .bts-video:hover video { transform: scale(1.045); }
+
+  .bts-video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top, rgba(20,18,16,.4), transparent 38%
+    );
+    pointer-events: none;
+  }
+
+  .bts-play {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 53px;
+    height: 53px;
+    display: grid;
+    place-items: center;
+    padding-left: 3px;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 50%;
+    font-size: 13px;
+    transition: background .3s, color .3s;
+  }
+
+  .bts-video:hover .bts-play {
+    background: white;
+    color: var(--bts-ink);
+  }
+
+  .bts-format {
+    position: absolute;
+    z-index: 1;
+    left: 15px;
+    bottom: 15px;
+    color: white;
+  }
+
+  .bts-caption {
+    padding-top: 15px;
+  }
+
+  .bts-caption h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(22px, 2.3vw, 29px);
+    margin-bottom: 7px;
+  }
+
+  .bts-caption span { color: var(--bts-muted); }
+
+  .bts-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--bts-line);
+    margin-top: 65px;
+    padding-top: 20px;
+    color: var(--bts-muted);
+  }
+
+  .bts-modal {
+    position: fixed;
+    z-index: 99999;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 18px;
+    padding: 55px 20px 35px;
+    background: rgba(20,19,17,.97);
+  }
+
+  .bts-modal.open { display: flex; }
+
+  .bts-modal video {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 90vw;
+    max-height: 78vh;
+    background: #111;
+  }
+
+  .bts-modal p {
+    color: white;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .bts-close {
+    position: absolute;
+    top: 13px;
+    right: 24px;
+    border: 0;
+    background: none;
+    color: white;
+    font-size: 38px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 800px) {
+    .bts-section { padding: 75px 5% 35px; }
+    .bts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 13px; }
+    .bts-heading { margin-bottom: 42px; }
+    .bts-filters { gap: 16px; }
+    .bts-modal video { max-width: 94vw; max-height: 76vh; }
+  }
+
+  @media (max-width: 420px) {
+    .bts-grid { gap: 27px 10px; }
+    .bts-caption h3 { font-size: 21px; }
+    .bts-caption span { font-size: 8px; }
+    .bts-play { width: 43px; height: 43px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bts-video video, .bts-play { transition: none; }
+  }
+</style>
+
+<script>
+(() => {
+  const section = document.getElementById("behind-the-scenes");
+  if (!section || section.dataset.initialized) return;
+  section.dataset.initialized = "true";
+
+  const cards = [...section.querySelectorAll(".bts-card")];
+  const filters = section.querySelectorAll(".bts-filter");
+  const count = document.getElementById("btsCount");
+  const modal = document.getElementById("btsModal");
+  const player = document.getElementById("btsPlayer");
+  const title = document.getElementById("btsModalTitle");
+  const close = document.getElementById("btsClose");
+
+  document.getElementById("btsYear").textContent =
+    new Date().getFullYear();
+
+  function updateCount() {
+    const visible = cards.filter(card => !card.hidden).length;
+    count.textContent = String(visible).padStart(2, "0") + " FILM SLOTS";
+  }
+
+  filters.forEach(button => {
+    button.addEventListener("click", () => {
+      filters.forEach(item => item.classList.remove("active"));
+      button.classList.add("active");
+
+      cards.forEach(card => {
+        card.hidden = button.dataset.type !== "all" &&
+          card.dataset.type !== button.dataset.type;
+      });
+
+      updateCount();
+    });
+  });
+
+  function closePlayer() {
+    modal.classList.remove("open");
+    player.pause();
+    player.removeAttribute("src");
+    player.load();
+    document.body.style.overflow = "";
+  }
+
+  cards.forEach(card => {
+    const button = card.querySelector(".bts-video");
+    const video = button.querySelector("video");
+    const source = video.querySelector("source");
+
+    // Preview is loaded only when a real video path is provided.
+    if (source.src.includes("YOUR-VIDEO-")) {
+      video.removeAttribute("src");
+      source.removeAttribute("src");
+    } else {
+      video.muted = true;
+      video.load();
+    }
+
+    button.addEventListener("click", () => {
+      const path = button.dataset.video;
+
+      if (!path || path.includes("YOUR-VIDEO-")) {
+        alert("This is a demo slot. Add your MP4 video file to activate it.");
+        return;
+      }
+
+      player.src = path;
+      title.textContent = button.dataset.title;
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+      player.play().catch(() => {});
+    });
+  });
+
+  close.addEventListener("click", closePlayer);
+
+  modal.addEventListener("click", event => {
+    if (event.target === modal) closePlayer();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && modal.classList.contains("open")) {
+      closePlayer();
+    }
+  });
+
+  updateCount();
+})();
+</script>
+
     /* CONTACT */
 
     .contact {
