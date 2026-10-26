@@ -1,1565 +1,957 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f7f4ef">
-  <meta name="description" content="An elegant photography portfolio celebrating people, light and timeless moments.">
-  <title>Studio Lumière — Photography Portfolio</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #f7f4ef;
-      --paper: #eee9e1;
-      --ink: #292722;
-      --muted: #817a70;
-      --line: #d9d1c6;
-      --accent: #a48a6b;
-      --serif: "Cormorant Garamond", Georgia, serif;
-      --sans: "DM Sans", Arial, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-weight: 300;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    ::selection {
-      background: #d8c8b4;
-      color: #292722;
-    }
-
-    /* NAVIGATION */
-
-    .nav {
-      position: absolute;
-      z-index: 10;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 28px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-      border-bottom: 1px solid rgba(255,255,255,.25);
-    }
-
-    .logo {
-      font-family: var(--serif);
-      font-size: 27px;
-      letter-spacing: 1px;
-      line-height: 1;
-    }
-
-    .logo small {
-      display: block;
-      margin-top: 7px;
-      font-family: var(--sans);
-      font-size: 9px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .nav-links a {
-      transition: opacity .3s;
-    }
-
-    .nav-links a:hover {
-      opacity: .6;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: 0;
-      color: inherit;
-      font-size: 25px;
-      cursor: pointer;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 690px;
-      height: 92svh;
-      max-height: 950px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 130px 12% 90px;
-      color: white;
-      background: #65594d;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg,
-          rgba(27,24,21,.68) 0%,
-          rgba(27,24,21,.28) 52%,
-          rgba(27,24,21,.04) 100%),
-        url("https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=2200&q=85")
-        center 35% / cover no-repeat;
-      animation: heroReveal 1.5s ease both;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-      animation: fadeUp 1.2s .2s both;
-    }
-
-    .eyebrow {
-      font-size: 10px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-
-    .hero .eyebrow {
-      margin-bottom: 25px;
-      color: #e4d4c2;
-    }
-
-    h1, h2, h3 {
-      font-family: var(--serif);
-      font-weight: 400;
-    }
-
-    h1 {
-      max-width: 700px;
-      font-size: clamp(64px, 8.8vw, 122px);
-      line-height: .88;
-      letter-spacing: -3px;
-    }
-
-    h1 em {
-      font-weight: 400;
-    }
-
-    .hero-description {
-      margin-top: 28px;
-      max-width: 370px;
-      font-size: 13px;
-      line-height: 1.9;
-      color: rgba(255,255,255,.8);
-    }
-
-    .outline-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 24px;
-      margin-top: 35px;
-      padding: 15px 21px;
-      border: 1px solid rgba(255,255,255,.65);
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: background .35s, color .35s;
-    }
-
-    .outline-button:hover {
-      background: white;
-      color: var(--ink);
-    }
-
-    .hero-index {
-      position: absolute;
-      right: 7%;
-      bottom: 45px;
-      z-index: 1;
-      font-size: 10px;
-      letter-spacing: 3px;
-    }
-
-    /* INTRODUCTION */
-
-    .intro {
-      padding: 115px 8% 100px;
-      text-align: center;
-    }
-
-    .intro .eyebrow {
-      color: var(--accent);
-    }
-
-    .intro h2 {
-      max-width: 780px;
-      margin: 24px auto;
-      font-size: clamp(39px, 5.5vw, 70px);
-      line-height: 1.02;
-    }
-
-    .intro p {
-      max-width: 470px;
-      margin: auto;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 2;
-    }
-
-    .ornament {
-      width: 50px;
-      height: 1px;
-      background: var(--accent);
-      margin: 30px auto;
-    }
-
-    /* PORTFOLIO */
-
-    .portfolio {
-      padding: 35px 7% 110px;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 25px;
-      margin-bottom: 35px;
-    }
-
-    .section-heading .eyebrow {
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(44px, 6vw, 72px);
-      line-height: 1;
-    }
-
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      padding-bottom: 5px;
-    }
-
-    .filter-btn {
-      padding: 8px 0;
-      border: 0;
-      border-bottom: 1px solid transparent;
-      background: none;
-      color: var(--muted);
-      font-size: 10px;
-      letter-spacing: 1.3px;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    .filter-btn.active,
-    .filter-btn:hover {
-      border-color: var(--ink);
-      color: var(--ink);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 28px 18px;
-    }
-
-    .gallery-card {
-      grid-column: span 4;
-      min-width: 0;
-      cursor: pointer;
-      animation: fadeUp .7s both;
-    }
-
-    .gallery-card:nth-child(3n + 2) {
-      margin-top: 55px;
-    }
-
-    .gallery-card.hidden {
-      display: none;
-    }
-
-    .photo-wrap {
-      position: relative;
-      height: clamp(260px, 37vw, 490px);
-      overflow: hidden;
-      background: var(--paper);
-    }
-
-    .photo-wrap img {
-      transition: transform .9s cubic-bezier(.2,.65,.3,1);
-    }
-
-    .gallery-card:hover .photo-wrap img {
-      transform: scale(1.055);
-    }
-
-    .photo-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(30,27,23,.25);
-      opacity: 0;
-      transition: opacity .4s;
-      color: white;
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .gallery-card:hover .photo-overlay {
-      opacity: 1;
-    }
-
-    .photo-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-      padding: 15px 0 0;
-    }
-
-    .photo-info h3 {
-      font-size: 25px;
-    }
-
-    .photo-info span {
-      color: var(--muted);
-      font-size: 9px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .gallery-card:nth-child(4n + 1) {
-      grid-column: span 5;
-    }
-
-    .gallery-card:nth-child(4n + 2) {
-      grid-column: span 7;
-    }
-
-    .gallery-card:nth-child(4n + 1) .photo-wrap {
-      height: clamp(300px, 48vw, 590px);
-    }
-
-    .gallery-card:nth-child(4n + 2) .photo-wrap {
-      height: clamp(260px, 39vw, 470px);
-    }
-
-    /* FEATURE STRIP */
-
-    .quote-section {
-      background: var(--paper);
-      padding: 100px 8%;
-      text-align: center;
-    }
-
-    .quote-section .eyebrow {
-      color: var(--accent);
-    }
-
-    .quote-section blockquote {
-      max-width: 900px;
-      margin: 25px auto;
-      font-family: var(--serif);
-      font-size: clamp(38px, 5.5vw, 72px);
-      line-height: 1.05;
-    }
-
-    .quote-section p {
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* ABOUT */
-
-    .about {
-      padding: 120px 10%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 9%;
-    }
-
-    .about-image {
-      height: 570px;
-      overflow: hidden;
-      background: var(--paper);
-    }
-
-    .about-image img {
-      object-position: center;
-    }
-
-    .about-copy .eyebrow {
-      color: var(--accent);
-      margin-bottom: 22px;
-    }
-
-    .about-copy h2 {
-      font-size: clamp(45px, 5vw, 68px);
-      line-height: .98;
-      margin-bottom: 28px;
-    }
-
-    .about-copy p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 2;
-      margin-bottom: 16px;
-    }
-
-    .text-link {
-      display: inline-block;
-      margin-top: 16px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--accent);
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-<!-- BEHIND THE SCENES -->
-<section class="bts-section" id="behind-the-scenes">
-
-  <div class="bts-heading">
-    <span class="bts-eyebrow">THE ART IN MOTION</span>
-    <h2>Behind the <em>Scenes.</em></h2>
-    <p>
-      A glimpse into the moments, movement and magic
-      behind every photograph.
-    </p>
-  </div>
-
-  <div class="bts-toolbar">
-    <div class="bts-filters">
-      <button class="bts-filter active" data-type="all">All films</button>
-      <button class="bts-filter" data-type="vertical">Vertical</button>
-      <button class="bts-filter" data-type="horizontal">Horizontal</button>
-    </div>
-
-    <span class="bts-count" id="btsCount">06 FILM SLOTS</span>
-  </div>
-
-  <div class="bts-grid" id="btsGrid">
-
-    <!-- VIDEO 01: replace YOUR-VIDEO-01.mp4 -->
-    <article class="bts-card" data-type="vertical">
-      <button class="bts-video" type="button"
-        data-video="YOUR-VIDEO-01.mp4"
-        data-title="The Art of Portraiture"
-        aria-label="Play The Art of Portraiture">
-        <video muted playsinline preload="none"
-          poster="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80">
-          <source src="YOUR-VIDEO-01.mp4" type="video/mp4">
-        </video>
-        <span class="bts-play">▶</span>
-        <span class="bts-format">VERTICAL · 01</span>
-      </button>
-      <div class="bts-caption">
-        <h3>The Art of Portraiture</h3>
-        <span>BEHIND THE LENS</span>
-      </div>
-    </article>
-
-    <!-- VIDEO 02 -->
-    <article class="bts-card" data-type="horizontal">
-      <button class="bts-video" type="button"
-        data-video="YOUR-VIDEO-02.mp4"
-        data-title="In Between Moments"
-        aria-label="Play In Between Moments">
-        <video muted playsinline preload="none"
-          poster="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80">
-          <source src="YOUR-VIDEO-02.mp4" type="video/mp4">
-        </video>
-        <span class="bts-play">▶</span>
-        <span class="bts-format">CINEMATIC · 02</span>
-      </button>
-      <div class="bts-caption">
-        <h3>In Between Moments</h3>
-        <span>THE PROCESS</span>
-      </div>
-    </article>
-
-    <!-- VIDEO 03 -->
-    <article class="bts-card" data-type="vertical">
-      <button class="bts-video" type="button"
-        data-video="YOUR-VIDEO-03.mp4"
-        data-title="Natural Light"
-        aria-label="Play Natural Light">
-        <video muted playsinline preload="none"
-          poster="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80">
-          <source src="YOUR-VIDEO-03.mp4" type="video/mp4">
-        </video>
-        <span class="bts-play">▶</span>
-        <span class="bts-format">VERTICAL · 03</span>
-      </button>
-      <div class="bts-caption">
-        <h3>Natural Light</h3>
-        <span>LIGHT & SHADOW</span>
-      </div>
-    </article>
-
-    <!-- VIDEO 04 -->
-    <article class="bts-card" data-type="horizontal">
-      <button class="bts-video" type="button"
-        data-video="YOUR-VIDEO-04.mp4"
-        data-title="The Creative Process"
-        aria-label="Play The Creative Process">
-        <video muted playsinline preload="none"
-          poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80">
-          <source src="YOUR-VIDEO-04.mp4" type="video/mp4">
-        </video>
-        <span class="bts-play">▶</span>
-        <span class="bts-format">CINEMATIC · 04</span>
-      </button>
-      <div class="bts-caption">
-        <h3>The Creative Process</h3>
-        <span>ON SET</span>
-      </div>
-    </article>
-
-    <!-- VIDEO 05 -->
-    <article class="bts-card" data-type="vertical">
-      <button class="bts-video" type="button"
-        data-video="YOUR-VIDEO-05.mp4"
-        data-title="A Study in Elegance"
-        aria-label="Play A Study in Elegance">
-        <video muted playsinline preload="none"
-          poster="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80">
-          <source src="YOUR-VIDEO-05.mp4" type="video/mp4">
-        </video>
-        <span class="bts-play">▶</span>
-        <span class="bts-format">VERTICAL · 05</span>
-      </button>
-      <div class="bts-caption">
-        <h3>A Study in Elegance</h3>
-        <span>THE DETAILS</span>
-      </div>
-    </article>
-
-    <!-- VIDEO 06 -->
-    <article class="bts-card" data-type="horizontal">
-      <button class="bts-video" type="button"
-        data-video="YOUR-VIDEO-06.mp4"
-        data-title="The Final Frame"
-        aria-label="Play The Final Frame">
-        <video muted playsinline preload="none"
-          poster="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=80">
-          <source src="YOUR-VIDEO-06.mp4" type="video/mp4">
-        </video>
-        <span class="bts-play">▶</span>
-        <span class="bts-format">CINEMATIC · 06</span>
-      </button>
-      <div class="bts-caption">
-        <h3>The Final Frame</h3>
-        <span>MADE WITH INTENTION</span>
-      </div>
-    </article>
-
-  </div>
-
-  <div class="bts-footer">
-    <span>EVERY FRAME TELLS A STORY</span>
-    <span>BEHIND THE SCENES — © <span id="btsYear"></span></span>
-  </div>
-</section>
-
-<!-- FULLSCREEN VIDEO PLAYER -->
-<div class="bts-modal" id="btsModal"
-  role="dialog" aria-modal="true" aria-label="Video player">
-  <button class="bts-close" id="btsClose"
-    type="button" aria-label="Close video">×</button>
-  <video id="btsPlayer" controls playsinline preload="metadata"></video>
-  <p id="btsModalTitle"></p>
-</div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5f0e8">
+<meta name="description" content="Studio Lumière — Portrait and family photography.">
+<title>Studio Lumière — Photography</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-  .bts-section {
-    --bts-bg: #f7f4ef;
-    --bts-ink: #292722;
-    --bts-muted: #847b70;
-    --bts-line: #d9d1c6;
-    --bts-gold: #a48a6b;
-    background: var(--bts-bg);
-    color: var(--bts-ink);
-    padding: 105px 7% 55px;
-    font-family: "DM Sans", Arial, sans-serif;
-  }
+:root {
+  --cream: #f5f0e8;
+  --paper: #fbf8f3;
+  --brown: #493a30;
+  --muted: #82766b;
+  --line: #ded4c7;
+  --white: #fffdf9;
+}
 
-  .bts-section * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-  .bts-heading {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 65px;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
 
-  .bts-eyebrow {
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: var(--bts-gold);
-  }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--brown);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+}
 
-  .bts-heading h2 {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(48px, 7vw, 86px);
-    font-weight: 400;
-    line-height: 1;
-    margin: 22px 0;
-  }
+img, video {
+  display: block;
+  max-width: 100%;
+}
 
-  .bts-heading h2 em { font-weight: 400; }
+img { width: 100%; }
 
-  .bts-heading p {
-    color: var(--bts-muted);
-    font-size: 13px;
-    line-height: 1.9;
-  }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-  .bts-toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 18px;
-    padding-bottom: 17px;
-    margin-bottom: 28px;
-    border-bottom: 1px solid var(--bts-line);
-  }
+button, input, select, textarea {
+  font: inherit;
+}
 
-  .bts-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
+button, a, input, select, textarea {
+  -webkit-tap-highlight-color: transparent;
+}
 
-  .bts-filter {
-    border: 0;
-    border-bottom: 1px solid transparent;
-    padding: 8px 0;
-    background: transparent;
-    color: var(--bts-muted);
-    cursor: pointer;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
+button { color: inherit; }
 
-  .bts-filter.active {
-    color: var(--bts-ink);
-    border-color: var(--bts-gold);
-  }
+.wrap {
+  width: min(1440px, 100%);
+  margin: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+}
 
-  .bts-count, .bts-format, .bts-caption span,
-  .bts-footer {
-    font-size: 9px;
-    letter-spacing: 1.7px;
-  }
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
-  .bts-count { color: var(--bts-muted); }
+h1, h2, h3, .brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+}
 
-  .bts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 42px 20px;
-    align-items: start;
-  }
+h2 {
+  font-size: clamp(38px, 5vw, 68px);
+  line-height: 1;
+  margin: 14px 0 20px;
+}
 
-  .bts-card { min-width: 0; }
-  .bts-card[hidden] { display: none; }
+p { line-height: 1.9; }
 
-  .bts-video {
-    position: relative;
-    display: block;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    overflow: hidden;
-    background: #e4ded5;
-    cursor: pointer;
-    color: white;
-    text-align: left;
-  }
+.section { padding-top: 110px; padding-bottom: 110px; }
 
-  .bts-card[data-type="vertical"] .bts-video {
-    aspect-ratio: 9 / 12;
-  }
+.section-intro {
+  max-width: 560px;
+  margin-bottom: 42px;
+}
 
-  .bts-card[data-type="horizontal"] .bts-video {
-    aspect-ratio: 16 / 10;
-  }
+.section-intro p {
+  color: var(--muted);
+  font-size: 13px;
+}
 
-  .bts-video video {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    inset: 0;
-    object-fit: cover;
-    transition: transform .8s ease;
-  }
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 14px 24px;
+  background: var(--brown);
+  color: var(--white);
+  border: 1px solid var(--brown);
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  transition: .25s ease;
+}
 
-  .bts-video:hover video { transform: scale(1.045); }
+.btn:hover {
+  background: transparent;
+  color: var(--brown);
+}
 
-  .bts-video::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top, rgba(20,18,16,.4), transparent 38%
-    );
-    pointer-events: none;
-  }
+.btn-outline {
+  background: transparent;
+  color: var(--brown);
+}
 
-  .bts-play {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    width: 53px;
-    height: 53px;
-    display: grid;
-    place-items: center;
-    padding-left: 3px;
-    transform: translate(-50%, -50%);
-    border: 1px solid rgba(255,255,255,.8);
-    border-radius: 50%;
-    font-size: 13px;
-    transition: background .3s, color .3s;
-  }
+.btn-outline:hover {
+  background: var(--brown);
+  color: var(--white);
+}
 
-  .bts-video:hover .bts-play {
-    background: white;
-    color: var(--bts-ink);
-  }
+/* HEADER */
 
-  .bts-format {
-    position: absolute;
-    z-index: 1;
-    left: 15px;
-    bottom: 15px;
-    color: white;
-  }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(245,240,232,.96);
+  border-bottom: 1px solid rgba(73,58,48,.13);
+  backdrop-filter: blur(12px);
+}
 
-  .bts-caption {
-    padding-top: 15px;
-  }
+.nav {
+  min-height: 82px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
 
-  .bts-caption h3 {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-weight: 400;
-    font-size: clamp(22px, 2.3vw, 29px);
-    margin-bottom: 7px;
-  }
+.brand {
+  font-size: 30px;
+  white-space: nowrap;
+  letter-spacing: .4px;
+}
 
-  .bts-caption span { color: var(--bts-muted); }
+.brand span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 8px;
+  margin-top: -2px;
+}
 
-  .bts-footer {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    flex-wrap: wrap;
-    border-top: 1px solid var(--bts-line);
-    margin-top: 65px;
-    padding-top: 20px;
-    color: var(--bts-muted);
-  }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.5vw, 34px);
+}
 
-  .bts-modal {
-    position: fixed;
-    z-index: 99999;
-    inset: 0;
+.nav-links a {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.nav-links a:hover { opacity: .55; }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  padding-top: 34px;
+}
+
+.hero-copy {
+  text-align: center;
+  padding: 55px 15px 38px;
+}
+
+.hero h1 {
+  font-size: clamp(54px, 9vw, 116px);
+  line-height: .88;
+  margin: 20px 0;
+  letter-spacing: -2px;
+}
+
+.hero h1 em {
+  font-weight: 400;
+}
+
+.hero-copy p {
+  max-width: 440px;
+  margin: 22px auto 28px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.hero-image {
+  height: min(74vw, 760px);
+  min-height: 390px;
+  overflow: hidden;
+  background: #d8c9b9;
+}
+
+.hero-image img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+/* PORTFOLIO */
+
+.portfolio { background: var(--paper); }
+
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.filter-btn {
+  border: 1px solid var(--line);
+  padding: 10px 16px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--brown);
+  color: var(--white);
+  border-color: var(--brown);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.gallery-item {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: zoom-in;
+}
+
+.gallery-item[hidden] { display: none; }
+
+.gallery-item img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  background: #e4d8ca;
+  transition: transform .6s ease, filter .4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.015);
+  filter: brightness(.94);
+}
+
+.gallery-item figcaption {
+  padding-top: 13px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+}
+
+.gallery-item .caption-small {
+  display: block;
+  margin-top: 4px;
+  font: 9px 'DM Sans', sans-serif;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.gallery-note {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 28px;
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9%;
+  align-items: center;
+}
+
+.about-image {
+  height: 650px;
+  object-fit: cover;
+}
+
+.about-copy { max-width: 490px; }
+
+.about-copy p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* VIDEO */
+
+.video-section {
+  background: #e9e0d5;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.video-card { min-width: 0; }
+
+.video-frame {
+  position: relative;
+  background: #d3c5b6;
+  overflow: hidden;
+}
+
+.video-frame video {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  background: #d3c5b6;
+}
+
+.video-frame.vertical video {
+  height: 600px;
+  object-fit: contain;
+  background: #d0c2b3;
+}
+
+.video-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  padding-top: 14px;
+}
+
+.video-caption h3 {
+  font-size: 27px;
+  margin: 0;
+}
+
+.video-caption span {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* BOOKING */
+
+.booking {
+  background: var(--paper);
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 9%;
+  align-items: start;
+}
+
+.booking-copy p {
+  max-width: 380px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.booking-note {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.9;
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.field.full { grid-column: 1 / -1; }
+
+.field label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--cream);
+  color: var(--brown);
+  padding: 14px;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--brown);
+}
+
+.field textarea {
+  min-height: 115px;
+  resize: vertical;
+}
+
+.form-help {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.booking-form .btn {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+/* CONTACT & FOOTER */
+
+.contact {
+  text-align: center;
+  padding-top: 90px;
+  padding-bottom: 95px;
+}
+
+.contact p {
+  max-width: 480px;
+  margin: 0 auto 26px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 5%;
+}
+
+.footer-inner {
+  max-width: 1440px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+footer p, footer a {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* IMAGE LIGHTBOX */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: rgba(24,19,16,.94);
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox img {
+  max-width: 94vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 24px;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 38px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .nav { min-height: 72px; }
+  .brand { font-size: 26px; }
+  .menu-toggle { display: block; }
+
+  .nav-links {
     display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 18px;
-    padding: 55px 20px 35px;
-    background: rgba(20,19,17,.97);
-  }
-
-  .bts-modal.open { display: flex; }
-
-  .bts-modal video {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 90vw;
-    max-height: 78vh;
-    background: #111;
-  }
-
-  .bts-modal p {
-    color: white;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .bts-close {
     position: absolute;
-    top: 13px;
-    right: 24px;
-    border: 0;
-    background: none;
-    color: white;
-    font-size: 38px;
-    cursor: pointer;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 24px 5%;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
   }
 
-  @media (max-width: 800px) {
-    .bts-section { padding: 75px 5% 35px; }
-    .bts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 13px; }
-    .bts-heading { margin-bottom: 42px; }
-    .bts-filters { gap: 16px; }
-    .bts-modal video { max-width: 94vw; max-height: 76vh; }
-  }
+  .nav-links.open { display: flex; }
 
-  @media (max-width: 420px) {
-    .bts-grid { gap: 27px 10px; }
-    .bts-caption h3 { font-size: 21px; }
-    .bts-caption span { font-size: 8px; }
-    .bts-play { width: 43px; height: 43px; }
-  }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery-item img { height: 360px; }
+  .about-grid, .booking-grid { grid-template-columns: 1fr; gap: 38px; }
+  .about-image { height: 540px; }
+  .video-frame video { height: 380px; }
+  .video-frame.vertical video { height: 500px; }
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    .bts-video video, .bts-play { transition: none; }
+@media (max-width: 540px) {
+  .wrap { padding-left: 5%; padding-right: 5%; }
+  .section { padding-top: 75px; padding-bottom: 75px; }
+  .hero { padding-top: 12px; }
+  .hero-copy { padding: 45px 10px 30px; }
+  .hero h1 { font-size: 62px; }
+  .hero-image { min-height: 420px; height: 125vw; }
+  .gallery { grid-template-columns: 1fr; gap: 28px; }
+  .gallery-item img { height: 125vw; max-height: 560px; }
+  .about-image { height: 120vw; max-height: 520px; }
+  .video-grid { grid-template-columns: 1fr; gap: 30px; }
+  .video-frame video { height: 65vw; min-height: 240px; }
+  .video-frame.vertical video { height: 125vw; max-height: 560px; }
+  .booking-form { grid-template-columns: 1fr; }
+  .field, .field.full, .form-help, .booking-form .btn { grid-column: 1; }
+  .footer-inner { flex-direction: column; text-align: center; gap: 5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
   }
+}
 </style>
-
-<script>
-(() => {
-  const section = document.getElementById("behind-the-scenes");
-  if (!section || section.dataset.initialized) return;
-  section.dataset.initialized = "true";
-
-  const cards = [...section.querySelectorAll(".bts-card")];
-  const filters = section.querySelectorAll(".bts-filter");
-  const count = document.getElementById("btsCount");
-  const modal = document.getElementById("btsModal");
-  const player = document.getElementById("btsPlayer");
-  const title = document.getElementById("btsModalTitle");
-  const close = document.getElementById("btsClose");
-
-  document.getElementById("btsYear").textContent =
-    new Date().getFullYear();
-
-  function updateCount() {
-    const visible = cards.filter(card => !card.hidden).length;
-    count.textContent = String(visible).padStart(2, "0") + " FILM SLOTS";
-  }
-
-  filters.forEach(button => {
-    button.addEventListener("click", () => {
-      filters.forEach(item => item.classList.remove("active"));
-      button.classList.add("active");
-
-      cards.forEach(card => {
-        card.hidden = button.dataset.type !== "all" &&
-          card.dataset.type !== button.dataset.type;
-      });
-
-      updateCount();
-    });
-  });
-
-  function closePlayer() {
-    modal.classList.remove("open");
-    player.pause();
-    player.removeAttribute("src");
-    player.load();
-    document.body.style.overflow = "";
-  }
-
-  cards.forEach(card => {
-    const button = card.querySelector(".bts-video");
-    const video = button.querySelector("video");
-    const source = video.querySelector("source");
-
-    // Preview is loaded only when a real video path is provided.
-    if (source.src.includes("YOUR-VIDEO-")) {
-      video.removeAttribute("src");
-      source.removeAttribute("src");
-    } else {
-      video.muted = true;
-      video.load();
-    }
-
-    button.addEventListener("click", () => {
-      const path = button.dataset.video;
-
-      if (!path || path.includes("YOUR-VIDEO-")) {
-        alert("This is a demo slot. Add your MP4 video file to activate it.");
-        return;
-      }
-
-      player.src = path;
-      title.textContent = button.dataset.title;
-      modal.classList.add("open");
-      document.body.style.overflow = "hidden";
-      player.play().catch(() => {});
-    });
-  });
-
-  close.addEventListener("click", closePlayer);
-
-  modal.addEventListener("click", event => {
-    if (event.target === modal) closePlayer();
-  });
-
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && modal.classList.contains("open")) {
-      closePlayer();
-    }
-  });
-
-  updateCount();
-})();
-</script>
-<style>
-    /* CONTACT */
-
-    .contact {
-      padding: 110px 8%;
-      background: #35332e;
-      color: #f7f4ef;
-      text-align: center;
-    }
-
-    .contact .eyebrow {
-      color: #c5ad91;
-    }
-
-    .contact h2 {
-      max-width: 850px;
-      margin: 25px auto;
-      font-size: clamp(48px, 7vw, 90px);
-      line-height: .95;
-    }
-
-    .contact p {
-      color: #c4beb4;
-      font-size: 13px;
-      line-height: 1.9;
-    }
-
-    .contact .outline-button {
-      margin-top: 30px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 30px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      font-size: 10px;
-      color: var(--muted);
-    }
-
-    .socials {
-      display: flex;
-      gap: 22px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* LIGHTBOX */
-
-    .lightbox {
-      position: fixed;
-      z-index: 100;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 35px;
-      background: rgba(23,22,20,.96);
-    }
-
-    .lightbox.open {
-      display: flex;
-      animation: fadeIn .3s both;
-    }
-
-    .lightbox img {
-      max-width: 90vw;
-      max-height: 83vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      border: 0;
-      background: none;
-      color: white;
-      font-size: 35px;
-      cursor: pointer;
-    }
-
-    .lightbox-caption {
-      position: absolute;
-      bottom: 18px;
-      color: white;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* ANIMATIONS */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .8s ease, transform .8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes heroReveal {
-      from { transform: scale(1.04); opacity: .6; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 760px) {
-      .nav {
-        padding: 22px 6%;
-      }
-
-      .logo {
-        font-size: 24px;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        display: none;
-        flex-direction: column;
-        gap: 0;
-        align-items: stretch;
-        background: var(--bg);
-        color: var(--ink);
-        padding: 12px 6% 22px;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 15px 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .hero {
-        min-height: 640px;
-        height: 88svh;
-        padding: 120px 7% 90px;
-      }
-
-      .hero::before {
-        background-position: 58% center;
-      }
-
-      h1 {
-        font-size: clamp(61px, 14vw, 92px);
-        letter-spacing: -1.5px;
-      }
-
-      .intro {
-        padding: 80px 7%;
-      }
-
-      .portfolio {
-        padding: 30px 6% 75px;
-      }
-
-      .section-heading {
-        display: block;
-      }
-
-      .filters {
-        margin-top: 22px;
-        gap: 10px 17px;
-      }
-
-      .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 28px 12px;
-      }
-
-      .gallery-card,
-      .gallery-card:nth-child(4n + 1),
-      .gallery-card:nth-child(4n + 2) {
-        grid-column: span 1;
-        margin-top: 0;
-      }
-
-      .gallery-card:nth-child(odd) {
-        margin-top: 28px;
-      }
-
-      .photo-wrap,
-      .gallery-card:nth-child(4n + 1) .photo-wrap,
-      .gallery-card:nth-child(4n + 2) .photo-wrap {
-        height: clamp(210px, 65vw, 360px);
-      }
-
-      .photo-info {
-        display: block;
-      }
-
-      .photo-info h3 {
-        font-size: 22px;
-      }
-
-      .photo-info span {
-        display: block;
-        margin-top: 5px;
-      }
-
-      .about {
-        padding: 75px 7%;
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .about-image {
-        height: 430px;
-      }
-
-      .quote-section,
-      .contact {
-        padding: 75px 7%;
-      }
-
-      footer {
-        padding: 25px 6%;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <header class="nav">
-    <a class="logo" href="#home">
-      Studio Lumière
-      <small>Photography & Art</small>
-    </a>
-
-    <button class="menu-toggle" aria-label="Open navigation"
-      aria-expanded="false">☰</button>
-
-    <nav class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
+<header>
+  <nav class="nav wrap" aria-label="Main navigation">
+    <a class="brand" href="#home">Studio Lumière<span>Photography</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <div class="nav-links" id="navLinks">
       <a href="#portfolio">Portfolio</a>
       <a href="#about">About</a>
+      <a href="#films">Films</a>
+      <a href="#booking">Booking</a>
       <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- HERO: REPLACE THE BACKGROUND IMAGE IN CSS -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <p class="eyebrow">The art of seeing</p>
-      <h1>Stories<br>in <em>every</em><br>frame.</h1>
-      <p class="hero-description">
-        Timeless photography, genuine emotion, and the beauty
-        of moments that deserve to last forever.
-      </p>
-      <a class="outline-button" href="#portfolio">
-        Explore my work <span>↗</span>
-      </a>
     </div>
-    <div class="hero-index">01 — THE PORTFOLIO</div>
-  </section>
+  </nav>
+</header>
 
-  <!-- INTRO -->
-  <section class="intro reveal">
-    <p class="eyebrow">Beyond the photograph</p>
-    <h2>Not just images.<br><em>Unforgettable feelings.</em></h2>
-    <div class="ornament"></div>
-    <p>
-      A collection of honest moments, thoughtful details and
-      natural beauty, captured through a personal artistic vision.
-    </p>
-  </section>
-
-  <!-- PORTFOLIO GALLERY -->
-  <section class="portfolio" id="portfolio">
-    <div class="section-heading reveal">
-      <div>
-        <p class="eyebrow">Selected works · 2026</p>
-        <h2>My Portfolio</h2>
-      </div>
-
-      <div class="filters" aria-label="Filter gallery">
-        <button class="filter-btn active" data-filter="all">All work</button>
-        <button class="filter-btn" data-filter="portrait">Portraits</button>
-        <button class="filter-btn" data-filter="fashion">Fashion</button>
-        <button class="filter-btn" data-filter="wedding">Weddings</button>
-        <button class="filter-btn" data-filter="editorial">Editorial</button>
-      </div>
+<main>
+  <section class="hero wrap" id="home">
+    <div class="hero-copy">
+      <div class="eyebrow">Portrait · Family · Stories</div>
+      <h1>Life, softly<br><em>remembered.</em></h1>
+      <p>Timeless portraits and heartfelt family stories, captured with intention and elegance.</p>
+      <a class="btn" href="#booking">Reserve a session</a>
     </div>
-
-    <div class="gallery">
-
-      <article class="gallery-card reveal" data-category="portrait"
-        data-title="Quiet Elegance">
-        <div class="photo-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85"
-            alt="Portrait photography placeholder"
-            loading="lazy">
-          <div class="photo-overlay">View photograph ↗</div>
-        </div>
-        <div class="photo-info">
-          <h3>Quiet Elegance</h3>
-          <span>Portrait · 01</span>
-        </div>
-      </article>
-
-      <article class="gallery-card reveal" data-category="fashion"
-        data-title="Golden Hour">
-        <div class="photo-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=85"
-            alt="Fashion portrait placeholder"
-            loading="lazy">
-          <div class="photo-overlay">View photograph ↗</div>
-        </div>
-        <div class="photo-info">
-          <h3>Golden Hour</h3>
-          <span>Fashion · 02</span>
-        </div>
-      </article>
-
-      <article class="gallery-card reveal" data-category="wedding"
-        data-title="A Moment Forever">
-        <div class="photo-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85"
-            alt="Wedding photography placeholder"
-            loading="lazy">
-          <div class="photo-overlay">View photograph ↗</div>
-        </div>
-        <div class="photo-info">
-          <h3>A Moment Forever</h3>
-          <span>Wedding · 03</span>
-        </div>
-      </article>
-
-      <article class="gallery-card reveal" data-category="editorial"
-        data-title="Soft Architecture">
-        <div class="photo-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=85"
-            alt="Editorial fashion placeholder"
-            loading="lazy">
-          <div class="photo-overlay">View photograph ↗</div>
-        </div>
-        <div class="photo-info">
-          <h3>Soft Architecture</h3>
-          <span>Editorial · 04</span>
-        </div>
-      </article>
-
-      <article class="gallery-card reveal" data-category="portrait"
-        data-title="Between Moments">
-        <div class="photo-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85"
-            alt="Portrait collection placeholder"
-            loading="lazy">
-          <div class="photo-overlay">View photograph ↗</div>
-        </div>
-        <div class="photo-info">
-          <h3>Between Moments</h3>
-          <span>Portrait · 05</span>
-        </div>
-      </article>
-
-      <article class="gallery-card reveal" data-category="fashion"
-        data-title="The Art of Simplicity">
-        <div class="photo-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=85"
-            alt="Fashion photography placeholder"
-            loading="lazy">
-          <div class="photo-overlay">View photograph ↗</div>
-        </div>
-        <div class="photo-info">
-          <h3>The Art of Simplicity</h3>
-          <span>Fashion · 06</span>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- EDITORIAL QUOTE -->
-  <section class="quote-section reveal">
-    <p class="eyebrow">My philosophy</p>
-    <blockquote>
-      “Beauty lives in the details we almost overlook.”
-    </blockquote>
-    <div class="ornament"></div>
-    <p>Light · Emotion · Authenticity</p>
-  </section>
-
-  <!-- ABOUT: REPLACE WITH THE PHOTOGRAPHER'S PHOTO -->
-  <section class="about" id="about">
-    <div class="about-image reveal">
+    <div class="hero-image">
       <img
-        src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=1100&q=85"
-        alt="Photographer portrait placeholder"
+        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=2200&q=90"
+        alt="Editorial portrait photography"
+        fetchpriority="high">
+    </div>
+  </section>
+
+  <section class="section portfolio" id="portfolio">
+    <div class="wrap">
+      <div class="section-intro">
+        <div class="eyebrow">Selected work</div>
+        <h2>Stories in photographs.</h2>
+        <p>A collection of portraits and family moments, preserved with a natural and timeless aesthetic.</p>
+      </div>
+
+      <div class="gallery-filters" aria-label="Filter photographs">
+        <button class="filter-btn active" data-filter="all">All stories</button>
+        <button class="filter-btn" data-filter="portrait">Portraits</button>
+        <button class="filter-btn" data-filter="family">Family</button>
+      </div>
+
+      <div class="gallery">
+        <button class="gallery-item" data-category="portrait" data-full="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=2200&q=90" aria-label="View portrait photograph">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" alt="Portrait in natural light" loading="lazy">
+          <figcaption>Quiet confidence<span class="caption-small">Portrait session</span></figcaption>
+        </button>
+
+        <button class="gallery-item" data-category="family" data-full="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=2200&q=90" aria-label="View family photograph">
+          <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=85" alt="Family spending time together" loading="lazy">
+          <figcaption>Our little world<span class="caption-small">Family session</span></figcaption>
+        </button>
+
+        <button class="gallery-item" data-category="portrait" data-full="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=2200&q=90" aria-label="View editorial portrait">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85" alt="Elegant editorial portrait" loading="lazy">
+          <figcaption>In her element<span class="caption-small">Portrait session</span></figcaption>
+        </button>
+
+        <button class="gallery-item" data-category="family" data-full="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=2200&q=90" aria-label="View outdoor family photograph">
+          <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=900&q=85" alt="Family outdoors in a natural setting" loading="lazy">
+          <figcaption>Where we belong<span class="caption-small">Family session</span></figcaption>
+        </button>
+
+        <button class="gallery-item" data-category="portrait" data-full="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=2200&q=90" aria-label="View close-up portrait">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=900&q=85" alt="Close-up portrait" loading="lazy">
+          <figcaption>Simply you<span class="caption-small">Portrait session</span></figcaption>
+        </button>
+
+        <button class="gallery-item" data-category="family" data-full="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=2200&q=90" aria-label="View childhood photograph">
+          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=85" alt="Childhood moment outdoors" loading="lazy">
+          <figcaption>Little moments<span class="caption-small">Family session</span></figcaption>
+        </button>
+      </div>
+      <p class="gallery-note">These are sample photographs. Replace them with your own work before publishing your portfolio.</p>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap about-grid">
+      <img class="about-image"
+        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=85"
+        alt="Photographer portrait"
         loading="lazy">
-    </div>
-
-    <div class="about-copy reveal">
-      <p class="eyebrow">A little about me</p>
-      <h2>Behind the<br><em>lens.</em></h2>
-      <p>
-        I believe every person, place and moment has a story worth
-        telling. My approach combines natural light, thoughtful
-        composition and a timeless, understated aesthetic.
-      </p>
-      <p>
-        This is where photography becomes more than an image:
-        it becomes a memory you can return to.
-      </p>
-      <a href="#contact" class="text-link">Let's create something beautiful ↗</a>
+      <div class="about-copy">
+        <div class="eyebrow">Behind the lens</div>
+        <h2>Beauty in the<br><em>unspoken.</em></h2>
+        <p>I believe the most meaningful photographs are not about perfection. They are about connection, tenderness, and the small details that make every story unique.</p>
+        <p>My approach is relaxed and thoughtful, creating space for you to feel comfortable and simply be yourself.</p>
+        <a class="btn btn-outline" href="#booking">Let's create together</a>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <section class="section video-section" id="films">
+    <div class="wrap">
+      <div class="section-intro">
+        <div class="eyebrow">Moving memories</div>
+        <h2>Behind the scenes.</h2>
+        <p>A glimpse into the atmosphere, the details, and the moments between photographs.</p>
+      </div>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-frame vertical">
+            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80">
+              <source src="videos/behind-scenes-vertical.mp4" type="video/mp4">
+              Your browser does not support this video.
+            </video>
+          </div>
+          <div class="video-caption">
+            <h3>Little moments</h3>
+            <span>Vertical film</span>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-frame">
+            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=80">
+              <source src="videos/behind-scenes-horizontal.mp4" type="video/mp4">
+              Your browser does not support this video.
+            </video>
+          </div>
+          <div class="video-caption">
+            <h3>The experience</h3>
+            <span>Horizontal film</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="gallery-note">Add your MP4 files to the videos folder in your GitHub repository. The filenames must match the paths above.</p>
+    </div>
+  </section>
+
+  <section class="section booking" id="booking">
+    <div class="wrap booking-grid">
+      <div class="booking-copy">
+        <div class="eyebrow">Begin your story</div>
+        <h2>Reserve your<br><em>moment.</em></h2>
+        <p>Tell me a little about the session you have in mind. Your request will open in WhatsApp so we can discuss availability and details personally.</p>
+        <div class="booking-note">
+          <strong>Portrait sessions</strong><br>
+          A personal, considered session focused on you.<br><br>
+          <strong>Family sessions</strong><br>
+          Natural photographs celebrating your connection.
+        </div>
+      </div>
+
+      <form class="booking-form" id="bookingForm">
+        <div class="field full">
+          <label for="sessionType">Type of session *</label>
+          <select id="sessionType" name="sessionType" required>
+            <option value="">Choose a session</option>
+            <option value="Individual / Portrait">Individual / Portrait</option>
+            <option value="Family">Family</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="clientName">Your name *</label>
+          <input id="clientName" name="clientName" type="text" autocomplete="name" placeholder="Full name" required>
+        </div>
+
+        <div class="field">
+          <label for="clientPhone">Phone number *</label>
+          <input id="clientPhone" name="clientPhone" type="tel" autocomplete="tel" placeholder="+374 ..." required>
+        </div>
+
+        <div class="field">
+          <label for="sessionDate">Preferred date *</label>
+          <input id="sessionDate" name="sessionDate" type="date" required>
+        </div>
+
+        <div class="field">
+          <label for="sessionTime">Preferred time</label>
+          <select id="sessionTime" name="sessionTime">
+            <option value="Flexible">Flexible</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="clientMessage">Your ideas (optional)</label>
+          <textarea id="clientMessage" name="clientMessage" placeholder="Tell me about your vision, number of people, or any special details..."></textarea>
+        </div>
+
+        <p class="form-help">Sending this request does not confirm your booking. The date and time will be confirmed personally via WhatsApp.</p>
+
+        <button class="btn" type="submit">Send booking via WhatsApp ↗</button>
+      </form>
+    </div>
+  </section>
+
   <section class="contact" id="contact">
-    <p class="eyebrow">Your story starts here</p>
-    <h2>Let's make<br><em>something timeless.</em></h2>
-    <p>
-      Have a project, a special occasion or an idea in mind?<br>
-      I'd love to hear about it.
-    </p>
-
-    <!-- REPLACE THE EMAIL ADDRESS -->
-    <a class="outline-button"
-       href="mailto:hello@example.com?subject=Photography%20Inquiry">
-      Get in touch <span>↗</span>
-    </a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© <span id="year"></span> Studio Lumière. All rights reserved.</p>
-    <div class="socials">
-      <!-- REPLACE # WITH REAL SOCIAL MEDIA LINKS -->
-      <a href="#" target="_blank" rel="noopener">Instagram ↗</a>
-      <a href="#home">Back to top ↑</a>
+    <div class="wrap">
+      <div class="eyebrow">Let's connect</div>
+      <h2>Every story deserves<br><em>to be remembered.</em></h2>
+      <p>For photography enquiries, session details, and collaborations, get in touch.</p>
+      <a class="btn" id="contactWhatsApp" href="#booking">Contact via WhatsApp</a>
     </div>
-  </footer>
+  </section>
+</main>
 
-  <!-- FULL-SCREEN PHOTO VIEWER -->
-  <div class="lightbox" id="lightbox" role="dialog"
-       aria-modal="true" aria-label="Photograph viewer">
-    <button class="lightbox-close" aria-label="Close photograph">×</button>
-    <img id="lightboxImage" src="" alt="">
-    <p class="lightbox-caption" id="lightboxCaption"></p>
+<footer>
+  <div class="footer-inner">
+    <a class="brand" href="#home">Studio Lumière<span>Photography</span></a>
+    <p>© <span id="year"></span> Studio Lumière. All rights reserved.</p>
+    <a href="#home">Back to top ↑</a>
   </div>
+</footer>
 
-  <script>
-    // Mobile navigation
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photograph preview">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close photograph">×</button>
+  <img id="lightboxImage" src="" alt="Enlarged portfolio photograph">
+</div>
 
-    menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation" : "Open navigation"
-      );
-      menuToggle.textContent = isOpen ? "×" : "☰";
+<script>
+/* Replace this with your WhatsApp number:
+   Country code + number, digits only.
+   Example format for Armenia: 374XXXXXXXX
+   Do not include +, spaces, or brackets. */
+const WHATSAPP_NUMBER = "374XXXXXXXX";
+
+/* Mobile navigation */
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.textContent = isOpen ? "×" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+/* Gallery filters */
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+
+    const category = button.dataset.filter;
+
+    galleryItems.forEach(item => {
+      item.hidden = category !== "all" && item.dataset.category !== category;
     });
+  });
+});
 
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
-      });
-    });
+/* Full-size photograph preview */
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
 
-    // Portfolio category filters
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const cards = document.querySelectorAll(".gallery-card");
+galleryItems.forEach(item => {
+  item.addEventListener("click", () => {
+    lightboxImage.src = item.dataset.full;
+    lightboxImage.alt = item.querySelector("img").alt;
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+    lightboxClose.focus();
+  });
+});
 
-    filterButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        filterButtons.forEach(item => item.classList.remove("active"));
-        button.classList.add("active");
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  lightboxImage.src = "";
+  document.body.style.overflow = "";
+}
 
-        const category = button.dataset.filter;
+lightboxClose.addEventListener("click", closeLightbox);
 
-        cards.forEach(card => {
-          const matches =
-            category === "all" || card.dataset.category === category;
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) closeLightbox();
+});
 
-          card.classList.toggle("hidden", !matches);
-        });
-      });
-    });
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeLightbox();
+});
 
-    // Full-screen gallery viewer
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    const lightboxCaption = document.getElementById("lightboxCaption");
-    const closeButton = document.querySelector(".lightbox-close");
+/* Prevent selecting a date in the past */
+const dateInput = document.getElementById("sessionDate");
+const today = new Date();
+const localToday = [
+  today.getFullYear(),
+  String(today.getMonth() + 1).padStart(2, "0"),
+  String(today.getDate()).padStart(2, "0")
+].join("-");
 
-    function closeLightbox() {
-      lightbox.classList.remove("open");
-      lightboxImage.src = "";
-      document.body.style.overflow = "";
-    }
+dateInput.min = localToday;
 
-    cards.forEach(card => {
-      card.addEventListener("click", () => {
-        const image = card.querySelector("img");
+/* Booking form -> WhatsApp */
+document.getElementById("bookingForm").addEventListener("submit", event => {
+  event.preventDefault();
 
-        lightboxImage.src = image.src;
-        lightboxImage.alt = image.alt;
-        lightboxCaption.textContent = card.dataset.title;
-        lightbox.classList.add("open");
-        document.body.style.overflow = "hidden";
-        closeButton.focus();
-      });
-    });
+  if (!event.currentTarget.reportValidity()) return;
 
-    closeButton.addEventListener("click", closeLightbox);
+  if (!/^\d{8,15}$/.test(WHATSAPP_NUMBER)) {
+    alert("The WhatsApp number has not been set yet. Replace 374XXXXXXXX in the code with your WhatsApp number, including country code and digits only.");
+    return;
+  }
 
-    lightbox.addEventListener("click", event => {
-      if (event.target === lightbox) closeLightbox();
-    });
+  const form = new FormData(event.currentTarget);
 
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") closeLightbox();
-    });
+  const message = [
+    "Hello Studio Lumière! I would like to request a photography booking.",
+    "",
+    "Session: " + form.get("sessionType"),
+    "Name: " + form.get("clientName"),
+    "Phone: " + form.get("clientPhone"),
+    "Preferred date: " + form.get("sessionDate"),
+    "Preferred time: " + form.get("sessionTime"),
+    "Additional details: " + (form.get("clientMessage") || "Not provided"),
+    "",
+    "I understand that the booking is not confirmed until we agree on availability."
+  ].join("\n");
 
-    // Smooth scroll reveal
-    const revealElements = document.querySelectorAll(".reveal");
+  const whatsappURL =
+    "https://wa.me/" + WHATSAPP_NUMBER +
+    "?text=" + encodeURIComponent(message);
 
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
+  window.open(whatsappURL, "_blank", "noopener,noreferrer");
+});
 
-      revealElements.forEach(element => observer.observe(element));
-    } else {
-      revealElements.forEach(element => element.classList.add("visible"));
-    }
+/* Footer year */
+document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Automatic copyright year
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+/* WhatsApp contact button */
+document.getElementById("contactWhatsApp").addEventListener("click", event => {
+  if (!/^\d{8,15}$/.test(WHATSAPP_NUMBER)) {
+    event.preventDefault();
+    alert("Add your WhatsApp number in the code first.");
+    return;
+  }
+
+  event.preventDefault();
+  const message = encodeURIComponent(
+    "Hello Studio Lumière! I would like to ask about a photography session."
+  );
+  window.open(
+    "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message,
+    "_blank",
+    "noopener,noreferrer"
+  );
+});
+</script>
 
 </body>
 </html>
