@@ -818,7 +818,7 @@ footer p, footer a {
    Country code + number, digits only.
    Example format for Armenia: 374XXXXXXXX
    Do not include +, spaces, or brackets. */
-const WHATSAPP_NUMBER = "374XXXXXXXX";
+const WHATSAPP_NUMBER = "37493606691";
 
 /* Mobile navigation */
 const menuToggle = document.getElementById("menuToggle");
@@ -904,9 +904,9 @@ document.getElementById("bookingForm").addEventListener("submit", event => {
   if (!event.currentTarget.reportValidity()) return;
 
   if (!/^\d{8,15}$/.test(WHATSAPP_NUMBER)) {
-    alert("The WhatsApp number has not been set yet. Replace 37493606691 in the code with your WhatsApp number, including country code and digits only.");
-    return;
-  }
+  alert("Please check the WhatsApp number in the code.");
+  return;
+}
 
   const form = new FormData(event.currentTarget);
 
