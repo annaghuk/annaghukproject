@@ -904,7 +904,7 @@ document.getElementById("bookingForm").addEventListener("submit", event => {
   if (!event.currentTarget.reportValidity()) return;
 
   if (!/^\d{8,15}$/.test(WHATSAPP_NUMBER)) {
-    alert("The WhatsApp number has not been set yet. Replace 374XXXXXXXX in the code with your WhatsApp number, including country code and digits only.");
+    alert("The WhatsApp number has not been set yet. Replace +37493606691 in the code with your WhatsApp number, including country code and digits only.");
     return;
   }
 
