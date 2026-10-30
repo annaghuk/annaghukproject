@@ -199,7 +199,7 @@
     .slide-3d-caption span { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
 
     /* =========================================
-       8. REAL WORKING VIDEOS
+       8. REAL WORKING VIDEOS (Updated Links)
        ========================================= */
     .videos { padding: 140px 0; background: var(--cream); }
     .video-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; margin-top: 60px; }
@@ -314,7 +314,7 @@
        12. RESPONSIVE
        ========================================= */
     @media (max-width: 1024px) {
-      .about-grid, .booking-grid { grid-template-columns: 1fr; gap: 60px; }
+      .booking-grid { grid-template-columns: 1fr; gap: 60px; }
       .video-grid { grid-template-columns: 1fr; }
       .blog-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -338,7 +338,7 @@
       
       .slider-3d-container { height: 50vh; min-height: 400px; }
       .slide-3d { width: 90%; }
-      .slide-3d.prev, .slide-3d.next { opacity: 0; pointer-events: none; } /* Hide side slides on mobile */
+      .slide-3d.prev, .slide-3d.next { opacity: 0; pointer-events: none; }
       
       .booking-form { grid-template-columns: 1fr; padding: 40px 28px; }
       .field.full { grid-column: 1; }
@@ -443,7 +443,7 @@
       </div>
     </section>
 
-    <!-- REAL WORKING VIDEOS -->
+    <!-- REAL WORKING VIDEOS (Updated with reliable Pexels links) -->
     <section class="videos" id="videos">
       <div class="wrap">
         <div class="section-header reveal">
@@ -454,9 +454,10 @@
         <div class="video-grid">
           <div class="video-card reveal">
             <div class="video-frame vertical">
-              <!-- Real working vertical interior video -->
+              <!-- Reliable vertical interior video -->
               <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-white-sofa-in-a-living-room-with-a-plant-41909-large.mp4" type="video/mp4">
+                <source src="https://videos.pexels.com/video-files/4114797/4114797-hd_1080_1920_25fps.mp4" type="video/mp4">
+                Ձեր բրաուզերը չի աջակցում վիդեո դիտումը:
               </video>
             </div>
             <div class="video-caption">
@@ -467,9 +468,10 @@
 
           <div class="video-card reveal">
             <div class="video-frame horizontal">
-              <!-- Real working horizontal interior video -->
+              <!-- Reliable horizontal interior video -->
               <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=1200&q=80">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-living-room-with-a-white-sofa-and-a-wooden-coffee-table-41911-large.mp4" type="video/mp4">
+                <source src="https://videos.pexels.com/video-files/7578550/7578550-hd_1920_1080_30fps.mp4" type="video/mp4">
+                Ձեր բրաուզերը չի աջակցում վիդեո դիտումը:
               </video>
             </div>
             <div class="video-caption">
@@ -710,9 +712,7 @@
       const x = (e.clientX / window.innerWidth - 0.5) * 2;
       const y = (e.clientY / window.innerHeight - 0.5) * 2;
       
-      // Background moves slower (depth)
       heroBg.style.transform = `translate(${x * 15}px, ${y * 15}px) scale(1.05)`;
-      // Content moves slightly opposite for 3D pop-out effect
       heroContent.style.transform = `translate(${x * -10}px, ${y * -10}px)`;
     });
 
@@ -746,7 +746,6 @@
       });
     }
 
-    // Initialize slider
     update3DSlider();
 
     nextBtn3d.addEventListener('click', () => {
@@ -759,7 +758,6 @@
       update3DSlider();
     });
 
-    // Auto-advance every 5 seconds (slow and smooth)
     let autoSlide3d = setInterval(() => {
       currentSlide = (currentSlide + 1) % totalSlides;
       update3DSlider();
@@ -782,33 +780,19 @@
         image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=90",
         category: "Philosophy",
         title: "The Art of Minimalist Luxury",
-        content: `
-          <p>True luxury is not about excess; it is about the perfect balance of space, light, and meticulously chosen materials. In our recent projects, we've observed a powerful shift away from cluttered, overly decorated rooms toward spaces that breathe.</p>
-          <p>Minimalist luxury relies on the quality of materials rather than the quantity of objects. A single, perfectly veined slab of Calacatta marble can serve as the focal point of a room, eliminating the need for additional ornamentation. Similarly, the warmth of natural walnut wood brings an inviting, organic feel that synthetic materials simply cannot replicate.</p>
-          <p>The key to achieving this look is restraint. Every piece of furniture, every light fixture, and every textile must earn its place in the room. When you remove the unnecessary, what remains is a space that feels both profoundly calm and unmistakably expensive. It is design that doesn't shout, but rather whispers with absolute confidence.</p>
-        `
+        content: `<p>True luxury is not about excess; it is about the perfect balance of space, light, and meticulously chosen materials. In our recent projects, we've observed a powerful shift away from cluttered, overly decorated rooms toward spaces that breathe.</p><p>Minimalist luxury relies on the quality of materials rather than the quantity of objects. A single, perfectly veined slab of Calacatta marble can serve as the focal point of a room, eliminating the need for additional ornamentation. Similarly, the warmth of natural walnut wood brings an inviting, organic feel that synthetic materials simply cannot replicate.</p><p>The key to achieving this look is restraint. Every piece of furniture, every light fixture, and every textile must earn its place in the room. When you remove the unnecessary, what remains is a space that feels both profoundly calm and unmistakably expensive.</p>`
       },
       2: {
         image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=90",
         category: "Case Study",
         title: "From Dark to Light: A Cascade Kitchen",
-        content: `
-          <p>When our clients first contacted us, their Cascade apartment kitchen felt closed in and dated. Dark, heavy cabinets, poor natural light, and an inefficient layout made cooking a chore rather than a joy. Our goal was simple: transform this 38m² space into a bright, functional heart of the home.</p>
-          <p>We started by removing the bulky upper cabinets and replacing them with open, floating oak shelving. This single decision instantly made the space feel larger and more airy. We chose warm, matte-finish oak for the lower cabinets, paired with stunning Carrara marble countertops and a soft, warm white backsplash to reflect light.</p>
-          <p>Lighting was completely overhauled. We layered ambient recessed lighting with focused task lighting under the shelves and a sculptural brass pendant over the new island. The transformation was remarkable. The space went from feeling cramped and dark to bright, open, and incredibly inviting. Our clients now host dinner parties regularly and say the kitchen has completely changed how they use their home.</p>
-        `
+        content: `<p>When our clients first contacted us, their Cascade apartment kitchen felt closed in and dated. Dark, heavy cabinets, poor natural light, and an inefficient layout made cooking a chore rather than a joy. Our goal was simple: transform this 38m² space into a bright, functional heart of the home.</p><p>We started by removing the bulky upper cabinets and replacing them with open, floating oak shelving. This single decision instantly made the space feel larger and more airy. We chose warm, matte-finish oak for the lower cabinets, paired with stunning Carrara marble countertops and a soft, warm white backsplash to reflect light.</p><p>Lighting was completely overhauled. We layered ambient recessed lighting with focused task lighting under the shelves and a sculptural brass pendant over the new island. The transformation was remarkable.</p>`
       },
       3: {
         image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=90",
         category: "Tips",
         title: "Layered Lighting: The Secret to Atmosphere",
-        content: `
-          <p>Lighting is often the most overlooked element in interior design, yet it has the power to completely transform a space. Professional designers don't rely on a single overhead light; instead, they use a layered approach to create depth, mood, and functionality.</p>
-          <p><strong>1. Ambient Lighting:</strong> This is the general illumination for a room, such as recessed ceiling lights or a central chandelier. It should be soft and evenly distributed.</p>
-          <p><strong>2. Task Lighting:</strong> Focused light for specific activities, like reading lamps beside a bed, under-cabinet kitchen lights, or a well-placed desk lamp. This prevents eye strain and adds practicality.</p>
-          <p><strong>3. Accent Lighting:</strong> This layer highlights architectural features, artwork, or textured walls, adding drama and visual interest. Wall sconces or LED strip lighting behind a floating vanity work beautifully.</p>
-          <p>Pro Tip: Always install dimmer switches. They allow you to adjust the intensity of your ambient and accent lighting to suit the time of day or the mood you want to create. Pairing warm-toned bulbs (2700K-3000K) with textured lampshades can further soften the light and add to the overall ambiance.</p>
-        `
+        content: `<p>Lighting is often the most overlooked element in interior design, yet it has the power to completely transform a space. Professional designers don't rely on a single overhead light; instead, they use a layered approach to create depth, mood, and functionality.</p><p><strong>1. Ambient Lighting:</strong> This is the general illumination for a room, such as recessed ceiling lights or a central chandelier. It should be soft and evenly distributed.</p><p><strong>2. Task Lighting:</strong> Focused light for specific activities, like reading lamps beside a bed, under-cabinet kitchen lights, or a well-placed desk lamp.</p><p><strong>3. Accent Lighting:</strong> This layer highlights architectural features, artwork, or textured walls, adding drama and visual interest.</p><p>Pro Tip: Always install dimmer switches. They allow you to adjust the intensity of your ambient and accent lighting to suit the time of day or the mood you want to create.</p>`
       }
     };
 
@@ -843,7 +827,7 @@
     blogModal.addEventListener('click', e => { if (e.target === blogModal) closeBlogModal(); });
 
     // ==========================================
-    // 4. GENERAL UI LOGIC (Scroll, Menu, Lightbox, Form)
+    // 4. GENERAL UI LOGIC
     // ==========================================
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
