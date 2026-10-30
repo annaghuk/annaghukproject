@@ -3,27 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#000000">
-<meta name="description" content="Studio Lumière — Bold, modern, high-fashion photography.">
-<title>Studio Lumière | Electric Luxury Photography</title>
+<meta name="theme-color" content="#F5F1EA">
+<meta name="description" content="Atelier Lumière — Luxury Interior Design Studio. Timeless spaces, crafted with intention.">
+<title>Atelier Lumière | Luxury Interior Design</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 /* =========================================
-   ELECTRIC LUXURY DESIGN SYSTEM
+   LUXURY INTERIOR DESIGN SYSTEM
    ========================================= */
 :root {
-  --black: #000000;
+  --cream: #F5F1EA;
+  --beige: #E8E0D5;
+  --taupe: #9A8B7A;
+  --brown: #6B5D4F;
+  --charcoal: #2C2824;
+  --gold: #C9A961;
   --white: #FFFFFF;
-  --cyan: #00D9FF;
-  --cyan-glow: rgba(0, 217, 255, 0.3);
-  --gray: #1A1A1A;
-  --gray-light: #888888;
-  --ease: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --text: #3A3530;
+  --text-light: #7A7068;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,18 +36,18 @@ html {
 }
 
 body {
-  background: var(--black);
-  color: var(--white);
-  font-family: 'Space Grotesk', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
   overflow-x: hidden;
 }
 
 img, video { display: block; max-width: 100%; }
-a { text-decoration: none; color: inherit; }
-button, input, select, textarea { font: inherit; color: inherit; border: none; outline: none; background: transparent; }
+a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+button, input, select, textarea { font: inherit; color: inherit; border: none; outline: none; background: transparent; cursor: pointer; }
 
 .wrap {
   width: min(1440px, 100%);
@@ -57,37 +59,49 @@ button, input, select, textarea { font: inherit; color: inherit; border: none; o
    TYPOGRAPHY
    ========================================= */
 .eyebrow {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.3em;
+  font-weight: 500;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--gold);
   margin-bottom: 24px;
   display: block;
 }
 
 h1, h2, h3 {
-  font-family: 'Bodoni Moda', serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 h1 {
-  font-size: clamp(3rem, 7vw, 7rem);
-  letter-spacing: -0.03em;
-  font-weight: 700;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   margin-bottom: 32px;
-  font-weight: 700;
 }
 
-h3 { font-size: 1.6rem; }
+h3 { font-size: 1.75rem; }
 
-p { color: var(--gray-light); max-width: 60ch; }
+p { color: var(--text-light); max-width: 60ch; }
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* =========================================
    HEADER
@@ -97,9 +111,15 @@ header {
   top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 24px 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(245, 241, 234, 0.9);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(154, 139, 122, 0.1);
+  transition: all 0.4s ease;
+}
+
+header.scrolled {
+  padding: 16px 0;
+  background: rgba(245, 241, 234, 0.95);
 }
 
 .nav {
@@ -109,21 +129,21 @@ header {
 }
 
 .brand {
-  font-family: 'Bodoni Moda', serif;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--charcoal);
 }
 
 .brand span {
   display: block;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.4em;
+  font-weight: 500;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--gold);
   margin-top: 4px;
 }
 
@@ -135,231 +155,145 @@ header {
 .nav-links a {
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  color: var(--text);
   position: relative;
-  transition: color 0.3s ease;
-  cursor: pointer;
 }
 
-.nav-links a:hover { color: var(--cyan); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.4s var(--ease);
+}
+
+.nav-links a:hover::after { width: 100%; }
 
 .menu-toggle {
   display: none;
   font-size: 28px;
-  cursor: pointer;
-  color: var(--white);
+  color: var(--charcoal);
 }
 
 /* =========================================
-   HERO SECTION
+   HERO (Cinematic Full-Screen)
    ========================================= */
 .hero {
-  min-height: 100vh;
+  height: 100vh;
+  position: relative;
   display: flex;
   align-items: center;
-  padding-top: 120px;
-  position: relative;
+  justify-content: center;
   overflow: hidden;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 80px;
-  align-items: center;
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+  transform: scale(1.1);
+  transition: transform 0.8s var(--ease);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(44, 40, 36, 0.3) 0%, rgba(44, 40, 36, 0.6) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--white);
+  max-width: 900px;
+  padding: 0 24px;
+}
+
+.hero-content .eyebrow {
+  color: var(--gold);
+  margin-bottom: 32px;
 }
 
 .hero-content h1 {
   margin-bottom: 32px;
-  background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 .hero-content h1 em {
   font-style: italic;
-  font-weight: 400;
+  color: var(--gold);
 }
 
 .hero-content p {
   font-size: 20px;
-  margin-bottom: 48px;
-  line-height: 1.8;
+  color: rgba(255,255,255,0.9);
+  margin: 0 auto 48px;
+  max-width: 600px;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 48px;
-  background: var(--cyan);
-  color: var(--black);
+  padding: 18px 48px;
+  background: var(--gold);
+  color: var(--charcoal);
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  transition: all 0.4s var(--ease);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: var(--white);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s var(--ease-smooth), height 0.6s var(--ease-smooth);
-}
-
-.btn:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-.btn span {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-image {
-  position: relative;
-  height: 80vh;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: contrast(1.2) saturate(1.3);
-  transition: transform 0.8s var(--ease-smooth);
-}
-
-.hero-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 0%, var(--cyan-glow) 100%);
-  mix-blend-mode: overlay;
-}
-
-/* =========================================
-   PHOTOGRAPHER SPOTLIGHT
-   ========================================= */
-.spotlight {
-  padding: 140px 0;
-  background: var(--gray);
-  position: relative;
-}
-
-.spotlight-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.spotlight-image {
-  position: relative;
-  height: 600px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.spotlight-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(20%) contrast(1.1);
-}
-
-.spotlight-image::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, var(--cyan-glow) 0%, transparent 50%);
-  mix-blend-mode: screen;
-}
-
-.spotlight-content h2 {
-  margin-bottom: 24px;
-}
-
-.spotlight-content .name {
-  font-family: 'Bodoni Moda', serif;
-  font-size: 48px;
-  color: var(--cyan);
-  margin-bottom: 16px;
-  font-weight: 400;
-}
-
-.spotlight-content p {
-  font-size: 18px;
-  margin-bottom: 24px;
-  line-height: 1.8;
-}
-
-.spotlight-stats {
-  display: flex;
-  gap: 48px;
-  margin-top: 48px;
-  padding-top: 48px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat-number {
-  font-family: 'Bodoni Moda', serif;
-  font-size: 48px;
-  color: var(--cyan);
-  font-weight: 700;
-  display: block;
-}
-
-.stat-label {
-  font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gray-light);
-  margin-top: 8px;
+  transition: all 0.4s var(--ease);
+  border: 2px solid var(--gold);
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--gold);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.btn-outline:hover {
+  background: var(--white);
+  color: var(--charcoal);
 }
 
 /* =========================================
-   FEATURED SLIDESHOW
+   SLIDESHOW
    ========================================= */
 .slideshow {
   padding: 140px 0;
-  background: var(--black);
-  position: relative;
-  overflow: hidden;
+  background: var(--beige);
 }
 
 .slideshow-container {
   position: relative;
   height: 70vh;
   margin-top: 60px;
-  border-radius: 12px;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 1s var(--ease-smooth);
+  transition: opacity 1.2s var(--ease);
 }
 
 .slide.active {
@@ -376,21 +310,21 @@ header {
   position: absolute;
   bottom: 60px;
   left: 60px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   padding: 32px 48px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 400px;
 }
 
 .slide-caption h3 {
-  font-size: 36px;
-  color: var(--white);
+  font-size: 32px;
+  color: var(--charcoal);
   margin-bottom: 8px;
 }
 
 .slide-caption span {
-  color: var(--cyan);
+  color: var(--gold);
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -406,57 +340,74 @@ header {
 .slide-btn {
   width: 50px;
   height: 50px;
-  border: 2px solid var(--cyan);
+  border: 2px solid var(--charcoal);
   border-radius: 50%;
   background: transparent;
-  color: var(--cyan);
+  color: var(--charcoal);
   font-size: 20px;
-  cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .slide-btn:hover {
-  background: var(--cyan);
-  color: var(--black);
+  background: var(--charcoal);
+  color: var(--white);
 }
 
 /* =========================================
-   PORTFOLIO (Masonry Grid)
+   PARALLAX EXPERIENCE
    ========================================= */
-.portfolio {
+.parallax-section {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-bg {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+}
+
+.parallax-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--white);
+  max-width: 800px;
+  padding: 0 24px;
+}
+
+.parallax-content h2 {
+  margin-bottom: 24px;
+}
+
+.parallax-content p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.9);
+  margin: 0 auto;
+}
+
+/* =========================================
+   PROJECTS (Masonry Gallery)
+   ========================================= */
+.projects {
   padding: 140px 0;
-  background: var(--gray);
+  background: var(--cream);
 }
 
 .section-header {
   text-align: center;
   margin-bottom: 80px;
-}
-
-.gallery-filters {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 60px;
-  flex-wrap: wrap;
-}
-
-.filter-btn {
-  padding: 14px 32px;
-  border: 2px solid var(--white);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: var(--white);
-}
-
-.filter-btn.active, .filter-btn:hover {
-  background: var(--cyan);
-  border-color: var(--cyan);
-  color: var(--black);
 }
 
 .gallery {
@@ -468,64 +419,56 @@ header {
 
 .gallery-item {
   position: relative;
-  border: none;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
   overflow: hidden;
-  text-align: left;
   border-radius: 4px;
+  cursor: pointer;
 }
 
-.gallery-item:nth-child(1) { grid-row: span 2; }
-.gallery-item:nth-child(4) { grid-column: span 2; }
-.gallery-item:nth-child(7) { grid-row: span 2; }
-.gallery-item:nth-child(10) { grid-column: span 2; }
-
-.gallery-item[hidden] { display: none; }
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gallery-item:nth-child(4) { grid-row: span 2; }
+.gallery-item:nth-child(6) { grid-column: span 2; }
+.gallery-item:nth-child(9) { grid-column: span 2; grid-row: span 2; }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease-smooth), filter 0.4s ease;
+  transition: transform 0.8s var(--ease);
 }
 
 .gallery-item:hover img {
-  transform: scale(1.1);
-  filter: brightness(0.7);
+  transform: scale(1.08);
 }
 
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(44,40,36,0.9) 0%, transparent 60%);
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.5s ease;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 32px;
+  color: var(--white);
 }
 
 .gallery-item:hover .gallery-overlay { opacity: 1; }
 
 .gallery-overlay h3 {
-  color: var(--white);
   font-size: 28px;
   margin-bottom: 8px;
-  transform: translateY(30px);
-  transition: transform 0.5s var(--ease-smooth);
+  transform: translateY(20px);
+  transition: transform 0.5s var(--ease);
 }
 
 .gallery-overlay span {
-  color: var(--cyan);
+  color: var(--gold);
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  transform: translateY(30px);
-  transition: transform 0.5s var(--ease-smooth) 0.05s;
+  transform: translateY(20px);
+  transition: transform 0.5s var(--ease) 0.05s;
 }
 
 .gallery-item:hover .gallery-overlay h3,
@@ -534,12 +477,105 @@ header {
 }
 
 /* =========================================
+   VIDEO SECTION
+   ========================================= */
+.videos {
+  padding: 140px 0;
+  background: var(--beige);
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--charcoal);
+}
+
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-frame.vertical { aspect-ratio: 9/16; max-height: 650px; }
+.video-frame.horizontal { aspect-ratio: 16/9; }
+
+.video-caption {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.video-caption h3 {
+  font-size: 24px;
+  color: var(--charcoal);
+}
+
+.video-caption span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* =========================================
+   ABOUT
+   ========================================= */
+.about {
+  padding: 140px 0;
+  background: var(--cream);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+  height: 700px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-content h2 {
+  margin-bottom: 32px;
+}
+
+.about-content p {
+  font-size: 17px;
+  margin-bottom: 24px;
+}
+
+/* =========================================
    TESTIMONIALS
    ========================================= */
 .testimonials {
   padding: 140px 0;
-  background: var(--black);
+  background: var(--charcoal);
+  color: var(--white);
 }
+
+.testimonials .eyebrow { color: var(--gold); }
+.testimonials h2 { color: var(--white); }
+.testimonials p { color: rgba(255,255,255,0.7); }
 
 .testimonials-grid {
   display: grid;
@@ -554,17 +590,16 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 48px;
-  transition: all 0.4s var(--ease-smooth);
+  transition: all 0.4s var(--ease);
 }
 
 .testimonial-card:hover {
   transform: translateY(-8px);
-  border-color: var(--cyan);
-  box-shadow: 0 20px 60px var(--cyan-glow);
+  border-color: var(--gold);
 }
 
 .testimonial-stars {
-  color: var(--cyan);
+  color: var(--gold);
   font-size: 20px;
   margin-bottom: 24px;
 }
@@ -588,11 +623,11 @@ header {
   height: 56px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--cyan);
+  border: 2px solid var(--gold);
 }
 
 .testimonial-info h4 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: var(--white);
@@ -600,131 +635,15 @@ header {
 
 .testimonial-info span {
   font-size: 12px;
-  color: var(--gray-light);
+  color: rgba(255,255,255,0.6);
 }
 
 /* =========================================
-   ABOUT SECTION
-   ========================================= */
-.about {
-  padding: 140px 0;
-  background: var(--gray);
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.about-image {
-  position: relative;
-  height: 700px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.about-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(30%) contrast(1.2);
-}
-
-.about-image::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, var(--cyan-glow) 0%, transparent 50%);
-  mix-blend-mode: screen;
-}
-
-.about-content h2 {
-  margin-bottom: 40px;
-  background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.about-content p {
-  margin-bottom: 24px;
-  font-size: 18px;
-}
-
-/* =========================================
-   FILMS SECTION
-   ========================================= */
-.films {
-  padding: 140px 0;
-  background: var(--black);
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 40px;
-  margin-top: 60px;
-}
-
-.video-frame {
-  position: relative;
-  overflow: hidden;
-  background: var(--gray);
-  border-radius: 8px;
-}
-
-.video-frame video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.video-frame.vertical { aspect-ratio: 9/16; max-height: 650px; }
-.video-frame.horizontal { aspect-ratio: 16/9; }
-
-.video-caption {
-  margin-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.video-caption h3 {
-  font-size: 28px;
-  color: var(--white);
-}
-
-.video-caption span {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--cyan);
-}
-
-/* =========================================
-   BOOKING SECTION (Glassmorphism)
+   BOOKING (Consultation Form)
    ========================================= */
 .booking {
   padding: 140px 0;
-  background: var(--gray);
-  position: relative;
-  overflow: hidden;
-}
-
-.booking::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
-  filter: blur(80px);
-  opacity: 0.5;
+  background: var(--beige);
 }
 
 .booking-grid {
@@ -732,40 +651,36 @@ header {
   grid-template-columns: 1fr 1.2fr;
   gap: 80px;
   align-items: start;
-  position: relative;
-  z-index: 1;
 }
 
 .booking-note {
   margin-top: 48px;
   padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(107, 93, 79, 0.2);
 }
 
 .booking-note strong {
   display: block;
-  font-family: 'Bodoni Moda', serif;
-  font-size: 28px;
-  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--charcoal);
   margin-bottom: 12px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .booking-note p {
-  font-size: 16px;
-  margin-bottom: 28px;
+  font-size: 15px;
+  margin-bottom: 24px;
 }
 
-/* Glassmorphism Form */
 .booking-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px 32px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
+  gap: 32px 24px;
+  background: var(--white);
   padding: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(44, 40, 36, 0.1);
 }
 
 .field { display: flex; flex-direction: column; gap: 12px; }
@@ -774,29 +689,28 @@ header {
 .field label {
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--brown);
 }
 
 .field input, .field select, .field textarea {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--cream);
+  border: 1px solid var(--beige);
   border-radius: 6px;
-  padding: 16px;
-  font-size: 16px;
-  color: var(--white);
+  padding: 14px 16px;
+  font-size: 15px;
+  color: var(--charcoal);
   transition: all 0.3s ease;
 }
 
 .field input::placeholder, .field textarea::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--text-light);
 }
 
 .field input:focus, .field select:focus, .field textarea:focus {
-  border-color: var(--cyan);
-  background: rgba(0, 217, 255, 0.05);
-  box-shadow: 0 0 20px var(--cyan-glow);
+  border-color: var(--gold);
+  background: var(--white);
 }
 
 .field textarea {
@@ -807,7 +721,7 @@ header {
 .form-help {
   grid-column: 1 / -1;
   font-size: 13px;
-  color: var(--gray-light);
+  color: var(--text-light);
   margin-top: 16px;
   line-height: 1.6;
 }
@@ -822,23 +736,65 @@ header {
    FOOTER
    ========================================= */
 footer {
-  background: var(--black);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 60px 0;
+  background: var(--charcoal);
+  color: rgba(255,255,255,0.6);
+  padding: 80px 0 40px;
 }
 
-.footer-inner {
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.footer-brand .brand {
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+}
+
+.footer-col h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 12px;
+}
+
+.footer-col a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: var(--white);
+}
+
+.footer-bottom {
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
-  letter-spacing: 0.05em;
-  color: var(--gray-light);
 }
-
-footer .brand { color: var(--white); }
-footer .brand span { color: var(--cyan); }
-footer a:hover { color: var(--cyan); }
 
 /* =========================================
    LIGHTBOX
@@ -851,55 +807,46 @@ footer a:hover { color: var(--cyan); }
   align-items: center;
   justify-content: center;
   padding: 40px;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(44, 40, 36, 0.95);
   backdrop-filter: blur(10px);
-  opacity: 0;
-  transition: opacity 0.4s ease;
 }
 
-.lightbox.open { display: flex; opacity: 1; }
+.lightbox.open { display: flex; }
 
 .lightbox img {
   max-width: 90vw;
   max-height: 85vh;
   object-fit: contain;
   border-radius: 8px;
-  box-shadow: 0 30px 80px rgba(0, 217, 255, 0.3);
 }
 
 .lightbox-close {
   position: absolute;
   top: 30px; right: 40px;
   background: transparent;
-  border: 2px solid var(--cyan);
-  color: var(--cyan);
+  border: 2px solid var(--white);
+  color: var(--white);
   width: 50px;
   height: 50px;
   border-radius: 50%;
   font-size: 28px;
-  cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .lightbox-close:hover {
-  background: var(--cyan);
-  color: var(--black);
-  transform: rotate(90deg);
+  background: var(--white);
+  color: var(--charcoal);
 }
 
 /* =========================================
    RESPONSIVE
    ========================================= */
 @media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; text-align: center; }
-  .hero-content p { margin-left: auto; margin-right: auto; }
-  .spotlight-grid { grid-template-columns: 1fr; gap: 60px; }
-  .spotlight-image { height: 500px; }
-  .about-grid { grid-template-columns: 1fr; gap: 60px; }
+  .about-grid, .booking-grid { grid-template-columns: 1fr; gap: 60px; }
   .about-image { height: 500px; }
-  .booking-grid { grid-template-columns: 1fr; gap: 60px; }
   .video-grid { grid-template-columns: 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 850px) {
@@ -907,303 +854,236 @@ footer a:hover { color: var(--cyan); }
   .nav-links {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--black);
+    background: var(--cream);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 32px;
     transform: translateX(100%);
-    transition: transform 0.5s var(--ease-smooth);
+    transition: transform 0.5s var(--ease);
     z-index: 99;
   }
   .nav-links.open { transform: translateX(0); }
-  .nav-links a { font-size: 20px; font-family: 'Bodoni Moda', serif; }
+  .nav-links a { font-size: 18px; font-family: 'Playfair Display', serif; }
   
-  .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 350px; }
-  .gallery-item { grid-row: span 1 !important; grid-column: span 1 !important; }
+  .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 300px; }
+  .gallery-item { grid-column: span 1 !important; grid-row: span 1 !important; }
   .gallery-overlay { opacity: 1; }
-  .gallery-overlay h3, .gallery-overlay span { transform: translateY(0); }
   
   .slideshow-container { height: 50vh; }
-  .slide-caption { bottom: 30px; left: 30px; padding: 24px 32px; }
+  .slide-caption { bottom: 30px; left: 30px; right: 30px; padding: 24px; }
   .slide-caption h3 { font-size: 24px; }
   
   .booking-form { grid-template-columns: 1fr; padding: 32px 24px; }
   .field.full { grid-column: 1; }
-  .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+  
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
 }
 
 @media (max-width: 540px) {
   .gallery { grid-template-columns: 1fr; }
-  .spotlight-stats { flex-direction: column; gap: 32px; }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 4px; }
-::selection { background: var(--cyan); color: var(--black); }
+::selection { background: var(--gold); color: var(--white); }
 </style>
 </head>
 
 <body>
 
-<header>
-  <nav class="nav wrap" aria-label="Main navigation">
-    <a class="brand" href="#home">Studio Lumière<span>Photography</span></a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+<header id="header">
+  <nav class="nav wrap">
+    <a class="brand" href="#home">Atelier Lumière<span>Interior Design</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
     <div class="nav-links" id="navLinks">
-      <a href="#spotlight">Photographer</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#testimonials">Reviews</a>
+      <a href="#projects">Projects</a>
       <a href="#about">About</a>
-      <a href="#booking">Booking</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#booking">Consultation</a>
     </div>
   </nav>
 </header>
 
 <main>
   <!-- HERO -->
-  <section class="hero wrap" id="home">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <span class="eyebrow">Bold · Modern · Electric</span>
-        <h1>Life,<br><em>reimagined.</em></h1>
-        <p>Not just photography. A bold statement. Electric energy. Timeless moments captured with modern edge.</p>
-        <a class="btn" href="#booking"><span>Plan your session</span></a>
-      </div>
-      <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1600&q=90" alt="Editorial portrait photography" fetchpriority="high">
-      </div>
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=90" alt="Luxury interior">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <span class="eyebrow">Luxury Interior Design</span>
+      <h1>Spaces that<br><em>inspire.</em></h1>
+      <p>Timeless interiors crafted with intention. Where elegance meets comfort, and every detail tells your story.</p>
+      <a class="btn" href="#booking">Book Consultation</a>
     </div>
   </section>
 
-  <!-- PHOTOGRAPHER SPOTLIGHT -->
-  <section class="spotlight" id="spotlight">
-    <div class="wrap spotlight-grid">
-      <div class="spotlight-image">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=85" alt="Photographer portrait" loading="lazy">
-      </div>
-      <div class="spotlight-content">
-        <span class="eyebrow">Meet the Artist</span>
-        <h2 class="name">Your Name Here</h2>
-        <p>With over 8 years of experience capturing life's most precious moments, I specialize in creating bold, modern photographs that tell your unique story. My approach combines technical precision with artistic vision, ensuring every frame is a masterpiece.</p>
-        <p>Based in Yerevan, Armenia, I've worked with clients worldwide, from intimate family sessions to high-fashion editorials. My work has been featured in leading photography publications, and I'm passionate about pushing the boundaries of visual storytelling.</p>
-        
-        <div class="spotlight-stats">
-          <div class="stat">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Sessions</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">8</span>
-            <span class="stat-label">Years Experience</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Happy Clients</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURED SLIDESHOW -->
+  <!-- SLIDESHOW -->
   <section class="slideshow">
     <div class="wrap">
-      <div class="section-header">
-        <span class="eyebrow">Featured Work</span>
-        <h2>Signature<br><em>moments.</em></h2>
+      <div class="section-header reveal">
+        <span class="eyebrow">Featured Interiors</span>
+        <h2>Signature<br><em>spaces.</em></h2>
       </div>
 
       <div class="slideshow-container" id="slideshow">
         <div class="slide active">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=2000&q=90" alt="Featured portrait">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=2000&q=90" alt="Modern living room">
           <div class="slide-caption">
-            <h3>Electric Elegance</h3>
-            <span>Editorial Portrait</span>
+            <h3>Modern Serenity</h3>
+            <span>Living Room Design</span>
           </div>
         </div>
         <div class="slide">
-          <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=2000&q=90" alt="Featured family">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=90" alt="Luxury bedroom">
           <div class="slide-caption">
-            <h3>Timeless Connection</h3>
-            <span>Family Session</span>
+            <h3>Tranquil Retreat</h3>
+            <span>Master Bedroom</span>
           </div>
         </div>
         <div class="slide">
-          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=2000&q=90" alt="Featured editorial">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=90" alt="Elegant kitchen">
           <div class="slide-caption">
-            <h3>Bold Vision</h3>
-            <span>Fashion Editorial</span>
+            <h3>Culinary Elegance</h3>
+            <span>Kitchen Design</span>
           </div>
         </div>
       </div>
 
       <div class="slideshow-controls">
-        <button class="slide-btn" id="prevSlide" aria-label="Previous slide">←</button>
-        <button class="slide-btn" id="nextSlide" aria-label="Next slide">→</button>
+        <button class="slide-btn" id="prevSlide" aria-label="Previous">←</button>
+        <button class="slide-btn" id="nextSlide" aria-label="Next">→</button>
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
-  <section class="portfolio" id="portfolio">
-    <div class="wrap">
-      <div class="section-header">
-        <span class="eyebrow">Selected Work</span>
-        <h2>Your story,<br><em>boldly told.</em></h2>
-      </div>
+  <!-- PARALLAX EXPERIENCE -->
+  <section class="parallax-section">
+    <div class="parallax-bg">
+      <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=90" alt="Luxury bathroom">
+    </div>
+    <div class="parallax-content reveal">
+      <span class="eyebrow">The Experience</span>
+      <h2>Where vision<br><em>meets craft.</em></h2>
+      <p>Every space we create is a reflection of your lifestyle, your dreams, and your unique story. We don't just design rooms — we create experiences.</p>
+    </div>
+  </section>
 
-      <div class="gallery-filters" aria-label="Filter photographs">
-        <button class="filter-btn active" data-filter="all">All Stories</button>
-        <button class="filter-btn" data-filter="portrait">Portraits</button>
-        <button class="filter-btn" data-filter="family">Family</button>
-        <button class="filter-btn" data-filter="editorial">Editorial</button>
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <span class="eyebrow">Our Portfolio</span>
+        <h2>Spaces we've<br><em>brought to life.</em></h2>
       </div>
 
       <div class="gallery">
-        <button class="gallery-item" data-category="portrait" data-full="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=2200&q=90" aria-label="View portrait">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" alt="Portrait in natural light" loading="lazy">
+        <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90">
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85" alt="Living room" loading="lazy">
           <div class="gallery-overlay">
-            <h3>Quiet confidence</h3>
-            <span>Portrait Session</span>
+            <h3>Urban Sanctuary</h3>
+            <span>Living Room</span>
           </div>
         </button>
 
-        <button class="gallery-item" data-category="family" data-full="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=2200&q=90" aria-label="View family">
-          <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=85" alt="Family together" loading="lazy">
+        <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=2200&q=90">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=900&q=85" alt="Modern interior" loading="lazy">
           <div class="gallery-overlay">
-            <h3>Our little world</h3>
-            <span>Family Session</span>
+            <h3>Minimalist Haven</h3>
+            <span>Open Plan</span>
           </div>
         </button>
 
-        <button class="gallery-item" data-category="editorial" data-full="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=2200&q=90" aria-label="View editorial">
-          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85" alt="Elegant editorial portrait" loading="lazy">
+        <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2200&q=90">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85" alt="Bedroom" loading="lazy">
           <div class="gallery-overlay">
-            <h3>In her element</h3>
-            <span>Editorial</span>
+            <h3>Serene Retreat</h3>
+            <span>Master Bedroom</span>
           </div>
         </button>
 
-        <button class="gallery-item" data-category="family" data-full="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=2200&q=90" aria-label="View outdoor family">
-          <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=900&q=85" alt="Family outdoors" loading="lazy">
+        <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Kitchen" loading="lazy">
           <div class="gallery-overlay">
-            <h3>Where we belong</h3>
-            <span>Family Session</span>
+            <h3>Chef's Dream</h3>
+            <span>Kitchen Design</span>
           </div>
         </button>
 
-        <button class="gallery-item" data-category="portrait" data-full="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=2200&q=90" aria-label="View close-up">
-          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=900&q=85" alt="Close-up portrait" loading="lazy">
+        <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2200&q=90">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=85" alt="Bathroom" loading="lazy">
           <div class="gallery-overlay">
-            <h3>Simply you</h3>
-            <span>Portrait Session</span>
+            <h3>Spa Sanctuary</h3>
+            <span>Bathroom</span>
           </div>
         </button>
 
-        <button class="gallery-item" data-category="editorial" data-full="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=2200&q=90" aria-label="View fashion">
-          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=900&q=85" alt="Fashion editorial" loading="lazy">
+        <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=90">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85" alt="Dining room" loading="lazy">
           <div class="gallery-overlay">
-            <h3>High fashion</h3>
-            <span>Editorial</span>
+            <h3>Elegant Gatherings</h3>
+            <span>Dining Room</span>
           </div>
         </button>
 
-        <button class="gallery-item" data-category="family" data-full="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=2200&q=90" aria-label="View childhood">
-          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=85" alt="Childhood moment" loading="lazy">
+        <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=2200&q=90">
+          <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=900&q=85" alt="Home office" loading="lazy">
           <div class="gallery-overlay">
-            <h3>Little moments</h3>
-            <span>Family Session</span>
+            <h3>Productive Space</h3>
+            <span>Home Office</span>
           </div>
         </button>
 
-        <button class="gallery-item" data-category="portrait" data-full="https://images.unsplash.com/photo-1488426862026-3ee9332099cc?auto=format&fit=crop&w=2200&q=90" aria-label="View portrait">
-          <img src="https://images.unsplash.com/photo-1488426862026-3ee9332099cc?auto=format&fit=crop&w=900&q=85" alt="Portrait session" loading="lazy">
+        <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=2200&q=90">
+          <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=85" alt="Living space" loading="lazy">
           <div class="gallery-overlay">
-            <h3>Natural beauty</h3>
-            <span>Portrait Session</span>
+            <h3>Contemporary Comfort</h3>
+            <span>Living Area</span>
           </div>
         </button>
 
-        <button class="gallery-item" data-category="editorial" data-full="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=2200&q=90" aria-label="View editorial">
-          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85" alt="Editorial portrait" loading="lazy">
+        <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=2200&q=90">
+          <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=900&q=85" alt="Luxury space" loading="lazy">
           <div class="gallery-overlay">
-            <h3>Modern edge</h3>
-            <span>Editorial</span>
-          </div>
-        </button>
-
-        <button class="gallery-item" data-category="family" data-full="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=2200&q=90" aria-label="View family">
-          <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=900&q=85" alt="Family portrait" loading="lazy">
-          <div class="gallery-overlay">
-            <h3>Together forever</h3>
-            <span>Family Session</span>
-          </div>
-        </button>
-
-        <button class="gallery-item" data-category="portrait" data-full="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=2200&q=90" aria-label="View portrait">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=85" alt="Portrait photography" loading="lazy">
-          <div class="gallery-overlay">
-            <h3>Radiant soul</h3>
-            <span>Portrait Session</span>
-          </div>
-        </button>
-
-        <button class="gallery-item" data-category="editorial" data-full="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=2200&q=90" aria-label="View editorial">
-          <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=900&q=85" alt="Editorial fashion" loading="lazy">
-          <div class="gallery-overlay">
-            <h3>Bold statement</h3>
-            <span>Editorial</span>
+            <h3>Timeless Elegance</h3>
+            <span>Full Home</span>
           </div>
         </button>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials" id="testimonials">
+  <!-- VIDEOS -->
+  <section class="videos">
     <div class="wrap">
-      <div class="section-header">
-        <span class="eyebrow">Client Stories</span>
-        <h2>What they<br><em>say about us.</em></h2>
+      <div class="section-header reveal">
+        <span class="eyebrow">Behind the Design</span>
+        <h2>The process<br><em>in motion.</em></h2>
       </div>
 
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Absolutely incredible experience! The photos captured our family perfectly — natural, candid, and full of emotion. We couldn't be happier with the results."</p>
-          <div class="testimonial-author">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Client" class="testimonial-avatar">
-            <div class="testimonial-info">
-              <h4>Anna S.</h4>
-              <span>Family Session</span>
-            </div>
+      <div class="video-grid">
+        <div class="video-card reveal">
+          <div class="video-frame vertical">
+            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80">
+              <source src="videos/interior-tour-vertical.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">
+            <h3>Space Tour</h3>
+            <span>Vertical Film</span>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"The best photographer I've ever worked with. Professional, creative, and the final images were stunning. Every photo tells a story."</p>
-          <div class="testimonial-author">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Client" class="testimonial-avatar">
-            <div class="testimonial-info">
-              <h4>David M.</h4>
-              <span>Portrait Session</span>
-            </div>
+        <div class="video-card reveal">
+          <div class="video-frame horizontal">
+            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=1200&q=80">
+              <source src="videos/design-process-horizontal.mp4" type="video/mp4">
+            </video>
           </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Working with Studio Lumière was a dream. The attention to detail, the creative vision, and the final product exceeded all expectations. Highly recommend!"</p>
-          <div class="testimonial-author">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="Client" class="testimonial-avatar">
-            <div class="testimonial-info">
-              <h4>Sophia L.</h4>
-              <span>Editorial Session</span>
-            </div>
+          <div class="video-caption">
+            <h3>Design Journey</h3>
+            <span>Horizontal Film</span>
           </div>
         </div>
       </div>
@@ -1213,79 +1093,93 @@ footer a:hover { color: var(--cyan); }
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="wrap about-grid">
-      <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=1200&q=85" alt="Photographer at work" loading="lazy">
+      <div class="about-image reveal">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=85" alt="Design team" loading="lazy">
       </div>
-      <div class="about-content">
-        <span class="eyebrow">The Studio</span>
-        <h2>Less posing.<br><em>More power.</em></h2>
-        <p>The best photographs happen when you feel completely at ease. No pressure to be perfect — just room to be yourself, connect, laugh, and enjoy the moment.</p>
-        <p>We'll take our time, find beautiful light, and create images that feel honest, warm, and unmistakably yours. This is not just photography; it's the preservation of your legacy.</p>
-        <a class="btn" href="#booking" style="margin-top: 32px;"><span>Let's create together</span></a>
+      <div class="about-content reveal">
+        <span class="eyebrow">Our Philosophy</span>
+        <h2>Design with<br><em>intention.</em></h2>
+        <p>At Atelier Lumière, we believe that great design is invisible — it simply feels right. Every space we create is a harmony of form and function, beauty and comfort.</p>
+        <p>With over a decade of experience transforming houses into homes and spaces into sanctuaries, we bring a refined eye and deep passion to every project. Your vision, our expertise — together, we create something extraordinary.</p>
+        <a class="btn" href="#booking" style="margin-top: 32px;">Start Your Project</a>
       </div>
     </div>
   </section>
 
-  <!-- FILMS -->
-  <section class="films" id="films">
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
     <div class="wrap">
-      <div class="section-header">
-        <span class="eyebrow">Beyond the Photograph</span>
-        <h2>The moments<br><em>in motion.</em></h2>
+      <div class="section-header reveal">
+        <span class="eyebrow">Client Stories</span>
+        <h2>What our clients<br><em>say.</em></h2>
       </div>
 
-      <div class="video-grid">
-        <div class="video-card">
-          <div class="video-frame vertical">
-            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80">
-              <source src="videos/behind-scenes-vertical.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="video-caption">
-            <h3>Little moments</h3>
-            <span>Vertical Film</span>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Atelier Lumière transformed our house into a home beyond our wildest dreams. Every detail was thoughtfully considered, and the result is simply stunning."</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Client" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Sarah M.</h4>
+              <span>Full Home Design</span>
+            </div>
           </div>
         </div>
 
-        <div class="video-card">
-          <div class="video-frame horizontal">
-            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=80">
-              <source src="videos/behind-scenes-horizontal.mp4" type="video/mp4">
-            </video>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Working with this team was an absolute pleasure. They listened to our needs, understood our style, and delivered a space that perfectly reflects who we are."</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Client" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Michael R.</h4>
+              <span>Living Room Renovation</span>
+            </div>
           </div>
-          <div class="video-caption">
-            <h3>The experience</h3>
-            <span>Horizontal Film</span>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The attention to detail is unmatched. From the initial consultation to the final reveal, every step was professional, creative, and exceeded our expectations."</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="Client" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Emma L.</h4>
+              <span>Kitchen & Bath Design</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BOOKING (LOGIC PRESERVED EXACTLY) -->
+  <!-- BOOKING (Consultation) -->
   <section class="booking" id="booking">
     <div class="wrap booking-grid">
-      <div class="booking-copy">
-        <span class="eyebrow">Your Turn</span>
-        <h2>Let's make<br><em>something bold.</em></h2>
-        <p>Tell me what you have in mind. Share a few details below and your message will open in WhatsApp — then we can plan the session together.</p>
+      <div class="booking-copy reveal">
+        <span class="eyebrow">Let's Create Together</span>
+        <h2>Book your<br><em>consultation.</em></h2>
+        <p>Ready to transform your space? Share a few details below and we'll connect via WhatsApp to discuss your vision and schedule your consultation.</p>
         
         <div class="booking-note">
-          <strong>Portrait Sessions</strong>
-          <p>A personal, considered session focused entirely on you.</p>
+          <strong>Initial Consultation</strong>
+          <p>A complimentary 30-minute call to understand your project, style preferences, and goals.</p>
           
-          <strong>Family Sessions</strong>
-          <p>Natural, timeless photographs celebrating your connection.</p>
+          <strong>Full Design Package</strong>
+          <p>Comprehensive interior design service from concept to completion, tailored to your space.</p>
         </div>
       </div>
 
-      <form class="booking-form" id="bookingForm">
+      <form class="booking-form reveal" id="bookingForm">
         <div class="field full">
-          <label for="sessionType">Type of session *</label>
-          <select id="sessionType" name="sessionType" required>
-            <option value="">Choose a session</option>
-            <option value="Individual / Portrait">Individual / Portrait</option>
-            <option value="Family">Family</option>
+          <label for="consultationType">Type of consultation *</label>
+          <select id="consultationType" name="consultationType" required>
+            <option value="">Choose a service</option>
+            <option value="Initial Consultation">Initial Consultation</option>
+            <option value="Full Design Package">Full Design Package</option>
+            <option value="Room Redesign">Room Redesign</option>
+            <option value="Color & Material Selection">Color & Material Selection</option>
           </select>
         </div>
 
@@ -1300,13 +1194,13 @@ footer a:hover { color: var(--cyan); }
         </div>
 
         <div class="field">
-          <label for="sessionDate">Preferred date *</label>
-          <input id="sessionDate" name="sessionDate" type="date" required>
+          <label for="consultationDate">Preferred date *</label>
+          <input id="consultationDate" name="consultationDate" type="date" required>
         </div>
 
         <div class="field">
-          <label for="sessionTime">Preferred time</label>
-          <select id="sessionTime" name="sessionTime">
+          <label for="consultationTime">Preferred time</label>
+          <select id="consultationTime" name="consultationTime">
             <option value="Flexible">Flexible</option>
             <option value="Morning">Morning</option>
             <option value="Afternoon">Afternoon</option>
@@ -1315,115 +1209,139 @@ footer a:hover { color: var(--cyan); }
         </div>
 
         <div class="field full">
-          <label for="clientMessage">Your ideas (optional)</label>
-          <textarea id="clientMessage" name="clientMessage" placeholder="Tell me about your vision, number of people, or any special details..."></textarea>
+          <label for="projectDetails">Project details (optional)</label>
+          <textarea id="projectDetails" name="projectDetails" placeholder="Tell us about your space, style preferences, budget range, or any specific requirements..."></textarea>
         </div>
 
-        <p class="form-help">Sending this request does not confirm your booking. The date and time will be confirmed personally via WhatsApp.</p>
+        <p class="form-help">Submitting this form does not confirm your consultation. We'll reach out via WhatsApp to confirm availability and discuss your project.</p>
 
-        <button class="btn" type="submit"><span>Send booking via WhatsApp ↗</span></button>
+        <button class="btn" type="submit">Request Consultation via WhatsApp ↗</button>
       </form>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap footer-inner">
-    <a class="brand" href="#home">Studio Lumière<span>Photography</span></a>
-    <p>© <span id="year"></span> Studio Lumière. All rights reserved.</p>
-    <a href="#home">Back to top ↑</a>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#home">Atelier Lumière<span>Interior Design</span></a>
+        <p>Creating timeless interiors that inspire and elevate everyday living. Based in Yerevan, serving clients worldwide.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#booking">Consultation</a></li>
+          <li><a href="#projects">Full Design</a></li>
+          <li><a href="#projects">Room Redesign</a></li>
+          <li><a href="#projects">Color Selection</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#projects">Portfolio</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#booking">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+          <li><a href="#">Houzz</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Atelier Lumière. All rights reserved.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
   </div>
 </footer>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photograph preview">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Close photograph">×</button>
-  <img id="lightboxImage" src="" alt="Enlarged portfolio photograph">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <img id="lightboxImage" src="" alt="Project preview">
 </div>
 
 <script>
-/* =========================================
-   WHATSAPP CONFIGURATION (EXACTLY AS PROVIDED)
-   ========================================= */
 const WHATSAPP_NUMBER = "37493606691";
 
-/* =========================================
-   SLIDESHOW
-   ========================================= */
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Header scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Slideshow
 const slides = document.querySelectorAll('.slide');
-const prevBtn = document.getElementById('prevSlide');
-const nextBtn = document.getElementById('nextSlide');
 let currentSlide = 0;
 
 function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove('active'));
+  slides.forEach(s => s.classList.remove('active'));
   slides[index].classList.add('active');
 }
 
-function nextSlide() {
+document.getElementById('nextSlide').addEventListener('click', () => {
   currentSlide = (currentSlide + 1) % slides.length;
   showSlide(currentSlide);
-}
+});
 
-function prevSlide() {
+document.getElementById('prevSlide').addEventListener('click', () => {
   currentSlide = (currentSlide - 1 + slides.length) % slides.length;
   showSlide(currentSlide);
-}
+});
 
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
+setInterval(() => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}, 5000);
 
-// Auto-advance every 5 seconds
-setInterval(nextSlide, 5000);
-
-/* =========================================
-   MOBILE NAVIGATION
-   ========================================= */
+// Mobile menu
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
 menuToggle.addEventListener("click", () => {
   const isOpen = navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
   menuToggle.textContent = isOpen ? "×" : "☰";
 });
 
 navLinks.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.textContent = "☰";
   });
 });
 
-/* =========================================
-   GALLERY FILTERS
-   ========================================= */
-const filterButtons = document.querySelectorAll(".filter-btn");
-const galleryItems = document.querySelectorAll(".gallery-item");
-
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach(item => item.classList.remove("active"));
-    button.classList.add("active");
-    const category = button.dataset.filter;
-    galleryItems.forEach(item => {
-      item.hidden = category !== "all" && item.dataset.category !== category;
-    });
-  });
-});
-
-/* =========================================
-   LIGHTBOX
-   ========================================= */
+// Lightbox
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxClose = document.getElementById("lightboxClose");
 
-galleryItems.forEach(item => {
+document.querySelectorAll(".gallery-item").forEach(item => {
   item.addEventListener("click", () => {
     lightboxImage.src = item.dataset.full;
-    lightboxImage.alt = item.querySelector("img").alt;
     lightbox.classList.add("open");
     document.body.style.overflow = "hidden";
   });
@@ -1431,56 +1349,45 @@ galleryItems.forEach(item => {
 
 function closeLightbox() {
   lightbox.classList.remove("open");
-  setTimeout(() => { lightboxImage.src = ""; }, 400);
   document.body.style.overflow = "";
 }
 
 lightboxClose.addEventListener("click", closeLightbox);
-lightbox.addEventListener("click", event => { if (event.target === lightbox) closeLightbox(); });
-document.addEventListener("keydown", event => { if (event.key === "Escape") closeLightbox(); });
+lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
 
-/* =========================================
-   BOOKING FORM LOGIC (EXACTLY AS PROVIDED)
-   ========================================= */
-const dateInput = document.getElementById("sessionDate");
+// Booking form
+const dateInput = document.getElementById("consultationDate");
 const today = new Date();
-const localToday = [
-  today.getFullYear(),
-  String(today.getMonth() + 1).padStart(2, "0"),
-  String(today.getDate()).padStart(2, "0")
-].join("-");
-dateInput.min = localToday;
+dateInput.min = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, "0"), String(today.getDate()).padStart(2, "0")].join("-");
 
 document.getElementById("bookingForm").addEventListener("submit", event => {
   event.preventDefault();
   if (!event.currentTarget.reportValidity()) return;
 
   if (!/^\d{8,15}$/.test(WHATSAPP_NUMBER)) {
-    alert("Please check the WhatsApp number in the code.");
+    alert("Please check the WhatsApp number.");
     return;
   }
 
   const form = new FormData(event.currentTarget);
   const message = [
-    "Hello Studio Lumière! I would like to request a photography booking.",
+    "Hello Atelier Lumière! I would like to book a design consultation.",
     "",
-    "Session: " + form.get("sessionType"),
+    "Service: " + form.get("consultationType"),
     "Name: " + form.get("clientName"),
     "Phone: " + form.get("clientPhone"),
-    "Preferred date: " + form.get("sessionDate"),
-    "Preferred time: " + form.get("sessionTime"),
-    "Additional details: " + (form.get("clientMessage") || "Not provided"),
+    "Preferred date: " + form.get("consultationDate"),
+    "Preferred time: " + form.get("consultationTime"),
+    "Project details: " + (form.get("projectDetails") || "Not provided"),
     "",
-    "I understand that the booking is not confirmed until we agree on availability."
+    "I understand this is a consultation request, not a confirmed booking."
   ].join("\n");
 
-  const whatsappURL = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
-  window.open(whatsappURL, "_blank", "noopener,noreferrer");
+  window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
 });
 
-/* =========================================
-   FOOTER YEAR
-   ========================================= */
+// Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
