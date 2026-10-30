@@ -4,41 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#F5F1EA">
-<meta name="description" content="Atelier Lumière — Luxury Interior Design Studio. Timeless spaces, crafted with intention.">
+<meta name="description" content="Atelier Lumière — Refined luxury interior design. Timeless spaces, crafted with intention.">
 <title>Atelier Lumière | Luxury Interior Design</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* =========================================
-   LUXURY INTERIOR DESIGN SYSTEM
-   ========================================= */
 :root {
-  --cream: #F5F1EA;
-  --beige: #E8E0D5;
-  --taupe: #9A8B7A;
-  --brown: #6B5D4F;
-  --charcoal: #2C2824;
-  --gold: #C9A961;
+  --ivory: #F5F1EA;
+  --cream: #EBE5DA;
+  --stone: #D4C9B8;
+  --bronze: #8B6F47;
+  --bronze-light: #A0826D;
+  --charcoal: #1A1A1A;
+  --graphite: #2A2A2A;
+  --ash: #6B6B6B;
   --white: #FFFFFF;
-  --text: #3A3530;
-  --text-light: #7A7068;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
-  background: var(--cream);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-family: 'Jost', sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
@@ -56,52 +50,41 @@ button, input, select, textarea { font: inherit; color: inherit; border: none; o
 }
 
 /* =========================================
-   TYPOGRAPHY
+   TYPOGRAPHY (Refined & Delicate)
    ========================================= */
 .eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--bronze);
   margin-bottom: 24px;
   display: block;
 }
 
 h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 400;
-  line-height: 1.1;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
 }
 
-h1 {
-  font-size: clamp(3.5rem, 8vw, 7rem);
-  letter-spacing: -0.02em;
-}
+h1 { font-size: clamp(3.5rem, 8vw, 7.5rem); }
+h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 32px; }
+h3 { font-size: 1.75rem; font-weight: 400; }
 
-h2 {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  margin-bottom: 32px;
-}
-
-h3 { font-size: 1.75rem; }
-
-p { color: var(--text-light); max-width: 60ch; }
+p { color: var(--ash); max-width: 60ch; }
 
 /* =========================================
    ANIMATIONS
    ========================================= */
 .reveal {
   opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+  transform: translateY(50px);
+  transition: opacity 1.4s var(--ease), transform 1.4s var(--ease);
 }
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
 
 /* =========================================
    HEADER
@@ -110,16 +93,17 @@ header {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 24px 0;
-  background: rgba(245, 241, 234, 0.9);
+  padding: 28px 0;
+  background: rgba(245, 241, 234, 0.7);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(154, 139, 122, 0.1);
+  -webkit-backdrop-filter: blur(20px);
   transition: all 0.4s ease;
 }
 
 header.scrolled {
-  padding: 16px 0;
+  padding: 18px 0;
   background: rgba(245, 241, 234, 0.95);
+  border-bottom: 1px solid rgba(139, 111, 71, 0.1);
 }
 
 .nav {
@@ -129,47 +113,49 @@ header.scrolled {
 }
 
 .brand {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 28px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  letter-spacing: 0.03em;
   color: var(--charcoal);
 }
 
 .brand span {
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Jost', sans-serif;
   font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.35em;
+  font-weight: 400;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--bronze);
   margin-top: 4px;
 }
 
 .nav-links {
   display: flex;
-  gap: 40px;
+  gap: 44px;
 }
 
 .nav-links a {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text);
+  color: var(--charcoal);
   position: relative;
+  padding: 4px 0;
 }
 
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -6px; left: 0;
+  bottom: 0; left: 0;
   width: 0; height: 1px;
-  background: var(--gold);
+  background: var(--bronze);
   transition: width 0.4s var(--ease);
 }
 
+.nav-links a:hover { color: var(--bronze); }
 .nav-links a:hover::after { width: 100%; }
 
 .menu-toggle {
@@ -179,7 +165,53 @@ header.scrolled {
 }
 
 /* =========================================
-   HERO (Cinematic Full-Screen)
+   BUTTONS (Transparent & Delicate)
+   ========================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 44px;
+  background: transparent;
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.5s var(--ease);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--charcoal);
+  transform: translateY(100%);
+  transition: transform 0.5s var(--ease);
+  z-index: -1;
+}
+
+.btn:hover {
+  border-color: var(--charcoal);
+  color: var(--white);
+}
+
+.btn:hover::before { transform: translateY(0); }
+
+.btn-dark {
+  color: var(--charcoal);
+  border-color: var(--charcoal);
+}
+
+.btn-dark::before { background: var(--charcoal); }
+.btn-dark:hover { color: var(--white); }
+
+/* =========================================
+   HERO
    ========================================= */
 .hero {
   height: 100vh;
@@ -200,15 +232,19 @@ header.scrolled {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.85);
-  transform: scale(1.1);
-  transition: transform 0.8s var(--ease);
+  filter: brightness(0.75) contrast(1.05);
+  transform: scale(1.05);
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(44, 40, 36, 0.3) 0%, rgba(44, 40, 36, 0.6) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0.2) 0%,
+    rgba(26, 26, 26, 0.4) 50%,
+    rgba(26, 26, 26, 0.7) 100%
+  );
 }
 
 .hero-content {
@@ -220,141 +256,152 @@ header.scrolled {
   padding: 0 24px;
 }
 
-.hero-content .eyebrow {
-  color: var(--gold);
-  margin-bottom: 32px;
-}
+.hero-content .eyebrow { color: rgba(255,255,255,0.8); }
 
 .hero-content h1 {
   margin-bottom: 32px;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  font-weight: 300;
+  letter-spacing: -0.02em;
 }
 
 .hero-content h1 em {
   font-style: italic;
-  color: var(--gold);
+  font-weight: 300;
 }
 
 .hero-content p {
-  font-size: 20px;
-  color: rgba(255,255,255,0.9);
+  font-size: 18px;
+  color: rgba(255,255,255,0.85);
   margin: 0 auto 48px;
-  max-width: 600px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px 48px;
-  background: var(--gold);
-  color: var(--charcoal);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  transition: all 0.4s var(--ease);
-  border: 2px solid var(--gold);
-}
-
-.btn:hover {
-  background: transparent;
-  color: var(--gold);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--white);
-  border-color: var(--white);
-}
-
-.btn-outline:hover {
-  background: var(--white);
-  color: var(--charcoal);
+  max-width: 560px;
+  font-weight: 300;
 }
 
 /* =========================================
-   SLIDESHOW
+   HORIZONTAL SLIDESHOW (Left to Right)
    ========================================= */
 .slideshow {
-  padding: 140px 0;
-  background: var(--beige);
+  padding: 140px 0 100px;
+  background: var(--ivory);
+  overflow: hidden;
 }
 
-.slideshow-container {
-  position: relative;
-  height: 70vh;
-  margin-top: 60px;
-  overflow: hidden;
-  border-radius: 8px;
+.slideshow-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.slideshow-header h2 { margin-bottom: 0; }
+
+.slideshow-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.slide-btn {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--charcoal);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--charcoal);
+  font-size: 18px;
+  transition: all 0.4s var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-btn:hover {
+  background: var(--charcoal);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+.slideshow-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 1.2s var(--ease);
+  will-change: transform;
 }
 
 .slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1.2s var(--ease);
-}
-
-.slide.active {
-  opacity: 1;
+  flex: 0 0 calc(70% - 12px);
+  position: relative;
+  height: 70vh;
+  min-height: 500px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 1.2s var(--ease);
 }
+
+.slide:hover img { transform: scale(1.03); }
 
 .slide-caption {
   position: absolute;
-  bottom: 60px;
-  left: 60px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  padding: 32px 48px;
-  border-radius: 8px;
-  max-width: 400px;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+  color: var(--white);
+  z-index: 2;
+}
+
+.slide-caption::before {
+  content: '';
+  position: absolute;
+  inset: -20px -24px -20px -24px;
+  background: linear-gradient(to top, rgba(26,26,26,0.7) 0%, transparent 100%);
+  z-index: -1;
+  border-radius: 4px;
 }
 
 .slide-caption h3 {
-  font-size: 32px;
-  color: var(--charcoal);
+  font-size: 36px;
   margin-bottom: 8px;
+  font-weight: 300;
 }
 
 .slide-caption span {
-  color: var(--gold);
-  font-size: 12px;
-  letter-spacing: 0.2em;
+  font-size: 11px;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
 }
 
-.slideshow-controls {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
+.slide-counter {
   margin-top: 32px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--ash);
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.slide-btn {
-  width: 50px;
-  height: 50px;
-  border: 2px solid var(--charcoal);
-  border-radius: 50%;
-  background: transparent;
+.slide-counter .current {
+  font-size: 32px;
   color: var(--charcoal);
-  font-size: 20px;
-  transition: all 0.3s ease;
+  font-weight: 400;
 }
 
-.slide-btn:hover {
-  background: var(--charcoal);
-  color: var(--white);
+.slide-counter .divider {
+  width: 60px;
+  height: 1px;
+  background: var(--stone);
 }
 
 /* =========================================
-   PARALLAX EXPERIENCE
+   PARALLAX SECTION
    ========================================= */
 .parallax-section {
   position: relative;
@@ -367,7 +414,7 @@ header.scrolled {
 
 .parallax-bg {
   position: absolute;
-  inset: -20%;
+  inset: -10%;
   z-index: 0;
 }
 
@@ -375,7 +422,7 @@ header.scrolled {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.7);
+  filter: brightness(0.6);
 }
 
 .parallax-content {
@@ -383,22 +430,20 @@ header.scrolled {
   z-index: 1;
   text-align: center;
   color: var(--white);
-  max-width: 800px;
+  max-width: 700px;
   padding: 0 24px;
 }
 
-.parallax-content h2 {
-  margin-bottom: 24px;
-}
-
+.parallax-content h2 { margin-bottom: 24px; }
 .parallax-content p {
   font-size: 18px;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.85);
   margin: 0 auto;
+  font-weight: 300;
 }
 
 /* =========================================
-   PROJECTS (Masonry Gallery)
+   PROJECTS GALLERY (with 3D first item)
    ========================================= */
 .projects {
   padding: 140px 0;
@@ -413,8 +458,9 @@ header.scrolled {
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  grid-auto-rows: 300px;
+  gap: 20px;
+  grid-auto-rows: 280px;
+  perspective: 1500px;
 }
 
 .gallery-item {
@@ -422,6 +468,8 @@ header.scrolled {
   overflow: hidden;
   border-radius: 4px;
   cursor: pointer;
+  background: var(--stone);
+  transition: transform 0.6s var(--ease);
 }
 
 .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
@@ -433,55 +481,132 @@ header.scrolled {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s var(--ease);
+  transition: transform 1s var(--ease);
 }
 
-.gallery-item:hover img {
-  transform: scale(1.08);
-}
+.gallery-item:hover img { transform: scale(1.06); }
 
+/* Caption in bottom-left, NOT centered */
 .gallery-overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(44,40,36,0.9) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 32px;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
   color: var(--white);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s var(--ease);
+  z-index: 2;
 }
 
-.gallery-item:hover .gallery-overlay { opacity: 1; }
-
-.gallery-overlay h3 {
-  font-size: 28px;
-  margin-bottom: 8px;
-  transform: translateY(20px);
-  transition: transform 0.5s var(--ease);
-}
-
-.gallery-overlay span {
-  color: var(--gold);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  transform: translateY(20px);
-  transition: transform 0.5s var(--ease) 0.05s;
-}
-
-.gallery-item:hover .gallery-overlay h3,
-.gallery-item:hover .gallery-overlay span {
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
   transform: translateY(0);
 }
 
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,26,26,0.75) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.gallery-item:hover::after { opacity: 1; }
+
+.gallery-overlay h3 {
+  font-size: 24px;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.gallery-overlay span {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+
 /* =========================================
-   VIDEO SECTION
+   3D VIDEO EFFECT (First Gallery Item)
+   ========================================= */
+.gallery-item.featured-3d {
+  transform-style: preserve-3d;
+  animation: float3D 8s ease-in-out infinite;
+  box-shadow: 0 30px 60px rgba(26, 26, 26, 0.25);
+  position: relative;
+}
+
+.gallery-item.featured-3d::before {
+  content: '▶';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(255,255,255,0.9);
+  border-radius: 50%;
+  background: rgba(26,26,26,0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 24px;
+  padding-left: 4px;
+  z-index: 3;
+  transition: all 0.4s var(--ease);
+  cursor: pointer;
+}
+
+.gallery-item.featured-3d:hover::before {
+  background: var(--charcoal);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.gallery-item.featured-3d .featured-label {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: rgba(255,255,255,0.95);
+  color: var(--charcoal);
+  padding: 8px 16px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  z-index: 3;
+}
+
+@keyframes float3D {
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+  }
+  25% {
+    transform: rotateX(2deg) rotateY(-3deg) translateZ(20px);
+  }
+  50% {
+    transform: rotateX(-1deg) rotateY(2deg) translateZ(15px);
+  }
+  75% {
+    transform: rotateX(1deg) rotateY(-2deg) translateZ(10px);
+  }
+}
+
+.gallery-item.featured-3d:hover {
+  animation-play-state: paused;
+  transform: rotateX(5deg) rotateY(-5deg) translateZ(30px) scale(1.02);
+}
+
+/* =========================================
+   VIDEOS
    ========================================= */
 .videos {
   padding: 140px 0;
-  background: var(--beige);
+  background: var(--ivory);
 }
 
 .video-grid {
@@ -494,7 +619,7 @@ header.scrolled {
 .video-frame {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 4px;
   background: var(--charcoal);
 }
 
@@ -517,14 +642,15 @@ header.scrolled {
 .video-caption h3 {
   font-size: 24px;
   color: var(--charcoal);
+  font-weight: 400;
 }
 
 .video-caption span {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--bronze);
 }
 
 /* =========================================
@@ -538,14 +664,14 @@ header.scrolled {
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 100px;
   align-items: center;
 }
 
 .about-image {
   position: relative;
   height: 700px;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -555,13 +681,11 @@ header.scrolled {
   object-fit: cover;
 }
 
-.about-content h2 {
-  margin-bottom: 32px;
-}
-
+.about-content h2 { margin-bottom: 32px; }
 .about-content p {
   font-size: 17px;
   margin-bottom: 24px;
+  font-weight: 300;
 }
 
 /* =========================================
@@ -573,9 +697,9 @@ header.scrolled {
   color: var(--white);
 }
 
-.testimonials .eyebrow { color: var(--gold); }
+.testimonials .eyebrow { color: var(--bronze-light); }
 .testimonials h2 { color: var(--white); }
-.testimonials p { color: rgba(255,255,255,0.7); }
+.testimonials p { color: rgba(255,255,255,0.6); }
 
 .testimonials-grid {
   display: grid;
@@ -585,65 +709,71 @@ header.scrolled {
 }
 
 .testimonial-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 48px;
-  transition: all 0.4s var(--ease);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 48px 40px;
+  transition: all 0.5s var(--ease);
 }
 
 .testimonial-card:hover {
   transform: translateY(-8px);
-  border-color: var(--gold);
+  border-color: var(--bronze);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .testimonial-stars {
-  color: var(--gold);
-  font-size: 20px;
+  color: var(--bronze-light);
+  font-size: 16px;
   margin-bottom: 24px;
+  letter-spacing: 4px;
 }
 
 .testimonial-text {
-  font-size: 17px;
-  line-height: 1.8;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  line-height: 1.6;
   color: var(--white);
   margin-bottom: 32px;
   font-style: italic;
+  font-weight: 300;
 }
 
 .testimonial-author {
   display: flex;
   align-items: center;
   gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .testimonial-avatar {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--gold);
 }
 
 .testimonial-info h4 {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--white);
+  margin-bottom: 2px;
 }
 
 .testimonial-info span {
-  font-size: 12px;
-  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.1em;
 }
 
 /* =========================================
-   BOOKING (Consultation Form)
+   BOOKING
    ========================================= */
 .booking {
   padding: 140px 0;
-  background: var(--beige);
+  background: var(--ivory);
 }
 
 .booking-grid {
@@ -656,21 +786,22 @@ header.scrolled {
 .booking-note {
   margin-top: 48px;
   padding-top: 32px;
-  border-top: 1px solid rgba(107, 93, 79, 0.2);
+  border-top: 1px solid var(--stone);
 }
 
 .booking-note strong {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 24px;
   color: var(--charcoal);
   margin-bottom: 12px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .booking-note p {
   font-size: 15px;
   margin-bottom: 24px;
+  font-weight: 300;
 }
 
 .booking-form {
@@ -678,52 +809,55 @@ header.scrolled {
   grid-template-columns: 1fr 1fr;
   gap: 32px 24px;
   background: var(--white);
-  padding: 48px;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(44, 40, 36, 0.1);
+  padding: 56px;
+  border-radius: 4px;
+  border: 1px solid var(--cream);
 }
 
 .field { display: flex; flex-direction: column; gap: 12px; }
 .field.full { grid-column: 1 / -1; }
 
 .field label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--brown);
+  color: var(--bronze);
 }
 
 .field input, .field select, .field textarea {
-  background: var(--cream);
-  border: 1px solid var(--beige);
-  border-radius: 6px;
-  padding: 14px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--stone);
+  border-radius: 0;
+  padding: 12px 0;
   font-size: 15px;
   color: var(--charcoal);
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease;
+  font-weight: 300;
 }
 
 .field input::placeholder, .field textarea::placeholder {
-  color: var(--text-light);
+  color: var(--ash);
+  font-weight: 300;
 }
 
 .field input:focus, .field select:focus, .field textarea:focus {
-  border-color: var(--gold);
-  background: var(--white);
+  border-bottom-color: var(--charcoal);
 }
 
 .field textarea {
-  min-height: 120px;
+  min-height: 100px;
   resize: vertical;
 }
 
 .form-help {
   grid-column: 1 / -1;
-  font-size: 13px;
-  color: var(--text-light);
-  margin-top: 16px;
+  font-size: 12px;
+  color: var(--ash);
+  margin-top: 8px;
   line-height: 1.6;
+  font-weight: 300;
 }
 
 .booking-form .btn {
@@ -756,44 +890,37 @@ footer {
 .footer-brand p {
   font-size: 14px;
   line-height: 1.8;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
 }
 
 .footer-col h4 {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--bronze-light);
   margin-bottom: 24px;
 }
 
-.footer-col ul {
-  list-style: none;
-}
-
-.footer-col li {
-  margin-bottom: 12px;
-}
-
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; }
 .footer-col a {
   font-size: 14px;
   color: rgba(255,255,255,0.6);
-  transition: color 0.3s ease;
+  font-weight: 300;
 }
-
-.footer-col a:hover {
-  color: var(--white);
-}
+.footer-col a:hover { color: var(--white); }
 
 .footer-bottom {
   padding-top: 40px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
+  font-weight: 300;
 }
 
 /* =========================================
@@ -807,7 +934,7 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 40px;
-  background: rgba(44, 40, 36, 0.95);
+  background: rgba(26, 26, 26, 0.96);
   backdrop-filter: blur(10px);
 }
 
@@ -817,19 +944,19 @@ footer {
   max-width: 90vw;
   max-height: 85vh;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .lightbox-close {
   position: absolute;
   top: 30px; right: 40px;
   background: transparent;
-  border: 2px solid var(--white);
+  border: 1px solid rgba(255,255,255,0.5);
   color: var(--white);
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  font-size: 28px;
+  font-size: 24px;
   transition: all 0.3s ease;
 }
 
@@ -847,6 +974,7 @@ footer {
   .video-grid { grid-template-columns: 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .slide { flex: 0 0 calc(85% - 12px); }
 }
 
 @media (max-width: 850px) {
@@ -854,7 +982,7 @@ footer {
   .nav-links {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--cream);
+    background: var(--ivory);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -864,17 +992,18 @@ footer {
     z-index: 99;
   }
   .nav-links.open { transform: translateX(0); }
-  .nav-links a { font-size: 18px; font-family: 'Playfair Display', serif; }
+  .nav-links a { font-size: 16px; font-family: 'Cormorant Garamond', serif; letter-spacing: 0.15em; }
   
-  .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 300px; }
+  .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 260px; }
   .gallery-item { grid-column: span 1 !important; grid-row: span 1 !important; }
-  .gallery-overlay { opacity: 1; }
+  .gallery-item.featured-3d { animation: none; }
+  .gallery-overlay { opacity: 1; transform: translateY(0); }
   
-  .slideshow-container { height: 50vh; }
-  .slide-caption { bottom: 30px; left: 30px; right: 30px; padding: 24px; }
-  .slide-caption h3 { font-size: 24px; }
+  .slide { flex: 0 0 calc(90% - 12px); height: 60vh; min-height: 400px; }
+  .slide-caption { bottom: 24px; left: 24px; right: 24px; }
+  .slide-caption h3 { font-size: 26px; }
   
-  .booking-form { grid-template-columns: 1fr; padding: 32px 24px; }
+  .booking-form { grid-template-columns: 1fr; padding: 40px 28px; }
   .field.full { grid-column: 1; }
   
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -883,9 +1012,10 @@ footer {
 
 @media (max-width: 540px) {
   .gallery { grid-template-columns: 1fr; }
+  .slideshow-header { flex-direction: column; align-items: flex-start; }
 }
 
-::selection { background: var(--gold); color: var(--white); }
+::selection { background: var(--bronze); color: var(--white); }
 </style>
 </head>
 
@@ -919,58 +1049,81 @@ footer {
     </div>
   </section>
 
-  <!-- SLIDESHOW -->
+  <!-- HORIZONTAL SLIDESHOW -->
   <section class="slideshow">
     <div class="wrap">
-      <div class="section-header reveal">
-        <span class="eyebrow">Featured Interiors</span>
-        <h2>Signature<br><em>spaces.</em></h2>
-      </div>
-
-      <div class="slideshow-container" id="slideshow">
-        <div class="slide active">
-          <img src="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=2000&q=90" alt="Modern living room">
-          <div class="slide-caption">
-            <h3>Modern Serenity</h3>
-            <span>Living Room Design</span>
-          </div>
+      <div class="slideshow-header reveal">
+        <div>
+          <span class="eyebrow">Featured Interiors</span>
+          <h2>Signature<br><em>spaces.</em></h2>
         </div>
-        <div class="slide">
-          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=90" alt="Luxury bedroom">
-          <div class="slide-caption">
-            <h3>Tranquil Retreat</h3>
-            <span>Master Bedroom</span>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=90" alt="Elegant kitchen">
-          <div class="slide-caption">
-            <h3>Culinary Elegance</h3>
-            <span>Kitchen Design</span>
-          </div>
+        <div class="slideshow-controls">
+          <button class="slide-btn" id="prevSlide" aria-label="Previous">←</button>
+          <button class="slide-btn" id="nextSlide" aria-label="Next">→</button>
         </div>
       </div>
 
-      <div class="slideshow-controls">
-        <button class="slide-btn" id="prevSlide" aria-label="Previous">←</button>
-        <button class="slide-btn" id="nextSlide" aria-label="Next">→</button>
+      <div class="slideshow-viewport" style="overflow: hidden;">
+        <div class="slideshow-track" id="slideshowTrack">
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=2000&q=90" alt="Modern living room">
+            <div class="slide-caption">
+              <h3>Modern Serenity</h3>
+              <span>Living Room · Yerevan</span>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=90" alt="Luxury bedroom">
+            <div class="slide-caption">
+              <h3>Tranquil Retreat</h3>
+              <span>Master Bedroom · Kentron</span>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=90" alt="Elegant kitchen">
+            <div class="slide-caption">
+              <h3>Culinary Elegance</h3>
+              <span>Kitchen Design · Cascade</span>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=90" alt="Luxury bathroom">
+            <div class="slide-caption">
+              <h3>Spa Sanctuary</h3>
+              <span>Bathroom · Northern Ave</span>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=90" alt="Dining room">
+            <div class="slide-caption">
+              <h3>Elegant Gatherings</h3>
+              <span>Dining Room · Komitas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-counter">
+        <span class="current" id="slideCurrentNum">01</span>
+        <span class="divider"></span>
+        <span id="slideTotalNum">05</span>
       </div>
     </div>
   </section>
 
-  <!-- PARALLAX EXPERIENCE -->
+  <!-- PARALLAX -->
   <section class="parallax-section">
     <div class="parallax-bg">
       <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=90" alt="Luxury bathroom">
     </div>
     <div class="parallax-content reveal">
-      <span class="eyebrow">The Experience</span>
+      <span class="eyebrow" style="color: rgba(255,255,255,0.8);">The Experience</span>
       <h2>Where vision<br><em>meets craft.</em></h2>
       <p>Every space we create is a reflection of your lifestyle, your dreams, and your unique story. We don't just design rooms — we create experiences.</p>
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS (with 3D first item) -->
   <section class="projects" id="projects">
     <div class="wrap">
       <div class="section-header reveal">
@@ -979,11 +1132,13 @@ footer {
       </div>
 
       <div class="gallery">
-        <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90">
-          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85" alt="Living room" loading="lazy">
+        <!-- 3D FEATURED ITEM -->
+        <button class="gallery-item featured-3d reveal" data-full="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90">
+          <span class="featured-label">Featured · 3D Tour</span>
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85" alt="Featured living room" loading="lazy">
           <div class="gallery-overlay">
             <h3>Urban Sanctuary</h3>
-            <span>Living Room</span>
+            <span>Living Room · Interactive Tour</span>
           </div>
         </button>
 
@@ -1101,7 +1256,7 @@ footer {
         <h2>Design with<br><em>intention.</em></h2>
         <p>At Atelier Lumière, we believe that great design is invisible — it simply feels right. Every space we create is a harmony of form and function, beauty and comfort.</p>
         <p>With over a decade of experience transforming houses into homes and spaces into sanctuaries, we bring a refined eye and deep passion to every project. Your vision, our expertise — together, we create something extraordinary.</p>
-        <a class="btn" href="#booking" style="margin-top: 32px;">Start Your Project</a>
+        <a class="btn btn-dark" href="#booking" style="margin-top: 32px;">Start Your Project</a>
       </div>
     </div>
   </section>
@@ -1154,7 +1309,7 @@ footer {
     </div>
   </section>
 
-  <!-- BOOKING (Consultation) -->
+  <!-- BOOKING -->
   <section class="booking" id="booking">
     <div class="wrap booking-grid">
       <div class="booking-copy reveal">
@@ -1215,7 +1370,7 @@ footer {
 
         <p class="form-help">Submitting this form does not confirm your consultation. We'll reach out via WhatsApp to confirm availability and discuss your project.</p>
 
-        <button class="btn" type="submit">Request Consultation via WhatsApp ↗</button>
+        <button class="btn btn-dark" type="submit">Request Consultation via WhatsApp ↗</button>
       </form>
     </div>
   </section>
@@ -1294,29 +1449,51 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Slideshow
+// =========================================
+// HORIZONTAL SLIDESHOW (Left to Right)
+// =========================================
+const track = document.getElementById('slideshowTrack');
 const slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
+const currentNum = document.getElementById('slideCurrentNum');
+const totalNum = document.getElementById('slideTotalNum');
+let currentIndex = 0;
+const totalSlides = slides.length;
 
-function showSlide(index) {
-  slides.forEach(s => s.classList.remove('active'));
-  slides[index].classList.add('active');
+totalNum.textContent = String(totalSlides).padStart(2, '0');
+
+function updateSlideshow() {
+  const slideWidth = slides[0].offsetWidth + 24; // width + gap
+  const offset = -currentIndex * slideWidth;
+  track.style.transform = `translateX(${offset}px)`;
+  currentNum.textContent = String(currentIndex + 1).padStart(2, '0');
 }
 
 document.getElementById('nextSlide').addEventListener('click', () => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
+  currentIndex = (currentIndex + 1) % totalSlides;
+  updateSlideshow();
 });
 
 document.getElementById('prevSlide').addEventListener('click', () => {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
+  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+  updateSlideshow();
 });
 
-setInterval(() => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}, 5000);
+// Auto-advance every 6 seconds
+let autoSlide = setInterval(() => {
+  currentIndex = (currentIndex + 1) % totalSlides;
+  updateSlideshow();
+}, 6000);
+
+// Pause on hover
+track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+track.addEventListener('mouseleave', () => {
+  autoSlide = setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlideshow();
+  }, 6000);
+});
+
+window.addEventListener('resize', updateSlideshow);
 
 // Mobile menu
 const menuToggle = document.getElementById("menuToggle");
