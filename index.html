@@ -49,9 +49,6 @@ button, input, select, textarea { font: inherit; color: inherit; border: none; o
   padding: 0 6vw;
 }
 
-/* =========================================
-   TYPOGRAPHY
-   ========================================= */
 .eyebrow {
   font-family: 'Jost', sans-serif;
   font-size: 10px;
@@ -76,9 +73,6 @@ h3 { font-size: 1.75rem; font-weight: 400; }
 
 p { color: var(--ash); max-width: 60ch; }
 
-/* =========================================
-   ANIMATIONS
-   ========================================= */
 .reveal {
   opacity: 0;
   transform: translateY(50px);
@@ -86,9 +80,6 @@ p { color: var(--ash); max-width: 60ch; }
 }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-/* =========================================
-   HEADER
-   ========================================= */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -164,9 +155,6 @@ header.scrolled {
   color: var(--charcoal);
 }
 
-/* =========================================
-   BUTTONS
-   ========================================= */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -210,9 +198,6 @@ header.scrolled {
 .btn-dark::before { background: var(--charcoal); }
 .btn-dark:hover { color: var(--white); }
 
-/* =========================================
-   HERO
-   ========================================= */
 .hero {
   height: 100vh;
   position: relative;
@@ -277,9 +262,6 @@ header.scrolled {
   font-weight: 300;
 }
 
-/* =========================================
-   HORIZONTAL SLIDESHOW
-   ========================================= */
 .slideshow {
   padding: 140px 0 100px;
   background: var(--ivory);
@@ -400,9 +382,6 @@ header.scrolled {
   background: var(--stone);
 }
 
-/* =========================================
-   PARALLAX
-   ========================================= */
 .parallax-section {
   position: relative;
   height: 80vh;
@@ -442,9 +421,6 @@ header.scrolled {
   font-weight: 300;
 }
 
-/* =========================================
-   PROJECTS GALLERY — OFFSET BOTTOM-LEFT CAPTIONS
-   ========================================= */
 .projects {
   padding: 140px 0;
   background: var(--cream);
@@ -486,7 +462,6 @@ header.scrolled {
 
 .gallery-item:hover img { transform: scale(1.06); }
 
-/* Gradient overlay — only bottom half */
 .gallery-item::after {
   content: '';
   position: absolute;
@@ -501,7 +476,6 @@ header.scrolled {
 
 .gallery-item:hover::after { opacity: 1; }
 
-/* CAPTION — OFFSET BOTTOM-LEFT */
 .gallery-overlay {
   position: absolute;
   bottom: 20px;
@@ -575,9 +549,6 @@ header.scrolled {
   backdrop-filter: blur(10px);
 }
 
-/* =========================================
-   3D FEATURED ITEM
-   ========================================= */
 .gallery-item.featured-3d {
   transform-style: preserve-3d;
   animation: float3D 8s ease-in-out infinite;
@@ -638,9 +609,6 @@ header.scrolled {
   transform: rotateX(5deg) rotateY(-5deg) translateZ(30px) scale(1.02);
 }
 
-/* =========================================
-   VIDEOS (Expanded)
-   ========================================= */
 .videos {
   padding: 140px 0;
   background: var(--ivory);
@@ -673,31 +641,6 @@ header.scrolled {
   object-fit: cover;
 }
 
-.video-frame::after {
-  content: '▶';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
-  border: 2px solid rgba(255,255,255,0.8);
-  border-radius: 50%;
-  background: rgba(26,26,26,0.4);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 20px;
-  padding-left: 4px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.video-frame:hover::after { opacity: 1; }
-
 .video-caption {
   margin-top: 20px;
   display: flex;
@@ -721,15 +664,6 @@ header.scrolled {
   color: var(--ash);
 }
 
-.video-caption .video-meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* =========================================
-   ABOUT
-   ========================================= */
 .about {
   padding: 140px 0;
   background: var(--cream);
@@ -762,9 +696,6 @@ header.scrolled {
   font-weight: 300;
 }
 
-/* =========================================
-   TESTIMONIALS
-   ========================================= */
 .testimonials {
   padding: 140px 0;
   background: var(--charcoal);
@@ -842,9 +773,6 @@ header.scrolled {
   letter-spacing: 0.1em;
 }
 
-/* =========================================
-   BLOG SECTION
-   ========================================= */
 .blog {
   padding: 140px 0;
   background: var(--ivory);
@@ -935,9 +863,6 @@ header.scrolled {
 
 .blog-card:hover .blog-read-more { gap: 14px; }
 
-/* =========================================
-   VISIT US / WORKING HOURS / CONTACT
-   ========================================= */
 .visit {
   padding: 140px 0;
   background: var(--cream);
@@ -1051,9 +976,6 @@ header.scrolled {
   border-color: var(--charcoal);
 }
 
-/* =========================================
-   BOOKING
-   ========================================= */
 .booking {
   padding: 140px 0;
   background: var(--ivory);
@@ -1149,9 +1071,6 @@ header.scrolled {
   margin-top: 16px;
 }
 
-/* =========================================
-   FOOTER
-   ========================================= */
 footer {
   background: var(--charcoal);
   color: rgba(255,255,255,0.6);
@@ -1206,9 +1125,6 @@ footer {
   font-weight: 300;
 }
 
-/* =========================================
-   LIGHTBOX
-   ========================================= */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -1248,9 +1164,100 @@ footer {
   color: var(--charcoal);
 }
 
-/* =========================================
-   RESPONSIVE
-   ========================================= */
+/* BLOG MODAL */
+.blog-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: rgba(26, 26, 26, 0.96);
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+}
+
+.blog-modal.open { display: flex; }
+
+.blog-modal-content {
+  background: var(--white);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  position: relative;
+}
+
+.blog-modal-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.blog-modal-body {
+  padding: 48px;
+}
+
+.blog-modal-category {
+  display: inline-block;
+  background: var(--cream);
+  color: var(--charcoal);
+  padding: 6px 14px;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.blog-modal-date {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.blog-modal-title {
+  font-size: 36px;
+  margin-bottom: 24px;
+  color: var(--charcoal);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.blog-modal-text {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--ash);
+  margin-bottom: 24px;
+}
+
+.blog-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--white);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.blog-modal-close:hover {
+  background: var(--charcoal);
+  color: var(--white);
+}
+
 @media (max-width: 1024px) {
   .about-grid, .booking-grid { grid-template-columns: 1fr; gap: 60px; }
   .about-image { height: 500px; }
@@ -1292,6 +1299,10 @@ footer {
   
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  
+  .blog-modal { padding: 20px; }
+  .blog-modal-body { padding: 32px 24px; }
+  .blog-modal-title { font-size: 28px; }
 }
 
 @media (max-width: 540px) {
@@ -1322,7 +1333,6 @@ footer {
 </header>
 
 <main>
-  <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-bg">
       <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=90" alt="Luxury interior">
@@ -1336,7 +1346,6 @@ footer {
     </div>
   </section>
 
-  <!-- HORIZONTAL SLIDESHOW -->
   <section class="slideshow">
     <div class="wrap">
       <div class="slideshow-header reveal">
@@ -1398,7 +1407,6 @@ footer {
     </div>
   </section>
 
-  <!-- PARALLAX -->
   <section class="parallax-section">
     <div class="parallax-bg">
       <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=90" alt="Luxury bathroom">
@@ -1410,7 +1418,6 @@ footer {
     </div>
   </section>
 
-  <!-- PROJECTS (Offset Bottom-Left Captions) -->
   <section class="projects" id="projects">
     <div class="wrap">
       <div class="section-header reveal">
@@ -1419,7 +1426,6 @@ footer {
       </div>
 
       <div class="gallery">
-        <!-- 3D FEATURED -->
         <button class="gallery-item featured-3d reveal" data-full="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90">
           <span class="featured-label">Featured · 3D Tour</span>
           <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85" alt="Featured living room" loading="lazy">
@@ -1568,7 +1574,6 @@ footer {
     </div>
   </section>
 
-  <!-- VIDEOS (Expanded) -->
   <section class="videos" id="videos">
     <div class="wrap">
       <div class="section-header reveal">
@@ -1580,7 +1585,7 @@ footer {
         <div class="video-card reveal">
           <div class="video-frame">
             <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80">
-              <source src="videos/kentron-apartment-tour.mp4" type="video/mp4">
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
             </video>
           </div>
           <div class="video-caption">
@@ -1596,7 +1601,7 @@ footer {
         <div class="video-card reveal">
           <div class="video-frame">
             <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=1200&q=80">
-              <source src="videos/design-process-horizontal.mp4" type="video/mp4">
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
             </video>
           </div>
           <div class="video-caption">
@@ -1612,7 +1617,7 @@ footer {
         <div class="video-card reveal">
           <div class="video-frame">
             <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80">
-              <source src="videos/kitchen-renovation.mp4" type="video/mp4">
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlaze.mp4" type="video/mp4">
             </video>
           </div>
           <div class="video-caption">
@@ -1628,7 +1633,7 @@ footer {
         <div class="video-card reveal">
           <div class="video-frame vertical">
             <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80">
-              <source src="videos/bathroom-details-vertical.mp4" type="video/mp4">
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" type="video/mp4">
             </video>
           </div>
           <div class="video-caption">
@@ -1644,7 +1649,6 @@ footer {
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section class="about" id="about">
     <div class="wrap about-grid">
       <div class="about-image reveal">
@@ -1660,7 +1664,6 @@ footer {
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
   <section class="testimonials" id="testimonials">
     <div class="wrap">
       <div class="section-header reveal">
@@ -1708,7 +1711,6 @@ footer {
     </div>
   </section>
 
-  <!-- BLOG / JOURNAL -->
   <section class="blog" id="blog">
     <div class="wrap">
       <div class="section-header reveal">
@@ -1717,7 +1719,7 @@ footer {
       </div>
 
       <div class="blog-grid">
-        <article class="blog-card reveal">
+        <article class="blog-card reveal" data-article="1">
           <div class="blog-image">
             <span class="blog-category">Trends</span>
             <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85" alt="Bedroom trends" loading="lazy">
@@ -1730,7 +1732,7 @@ footer {
           </div>
         </article>
 
-        <article class="blog-card reveal">
+        <article class="blog-card reveal" data-article="2">
           <div class="blog-image">
             <span class="blog-category">Case Study</span>
             <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Kitchen case study" loading="lazy">
@@ -1743,7 +1745,7 @@ footer {
           </div>
         </article>
 
-        <article class="blog-card reveal">
+        <article class="blog-card reveal" data-article="3">
           <div class="blog-image">
             <span class="blog-category">Tips</span>
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85" alt="Lighting tips" loading="lazy">
@@ -1759,7 +1761,6 @@ footer {
     </div>
   </section>
 
-  <!-- VISIT US / HOURS / CONTACT -->
   <section class="visit" id="visit">
     <div class="wrap">
       <div class="section-header reveal">
@@ -1822,7 +1823,6 @@ footer {
     </div>
   </section>
 
-  <!-- BOOKING -->
   <section class="booking" id="booking">
     <div class="wrap booking-grid">
       <div class="booking-copy reveal">
@@ -1935,16 +1935,28 @@ footer {
   </div>
 </footer>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
   <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
   <img id="lightboxImage" src="" alt="Project preview">
 </div>
 
+<!-- BLOG MODAL -->
+<div class="blog-modal" id="blogModal">
+  <div class="blog-modal-content">
+    <button class="blog-modal-close" id="blogModalClose">×</button>
+    <img class="blog-modal-image" id="blogModalImage" src="" alt="Article">
+    <div class="blog-modal-body">
+      <span class="blog-modal-category" id="blogModalCategory"></span>
+      <span class="blog-modal-date" id="blogModalDate"></span>
+      <h2 class="blog-modal-title" id="blogModalTitle"></h2>
+      <div class="blog-modal-text" id="blogModalText"></div>
+    </div>
+  </div>
+</div>
+
 <script>
 const WHATSAPP_NUMBER = "37493606691";
 
-// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1956,13 +1968,11 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Header scroll
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Horizontal Slideshow
 const track = document.getElementById('slideshowTrack');
 const slides = document.querySelectorAll('.slide');
 const currentNum = document.getElementById('slideCurrentNum');
@@ -2004,7 +2014,6 @@ track.addEventListener('mouseleave', () => {
 
 window.addEventListener('resize', updateSlideshow);
 
-// Mobile menu
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
@@ -2020,7 +2029,6 @@ navLinks.querySelectorAll("a").forEach(link => {
   });
 });
 
-// Lightbox
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxClose = document.getElementById("lightboxClose");
@@ -2042,7 +2050,6 @@ lightboxClose.addEventListener("click", closeLightbox);
 lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
 
-// Booking form
 const dateInput = document.getElementById("consultationDate");
 const today = new Date();
 dateInput.min = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, "0"), String(today.getDate()).padStart(2, "0")].join("-");
@@ -2073,9 +2080,29 @@ document.getElementById("bookingForm").addEventListener("submit", event => {
   window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
 });
 
-// Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
-</body>
-</html>
+// BLOG MODAL
+const blogArticles = {
+  1: {
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=90",
+    category: "Trends",
+    date: "October 15, 2026",
+    title: "The Return of Warm Neutrals in 2026",
+    content: `
+      <p>In 2026, we're witnessing a beautiful shift back to warmth and comfort in interior design. After years of cool grays and stark whites, homeowners are embracing the soothing embrace of taupe, terracotta, and soft beige.</p>
+      <p>These warm neutrals create spaces that feel inviting, grounded, and timeless. They work beautifully with natural materials like oak, walnut, and linen, creating interiors that feel both luxurious and livable.</p>
+      <p>The key to mastering this trend is layering. Start with a warm neutral base — perhaps a taupe wall or beige sofa — then add depth with textured throws, terracotta ceramics, and natural wood accents. The result is a space that feels curated, not decorated.</p>
+      <p>At Atelier Lumière, we've seen this trend firsthand in our recent projects. Our Cascade kitchen renovation featured warm oak cabinets against soft beige walls, creating a space that feels both modern and timeless. The result? A kitchen that the clients describe as "the heart of our home."</p>
+      <p>If you're considering a redesign, consider how warm neutrals might work in your space. They're versatile, calming, and — most importantly — they make a house feel like home.</p>
+    `
+  },
+  2: {
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=90",
+    category: "Case Study",
+    date: "September 28, 2026",
+    title: "From Dark to Light: A Cascade Kitchen Transformation",
+    content: `
+      <p>When our clients first contacted us, their Cascade kitchen felt closed in and dated. Dark cabinets, poor lighting, and an inefficient layout made cooking a chore rather than a joy.</p>
+      <p>Our goal was simple: transform this 38m² space into a bright, functional heart of the home. We started by removing the upper cabinets and replacing them with open shelving, instantly making the space feel larger and more airy.</p>
+      <p>We chose warm oak for the lower cabinets, paired with Carrara marble countertops and a
