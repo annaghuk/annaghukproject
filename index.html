@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#F5F1EA">
-<meta name="description" content="Atelier Lumière — Refined luxury interior design in Yerevan. Timeless spaces, crafted with intention.">
-<title>Atelier Lumière | Luxury Interior Design · Yerevan</title>
+<meta name="description" content="Atelier Lumière — Refined luxury interior design. Timeless spaces, crafted with intention.">
+<title>Atelier Lumière | Luxury Interior Design</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,6 +49,9 @@ button, input, select, textarea { font: inherit; color: inherit; border: none; o
   padding: 0 6vw;
 }
 
+/* =========================================
+   TYPOGRAPHY (Refined & Delicate)
+   ========================================= */
 .eyebrow {
   font-family: 'Jost', sans-serif;
   font-size: 10px;
@@ -73,6 +76,9 @@ h3 { font-size: 1.75rem; font-weight: 400; }
 
 p { color: var(--ash); max-width: 60ch; }
 
+/* =========================================
+   ANIMATIONS
+   ========================================= */
 .reveal {
   opacity: 0;
   transform: translateY(50px);
@@ -80,6 +86,9 @@ p { color: var(--ash); max-width: 60ch; }
 }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
+/* =========================================
+   HEADER
+   ========================================= */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -124,7 +133,7 @@ header.scrolled {
 
 .nav-links {
   display: flex;
-  gap: 40px;
+  gap: 44px;
 }
 
 .nav-links a {
@@ -155,6 +164,9 @@ header.scrolled {
   color: var(--charcoal);
 }
 
+/* =========================================
+   BUTTONS (Transparent & Delicate)
+   ========================================= */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -198,6 +210,9 @@ header.scrolled {
 .btn-dark::before { background: var(--charcoal); }
 .btn-dark:hover { color: var(--white); }
 
+/* =========================================
+   HERO
+   ========================================= */
 .hero {
   height: 100vh;
   position: relative;
@@ -262,6 +277,9 @@ header.scrolled {
   font-weight: 300;
 }
 
+/* =========================================
+   HORIZONTAL SLIDESHOW (Left to Right)
+   ========================================= */
 .slideshow {
   padding: 140px 0 100px;
   background: var(--ivory);
@@ -382,6 +400,9 @@ header.scrolled {
   background: var(--stone);
 }
 
+/* =========================================
+   PARALLAX SECTION
+   ========================================= */
 .parallax-section {
   position: relative;
   height: 80vh;
@@ -421,6 +442,9 @@ header.scrolled {
   font-weight: 300;
 }
 
+/* =========================================
+   PROJECTS GALLERY (with 3D first item)
+   ========================================= */
 .projects {
   padding: 140px 0;
   background: var(--cream);
@@ -462,32 +486,17 @@ header.scrolled {
 
 .gallery-item:hover img { transform: scale(1.06); }
 
-.gallery-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 60%;
-  background: linear-gradient(to top, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.4) 50%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.gallery-item:hover::after { opacity: 1; }
-
+/* Caption in bottom-left, NOT centered */
 .gallery-overlay {
   position: absolute;
-  bottom: 20px;
+  bottom: 24px;
   left: 24px;
   right: 24px;
   color: var(--white);
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(15px);
   transition: all 0.5s var(--ease);
   z-index: 2;
-  text-align: left;
-  pointer-events: none;
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -495,64 +504,38 @@ header.scrolled {
   transform: translateY(0);
 }
 
-.gallery-overlay .project-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
-  font-weight: 400;
-  margin-bottom: 8px;
-  line-height: 1.1;
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,26,26,0.75) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-.gallery-overlay .project-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
+.gallery-item:hover::after { opacity: 1; }
+
+.gallery-overlay h3 {
+  font-size: 24px;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.gallery-overlay span {
   font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 12px;
+  color: rgba(255,255,255,0.85);
 }
 
-.gallery-overlay .project-meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.gallery-overlay .project-meta span::before {
-  content: '·';
-  color: var(--bronze-light);
-  font-size: 14px;
-}
-
-.gallery-overlay .project-meta span:first-child::before {
-  display: none;
-}
-
-.gallery-overlay .project-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.gallery-overlay .project-tags span {
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 2px;
-  color: rgba(255,255,255,0.9);
-  backdrop-filter: blur(10px);
-}
-
+/* =========================================
+   3D VIDEO EFFECT (First Gallery Item)
+   ========================================= */
 .gallery-item.featured-3d {
   transform-style: preserve-3d;
   animation: float3D 8s ease-in-out infinite;
   box-shadow: 0 30px 60px rgba(26, 26, 26, 0.25);
+  position: relative;
 }
 
 .gallery-item.featured-3d::before {
@@ -575,6 +558,7 @@ header.scrolled {
   padding-left: 4px;
   z-index: 3;
   transition: all 0.4s var(--ease);
+  cursor: pointer;
 }
 
 .gallery-item.featured-3d:hover::before {
@@ -598,10 +582,18 @@ header.scrolled {
 }
 
 @keyframes float3D {
-  0%, 100% { transform: rotateX(0) rotateY(0) translateZ(0); }
-  25% { transform: rotateX(2deg) rotateY(-3deg) translateZ(20px); }
-  50% { transform: rotateX(-1deg) rotateY(2deg) translateZ(15px); }
-  75% { transform: rotateX(1deg) rotateY(-2deg) translateZ(10px); }
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+  }
+  25% {
+    transform: rotateX(2deg) rotateY(-3deg) translateZ(20px);
+  }
+  50% {
+    transform: rotateX(-1deg) rotateY(2deg) translateZ(15px);
+  }
+  75% {
+    transform: rotateX(1deg) rotateY(-2deg) translateZ(10px);
+  }
 }
 
 .gallery-item.featured-3d:hover {
@@ -609,6 +601,9 @@ header.scrolled {
   transform: rotateX(5deg) rotateY(-5deg) translateZ(30px) scale(1.02);
 }
 
+/* =========================================
+   VIDEOS
+   ========================================= */
 .videos {
   padding: 140px 0;
   background: var(--ivory);
@@ -616,13 +611,9 @@ header.scrolled {
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px;
   margin-top: 60px;
-}
-
-.video-card {
-  position: relative;
 }
 
 .video-frame {
@@ -630,10 +621,7 @@ header.scrolled {
   overflow: hidden;
   border-radius: 4px;
   background: var(--charcoal);
-  aspect-ratio: 16/9;
 }
-
-.video-frame.vertical { aspect-ratio: 9/16; max-height: 500px; }
 
 .video-frame video {
   width: 100%;
@@ -641,29 +629,33 @@ header.scrolled {
   object-fit: cover;
 }
 
+.video-frame.vertical { aspect-ratio: 9/16; max-height: 650px; }
+.video-frame.horizontal { aspect-ratio: 16/9; }
+
 .video-caption {
-  margin-top: 20px;
+  margin-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 0 4px;
 }
 
 .video-caption h3 {
-  font-size: 22px;
+  font-size: 24px;
   color: var(--charcoal);
   font-weight: 400;
 }
 
-.video-caption .video-meta {
-  display: flex;
-  gap: 16px;
+.video-caption span {
   font-size: 10px;
-  letter-spacing: 0.2em;
+  font-weight: 500;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--ash);
+  color: var(--bronze);
 }
 
+/* =========================================
+   ABOUT
+   ========================================= */
 .about {
   padding: 140px 0;
   background: var(--cream);
@@ -696,6 +688,9 @@ header.scrolled {
   font-weight: 300;
 }
 
+/* =========================================
+   TESTIMONIALS
+   ========================================= */
 .testimonials {
   padding: 140px 0;
   background: var(--charcoal);
@@ -773,209 +768,9 @@ header.scrolled {
   letter-spacing: 0.1em;
 }
 
-.blog {
-  padding: 140px 0;
-  background: var(--ivory);
-}
-
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 60px;
-}
-
-.blog-card {
-  cursor: pointer;
-  transition: transform 0.5s var(--ease);
-}
-
-.blog-card:hover { transform: translateY(-8px); }
-
-.blog-image {
-  position: relative;
-  height: 320px;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 24px;
-}
-
-.blog-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease);
-}
-
-.blog-card:hover .blog-image img { transform: scale(1.05); }
-
-.blog-category {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: var(--white);
-  color: var(--charcoal);
-  padding: 6px 14px;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  border-radius: 2px;
-}
-
-.blog-content .blog-date {
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--bronze);
-  margin-bottom: 12px;
-  display: block;
-}
-
-.blog-content h3 {
-  font-size: 26px;
-  margin-bottom: 12px;
-  color: var(--charcoal);
-  font-weight: 400;
-  line-height: 1.2;
-  transition: color 0.3s ease;
-}
-
-.blog-card:hover .blog-content h3 { color: var(--bronze); }
-
-.blog-content p {
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-
-.blog-read-more {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--charcoal);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: gap 0.3s ease;
-}
-
-.blog-card:hover .blog-read-more { gap: 14px; }
-
-.visit {
-  padding: 140px 0;
-  background: var(--cream);
-}
-
-.visit-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 60px;
-  margin-top: 60px;
-}
-
-.visit-block h3 {
-  font-size: 24px;
-  margin-bottom: 24px;
-  color: var(--charcoal);
-  font-weight: 400;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--stone);
-}
-
-.visit-block p,
-.visit-block li {
-  font-size: 15px;
-  line-height: 1.9;
-  color: var(--ash);
-  font-weight: 300;
-}
-
-.visit-block ul {
-  list-style: none;
-}
-
-.visit-block li {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(212, 201, 184, 0.5);
-}
-
-.visit-block li:last-child { border-bottom: none; }
-
-.visit-block li span:first-child {
-  color: var(--charcoal);
-  font-weight: 400;
-}
-
-.visit-block .contact-item {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 20px;
-  align-items: flex-start;
-}
-
-.visit-block .contact-item .icon {
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--stone);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  color: var(--bronze);
-  flex-shrink: 0;
-}
-
-.visit-block .contact-item .info {
-  flex: 1;
-}
-
-.visit-block .contact-item .info .label {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--bronze);
-  margin-bottom: 4px;
-  display: block;
-}
-
-.visit-block .contact-item .info .value {
-  font-size: 15px;
-  color: var(--charcoal);
-  font-weight: 400;
-}
-
-.visit-block .contact-item .info .value a:hover { color: var(--bronze); }
-
-.social-links {
-  display: flex;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.social-links a {
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--stone);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: var(--charcoal);
-  transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-  background: var(--charcoal);
-  color: var(--white);
-  border-color: var(--charcoal);
-}
-
+/* =========================================
+   BOOKING
+   ========================================= */
 .booking {
   padding: 140px 0;
   background: var(--ivory);
@@ -1071,6 +866,9 @@ header.scrolled {
   margin-top: 16px;
 }
 
+/* =========================================
+   FOOTER
+   ========================================= */
 footer {
   background: var(--charcoal);
   color: rgba(255,255,255,0.6);
@@ -1125,6 +923,9 @@ footer {
   font-weight: 300;
 }
 
+/* =========================================
+   LIGHTBOX
+   ========================================= */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -1164,106 +965,14 @@ footer {
   color: var(--charcoal);
 }
 
-/* BLOG MODAL */
-.blog-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 1001;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  background: rgba(26, 26, 26, 0.96);
-  backdrop-filter: blur(10px);
-  overflow-y: auto;
-}
-
-.blog-modal.open { display: flex; }
-
-.blog-modal-content {
-  background: var(--white);
-  max-width: 800px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  border-radius: 8px;
-  position: relative;
-}
-
-.blog-modal-image {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 8px 8px 0 0;
-}
-
-.blog-modal-body {
-  padding: 48px;
-}
-
-.blog-modal-category {
-  display: inline-block;
-  background: var(--cream);
-  color: var(--charcoal);
-  padding: 6px 14px;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  border-radius: 2px;
-  margin-bottom: 16px;
-}
-
-.blog-modal-date {
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--bronze);
-  margin-bottom: 12px;
-  display: block;
-}
-
-.blog-modal-title {
-  font-size: 36px;
-  margin-bottom: 24px;
-  color: var(--charcoal);
-  font-weight: 400;
-  line-height: 1.2;
-}
-
-.blog-modal-text {
-  font-size: 16px;
-  line-height: 1.9;
-  color: var(--ash);
-  margin-bottom: 24px;
-}
-
-.blog-modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: var(--white);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.blog-modal-close:hover {
-  background: var(--charcoal);
-  color: var(--white);
-}
-
+/* =========================================
+   RESPONSIVE
+   ========================================= */
 @media (max-width: 1024px) {
   .about-grid, .booking-grid { grid-template-columns: 1fr; gap: 60px; }
   .about-image { height: 500px; }
   .video-grid { grid-template-columns: 1fr; }
-  .testimonials-grid, .blog-grid { grid-template-columns: 1fr; }
-  .visit-grid { grid-template-columns: 1fr; gap: 48px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .slide { flex: 0 0 calc(85% - 12px); }
 }
@@ -1299,16 +1008,11 @@ footer {
   
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-  
-  .blog-modal { padding: 20px; }
-  .blog-modal-body { padding: 32px 24px; }
-  .blog-modal-title { font-size: 28px; }
 }
 
 @media (max-width: 540px) {
   .gallery { grid-template-columns: 1fr; }
   .slideshow-header { flex-direction: column; align-items: flex-start; }
-  .gallery-overlay .project-title { font-size: 20px; }
 }
 
 ::selection { background: var(--bronze); color: var(--white); }
@@ -1323,29 +1027,29 @@ footer {
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
     <div class="nav-links" id="navLinks">
       <a href="#projects">Projects</a>
-      <a href="#videos">Films</a>
       <a href="#about">About</a>
-      <a href="#blog">Journal</a>
-      <a href="#visit">Visit</a>
+      <a href="#testimonials">Reviews</a>
       <a href="#booking">Consultation</a>
     </div>
   </nav>
 </header>
 
 <main>
+  <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-bg">
       <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=90" alt="Luxury interior">
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
-      <span class="eyebrow">Luxury Interior Design · Yerevan</span>
+      <span class="eyebrow">Luxury Interior Design</span>
       <h1>Spaces that<br><em>inspire.</em></h1>
       <p>Timeless interiors crafted with intention. Where elegance meets comfort, and every detail tells your story.</p>
       <a class="btn" href="#booking">Book Consultation</a>
     </div>
   </section>
 
+  <!-- HORIZONTAL SLIDESHOW -->
   <section class="slideshow">
     <div class="wrap">
       <div class="slideshow-header reveal">
@@ -1407,6 +1111,7 @@ footer {
     </div>
   </section>
 
+  <!-- PARALLAX -->
   <section class="parallax-section">
     <div class="parallax-bg">
       <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=90" alt="Luxury bathroom">
@@ -1418,6 +1123,7 @@ footer {
     </div>
   </section>
 
+  <!-- PROJECTS (with 3D first item) -->
   <section class="projects" id="projects">
     <div class="wrap">
       <div class="section-header reveal">
@@ -1426,155 +1132,85 @@ footer {
       </div>
 
       <div class="gallery">
+        <!-- 3D FEATURED ITEM -->
         <button class="gallery-item featured-3d reveal" data-full="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90">
           <span class="featured-label">Featured · 3D Tour</span>
           <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85" alt="Featured living room" loading="lazy">
           <div class="gallery-overlay">
-            <div class="project-title">Urban Sanctuary</div>
-            <div class="project-meta">
-              <span>Kentron, Yerevan</span>
-              <span>180 m²</span>
-              <span>2025</span>
-            </div>
-            <div class="project-tags">
-              <span>Modern</span>
-              <span>Interactive Tour</span>
-            </div>
+            <h3>Urban Sanctuary</h3>
+            <span>Living Room · Interactive Tour</span>
           </div>
         </button>
 
         <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=2200&q=90">
           <img src="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=900&q=85" alt="Modern interior" loading="lazy">
           <div class="gallery-overlay">
-            <div class="project-title">Minimalist Haven</div>
-            <div class="project-meta">
-              <span>Arabkir</span>
-              <span>95 m²</span>
-              <span>2024</span>
-            </div>
-            <div class="project-tags">
-              <span>Minimalist</span>
-              <span>Open Plan</span>
-            </div>
+            <h3>Minimalist Haven</h3>
+            <span>Open Plan</span>
           </div>
         </button>
 
         <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2200&q=90">
           <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85" alt="Bedroom" loading="lazy">
           <div class="gallery-overlay">
-            <div class="project-title">Serene Retreat</div>
-            <div class="project-meta">
-              <span>Kentron</span>
-              <span>42 m²</span>
-              <span>2025</span>
-            </div>
-            <div class="project-tags">
-              <span>Classic</span>
-              <span>Master Suite</span>
-            </div>
+            <h3>Serene Retreat</h3>
+            <span>Master Bedroom</span>
           </div>
         </button>
 
         <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90">
           <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Kitchen" loading="lazy">
           <div class="gallery-overlay">
-            <div class="project-title">Chef's Dream</div>
-            <div class="project-meta">
-              <span>Cascade</span>
-              <span>38 m²</span>
-              <span>2024</span>
-            </div>
-            <div class="project-tags">
-              <span>Contemporary</span>
-              <span>Marble</span>
-            </div>
+            <h3>Chef's Dream</h3>
+            <span>Kitchen Design</span>
           </div>
         </button>
 
         <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2200&q=90">
           <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=85" alt="Bathroom" loading="lazy">
           <div class="gallery-overlay">
-            <div class="project-title">Spa Sanctuary</div>
-            <div class="project-meta">
-              <span>Northern Ave</span>
-              <span>22 m²</span>
-              <span>2025</span>
-            </div>
-            <div class="project-tags">
-              <span>Luxury</span>
-              <span>Natural Stone</span>
-            </div>
+            <h3>Spa Sanctuary</h3>
+            <span>Bathroom</span>
           </div>
         </button>
 
         <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=90">
           <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85" alt="Dining room" loading="lazy">
           <div class="gallery-overlay">
-            <div class="project-title">Elegant Gatherings</div>
-            <div class="project-meta">
-              <span>Komitas</span>
-              <span>55 m²</span>
-              <span>2024</span>
-            </div>
-            <div class="project-tags">
-              <span>Classic</span>
-              <span>Walnut</span>
-            </div>
+            <h3>Elegant Gatherings</h3>
+            <span>Dining Room</span>
           </div>
         </button>
 
         <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=2200&q=90">
           <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=900&q=85" alt="Home office" loading="lazy">
           <div class="gallery-overlay">
-            <div class="project-title">Productive Space</div>
-            <div class="project-meta">
-              <span>Davidashen</span>
-              <span>28 m²</span>
-              <span>2025</span>
-            </div>
-            <div class="project-tags">
-              <span>Modern</span>
-              <span>Home Office</span>
-            </div>
+            <h3>Productive Space</h3>
+            <span>Home Office</span>
           </div>
         </button>
 
         <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=2200&q=90">
           <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=85" alt="Living space" loading="lazy">
           <div class="gallery-overlay">
-            <div class="project-title">Contemporary Comfort</div>
-            <div class="project-meta">
-              <span>Malatia</span>
-              <span>120 m²</span>
-              <span>2024</span>
-            </div>
-            <div class="project-tags">
-              <span>Scandinavian</span>
-              <span>Family</span>
-            </div>
+            <h3>Contemporary Comfort</h3>
+            <span>Living Area</span>
           </div>
         </button>
 
         <button class="gallery-item reveal" data-full="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=2200&q=90">
           <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=900&q=85" alt="Luxury space" loading="lazy">
           <div class="gallery-overlay">
-            <div class="project-title">Timeless Elegance</div>
-            <div class="project-meta">
-              <span>Kentron</span>
-              <span>240 m²</span>
-              <span>2025</span>
-            </div>
-            <div class="project-tags">
-              <span>Full Home</span>
-              <span>Bespoke</span>
-            </div>
+            <h3>Timeless Elegance</h3>
+            <span>Full Home</span>
           </div>
         </button>
       </div>
     </div>
   </section>
 
-  <section class="videos" id="videos">
+  <!-- VIDEOS -->
+  <section class="videos">
     <div class="wrap">
       <div class="section-header reveal">
         <span class="eyebrow">Behind the Design</span>
@@ -1583,72 +1219,33 @@ footer {
 
       <div class="video-grid">
         <div class="video-card reveal">
-          <div class="video-frame">
-            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80">
-              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="video-caption">
-            <h3>Kentron Apartment Tour</h3>
-            <div class="video-meta">
-              <span>4K</span>
-              <span>3:42</span>
-              <span>2025</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="video-card reveal">
-          <div class="video-frame">
-            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=1200&q=80">
-              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="video-caption">
-            <h3>Design Process</h3>
-            <div class="video-meta">
-              <span>4K</span>
-              <span>5:18</span>
-              <span>2024</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="video-card reveal">
-          <div class="video-frame">
-            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80">
-              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlaze.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="video-caption">
-            <h3>Kitchen Renovation</h3>
-            <div class="video-meta">
-              <span>4K</span>
-              <span>2:56</span>
-              <span>2025</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="video-card reveal">
           <div class="video-frame vertical">
-            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80">
-              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" type="video/mp4">
+            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80">
+              <source src="videos/interior-tour-vertical.mp4" type="video/mp4">
             </video>
           </div>
           <div class="video-caption">
-            <h3>Bathroom Details</h3>
-            <div class="video-meta">
-              <span>Vertical</span>
-              <span>1:24</span>
-              <span>2025</span>
-            </div>
+            <h3>Space Tour</h3>
+            <span>Vertical Film</span>
+          </div>
+        </div>
+
+        <div class="video-card reveal">
+          <div class="video-frame horizontal">
+            <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1616486338812-3dadae5b4458?auto=format&fit=crop&w=1200&q=80">
+              <source src="videos/design-process-horizontal.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">
+            <h3>Design Journey</h3>
+            <span>Horizontal Film</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section class="about" id="about">
     <div class="wrap about-grid">
       <div class="about-image reveal">
@@ -1664,6 +1261,7 @@ footer {
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
   <section class="testimonials" id="testimonials">
     <div class="wrap">
       <div class="section-header reveal">
@@ -1711,118 +1309,7 @@ footer {
     </div>
   </section>
 
-  <section class="blog" id="blog">
-    <div class="wrap">
-      <div class="section-header reveal">
-        <span class="eyebrow">The Journal</span>
-        <h2>Design stories<br><em>& insights.</em></h2>
-      </div>
-
-      <div class="blog-grid">
-        <article class="blog-card reveal" data-article="1">
-          <div class="blog-image">
-            <span class="blog-category">Trends</span>
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85" alt="Bedroom trends" loading="lazy">
-          </div>
-          <div class="blog-content">
-            <span class="blog-date">October 15, 2026</span>
-            <h3>The Return of Warm Neutrals in 2026</h3>
-            <p>Why taupe, terracotta, and soft beige are dominating luxury interiors this season — and how to layer them with intention.</p>
-            <span class="blog-read-more">Read article →</span>
-          </div>
-        </article>
-
-        <article class="blog-card reveal" data-article="2">
-          <div class="blog-image">
-            <span class="blog-category">Case Study</span>
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Kitchen case study" loading="lazy">
-          </div>
-          <div class="blog-content">
-            <span class="blog-date">September 28, 2026</span>
-            <h3>From Dark to Light: A Cascade Kitchen Transformation</h3>
-            <p>How we reimagined a 38m² kitchen into a bright, functional heart of the home using marble, oak, and brass details.</p>
-            <span class="blog-read-more">Read article →</span>
-          </div>
-        </article>
-
-        <article class="blog-card reveal" data-article="3">
-          <div class="blog-image">
-            <span class="blog-category">Tips</span>
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85" alt="Lighting tips" loading="lazy">
-          </div>
-          <div class="blog-content">
-            <span class="blog-date">September 10, 2026</span>
-            <h3>Layered Lighting: The Secret to Atmospheric Interiors</h3>
-            <p>Ambient, task, and accent — learn how professional designers use three layers of light to transform any room.</p>
-            <span class="blog-read-more">Read article →</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="visit" id="visit">
-    <div class="wrap">
-      <div class="section-header reveal">
-        <span class="eyebrow">Come See Us</span>
-        <h2>Visit our<br><em>studio.</em></h2>
-      </div>
-
-      <div class="visit-grid">
-        <div class="visit-block reveal">
-          <h3>Working Hours</h3>
-          <ul>
-            <li><span>Monday</span><span>10:00 — 19:00</span></li>
-            <li><span>Tuesday</span><span>10:00 — 19:00</span></li>
-            <li><span>Wednesday</span><span>10:00 — 19:00</span></li>
-            <li><span>Thursday</span><span>10:00 — 19:00</span></li>
-            <li><span>Friday</span><span>10:00 — 19:00</span></li>
-            <li><span>Saturday</span><span>11:00 — 17:00</span></li>
-            <li><span>Sunday</span><span>By appointment</span></li>
-          </ul>
-        </div>
-
-        <div class="visit-block reveal">
-          <h3>Find Us</h3>
-          <div class="contact-item">
-            <div class="icon">📍</div>
-            <div class="info">
-              <span class="label">Studio Address</span>
-              <span class="value">24 Abovyan Street, 3rd floor<br>Yerevan 0001, Armenia</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="icon">📞</div>
-            <div class="info">
-              <span class="label">Phone</span>
-              <span class="value"><a href="tel:+37493606691">+374 93 606 691</a></span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="icon">✉</div>
-            <div class="info">
-              <span class="label">Email</span>
-              <span class="value"><a href="mailto:hello@atelierlumiere.am">hello@atelierlumiere.am</a></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="visit-block reveal">
-          <h3>Follow Along</h3>
-          <p>Stay inspired. Follow our journey through new projects, design tips, and behind-the-scenes moments from the studio.</p>
-          <div class="social-links">
-            <a href="#" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="Pinterest">PI</a>
-            <a href="#" aria-label="Houzz">HZ</a>
-            <a href="#" aria-label="LinkedIn">IN</a>
-            <a href="#" aria-label="Facebook">FB</a>
-          </div>
-          <p style="margin-top: 24px; font-size: 13px; font-style: italic;">Consultations are available both in-studio and online via video call.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- BOOKING -->
   <section class="booking" id="booking">
     <div class="wrap booking-grid">
       <div class="booking-copy reveal">
@@ -1908,12 +1395,12 @@ footer {
       </div>
 
       <div class="footer-col">
-        <h4>Studio</h4>
+        <h4>Company</h4>
         <ul>
           <li><a href="#about">About Us</a></li>
           <li><a href="#projects">Portfolio</a></li>
-          <li><a href="#blog">Journal</a></li>
-          <li><a href="#visit">Visit</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#booking">Contact</a></li>
         </ul>
       </div>
 
@@ -1935,28 +1422,16 @@ footer {
   </div>
 </footer>
 
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
   <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
   <img id="lightboxImage" src="" alt="Project preview">
 </div>
 
-<!-- BLOG MODAL -->
-<div class="blog-modal" id="blogModal">
-  <div class="blog-modal-content">
-    <button class="blog-modal-close" id="blogModalClose">×</button>
-    <img class="blog-modal-image" id="blogModalImage" src="" alt="Article">
-    <div class="blog-modal-body">
-      <span class="blog-modal-category" id="blogModalCategory"></span>
-      <span class="blog-modal-date" id="blogModalDate"></span>
-      <h2 class="blog-modal-title" id="blogModalTitle"></h2>
-      <div class="blog-modal-text" id="blogModalText"></div>
-    </div>
-  </div>
-</div>
-
 <script>
 const WHATSAPP_NUMBER = "37493606691";
 
+// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1968,11 +1443,15 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+// Header scroll
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 50);
 });
 
+// =========================================
+// HORIZONTAL SLIDESHOW (Left to Right)
+// =========================================
 const track = document.getElementById('slideshowTrack');
 const slides = document.querySelectorAll('.slide');
 const currentNum = document.getElementById('slideCurrentNum');
@@ -1983,7 +1462,7 @@ const totalSlides = slides.length;
 totalNum.textContent = String(totalSlides).padStart(2, '0');
 
 function updateSlideshow() {
-  const slideWidth = slides[0].offsetWidth + 24;
+  const slideWidth = slides[0].offsetWidth + 24; // width + gap
   const offset = -currentIndex * slideWidth;
   track.style.transform = `translateX(${offset}px)`;
   currentNum.textContent = String(currentIndex + 1).padStart(2, '0');
@@ -1999,11 +1478,13 @@ document.getElementById('prevSlide').addEventListener('click', () => {
   updateSlideshow();
 });
 
+// Auto-advance every 6 seconds
 let autoSlide = setInterval(() => {
   currentIndex = (currentIndex + 1) % totalSlides;
   updateSlideshow();
 }, 6000);
 
+// Pause on hover
 track.addEventListener('mouseenter', () => clearInterval(autoSlide));
 track.addEventListener('mouseleave', () => {
   autoSlide = setInterval(() => {
@@ -2014,6 +1495,7 @@ track.addEventListener('mouseleave', () => {
 
 window.addEventListener('resize', updateSlideshow);
 
+// Mobile menu
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
@@ -2029,6 +1511,7 @@ navLinks.querySelectorAll("a").forEach(link => {
   });
 });
 
+// Lightbox
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxClose = document.getElementById("lightboxClose");
@@ -2050,6 +1533,7 @@ lightboxClose.addEventListener("click", closeLightbox);
 lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
 
+// Booking form
 const dateInput = document.getElementById("consultationDate");
 const today = new Date();
 dateInput.min = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, "0"), String(today.getDate()).padStart(2, "0")].join("-");
@@ -2080,38 +1564,9 @@ document.getElementById("bookingForm").addEventListener("submit", event => {
   window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
 });
 
+// Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-// BLOG MODAL
-const blogArticles = {
-  1: {
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=90",
-    category: "Trends",
-    date: "October 15, 2026",
-    title: "The Return of Warm Neutrals in 2026",
-    content: `
-      <p>In 2026, we're witnessing a beautiful shift back to warmth and comfort in interior design. After years of cool grays and stark whites, homeowners are embracing the soothing embrace of taupe, terracotta, and soft beige.</p>
-      <p>These warm neutrals create spaces that feel inviting, grounded, and timeless. They work beautifully with natural materials like oak, walnut, and linen, creating interiors that feel both luxurious and livable.</p>
-      <p>The key to mastering this trend is layering. Start with a warm neutral base — perhaps a taupe wall or beige sofa — then add depth with textured throws, terracotta ceramics, and natural wood accents. The result is a space that feels curated, not decorated.</p>
-      <p>At Atelier Lumière, we've seen this trend firsthand in our recent projects. Our Cascade kitchen renovation featured warm oak cabinets against soft beige walls, creating a space that feels both modern and timeless. The result? A kitchen that the clients describe as "the heart of our home."</p>
-      <p>If you're considering a redesign, consider how warm neutrals might work in your space. They're versatile, calming, and — most importantly — they make a house feel like home.</p>
-    `
-  },
-  2: {
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=90",
-    category: "Case Study",
-    date: "September 28, 2026",
-    title: "From Dark to Light: A Cascade Kitchen Transformation",
-    content: `
-      <p>When our clients first contacted us, their Cascade kitchen felt closed in and dated. Dark cabinets, poor lighting, and an inefficient layout made cooking a chore rather than a joy.</p>
-      <p>Our goal was simple: transform this 38m² space into a bright, functional heart of the home. We started by removing the upper cabinets and replacing them with open shelving, instantly making the space feel larger and more airy.</p>
-      <p>We chose warm oak for the lower cabinets, paired with Carrara marble countertops and aif (article) {
-  blogModalImage.src = article.image;
-  blogModalCategory.textContent = article.category;
-  blogModalDate.textContent = article.date;
-  blogModalTitle.textContent = article.title;
-  blogModalText.innerHTML = article.content;
-  
-  blogModal.classList.add("open");
-  document.body.style.overflow = "hidden";
-}
+</body>
+</html>
