@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0d1321">
-<meta name="description" content="Studio Lumière — Portrait and family photography.">
+<meta name="theme-color" content="#F7F4EF">
+<meta name="description" content="Studio Lumière — timeless portraits, meaningful connections, and stories worth keeping.">
 <title>Studio Lumière — Photography</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +13,14 @@
 
 <style>
 :root {
-  --cream: #0d1321;
-  --paper: #f8f9fa;
-  --brown: #f26a8d;
-  --muted: #c4c9d2;
-  --line: #3b4353;
-  --white: #f8f9fa;
+  --cream: #F7F4EF;
+  --paper: #EEE8DF;
+  --brown: #9A8068;
+  --muted: #81766B;
+  --line: #D8CEC2;
+  --white: #FFFFFF;
+  --ink: #37312C;
+  --soft-white: #FBF9F6;
 }
 
 * { box-sizing: border-box; }
@@ -31,9 +33,11 @@ html {
 body {
   margin: 0;
   background: var(--cream);
-  color: var(#000000);
+  color: var(--ink);
   font-family: 'DM Sans', sans-serif;
   font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 img, video {
@@ -106,6 +110,7 @@ p { line-height: 1.9; }
   background: var(--brown);
   color: var(--white);
   border: 1px solid var(--brown);
+  border-radius: 2px;
   cursor: pointer;
   font-size: 10px;
   letter-spacing: 1.7px;
@@ -134,8 +139,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(13,19,33,.96);
-  border-bottom: 1px solid rgba(242,106,141,.25);
+  background: rgba(247,244,239,.94);
+  border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
 }
 
@@ -188,17 +193,17 @@ header {
 /* HERO */
 
 .hero {
-  padding-top: 34px;
+  padding-top: 24px;
 }
 
 .hero-copy {
   text-align: center;
-  padding: 55px 15px 38px;
+  padding: 66px 15px 46px;
 }
 
 .hero h1 {
-  font-size: clamp(54px, 9vw, 116px);
-  line-height: .88;
+  font-size: clamp(58px, 9vw, 124px);
+  line-height: .9;
   margin: 20px 0;
   letter-spacing: -2px;
 }
@@ -215,8 +220,9 @@ header {
 }
 
 .hero-image {
-  height: min(74vw, 760px);
-  min-height: 390px;
+  height: min(68vw, 720px);
+  min-height: 420px;
+  border: 10px solid var(--soft-white);
   overflow: hidden;
   background: #d8c9b9;
 }
@@ -258,7 +264,7 @@ header {
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  gap: 30px 24px;
 }
 
 .gallery-item {
@@ -273,9 +279,9 @@ header {
 
 .gallery-item img {
   width: 100%;
-  height: 440px;
+  height: 460px;
   object-fit: cover;
-  background: #e4d8ca;
+  background: #E8E0D5;
   transition: transform .6s ease, filter .4s ease;
 }
 
@@ -285,7 +291,7 @@ header {
 }
 
 .gallery-item figcaption {
-  padding-top: 13px;
+  padding-top: 15px;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 24px;
 }
@@ -315,8 +321,9 @@ header {
 }
 
 .about-image {
-  height: 650px;
+  height: 680px;
   object-fit: cover;
+  border: 10px solid var(--soft-white);
 }
 
 .about-copy { max-width: 490px; }
@@ -329,8 +336,8 @@ header {
 /* VIDEO */
 
 .video-section {
-  background: #f8f9fa;
-  color: #000000;
+  background: var(--soft-white);
+  color: var(--ink);
 }
 
 .video-grid {
@@ -344,7 +351,7 @@ header {
 
 .video-frame {
   position: relative;
-  background: #d3c5b6;
+  background: var(--paper);
   overflow: hidden;
 }
 
@@ -352,13 +359,13 @@ header {
   width: 100%;
   height: 480px;
   object-fit: cover;
-  background: #d3c5b6;
+  background: var(--paper);
 }
 
 .video-frame.vertical video {
   height: 600px;
   object-fit: contain;
-  background: #d0c2b3;
+  background: var(--paper);
 }
 
 .video-caption {
@@ -385,6 +392,7 @@ header {
 
 .booking {
   background: var(--paper);
+  color: var(--ink);
 }
 
 .booking-grid {
@@ -436,9 +444,10 @@ header {
   min-width: 0;
   border: 1px solid var(--line);
   border-radius: 0;
-  background: var(--cream);
-  color: var(--brown);
+  background: var(--soft-white);
+  color: var(--ink);
   padding: 14px;
+  border-radius: 2px;
   outline: none;
 }
 
@@ -484,6 +493,7 @@ header {
 footer {
   border-top: 1px solid var(--line);
   padding: 28px 5%;
+  background: var(--cream);
 }
 
 .footer-inner {
@@ -510,7 +520,7 @@ footer p, footer a {
   align-items: center;
   justify-content: center;
   padding: 30px;
-  background: rgba(24,19,16,.94);
+  background: rgba(42,36,31,.94);
 }
 
 .lightbox.open { display: flex; }
@@ -532,6 +542,97 @@ footer p, footer a {
   color: white;
   font-size: 38px;
   cursor: pointer;
+}
+
+
+/* QUIET LUXURY DETAILS */
+::selection {
+  background: #D9C9B8;
+  color: var(--ink);
+}
+
+.eyebrow {
+  color: var(--brown);
+}
+
+.nav-links a {
+  color: var(--ink);
+  transition: color .2s ease, opacity .2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--brown);
+  opacity: 1;
+}
+
+.brand {
+  color: var(--ink);
+}
+
+.brand span {
+  color: var(--muted);
+}
+
+.section-intro h2,
+.about-copy h2,
+.booking-copy h2,
+.contact h2 {
+  color: var(--ink);
+}
+
+.portfolio .section-intro p,
+.portfolio .gallery-note {
+  color: var(--muted);
+}
+
+.filter-btn {
+  color: var(--ink);
+  border-color: var(--line);
+  transition: .25s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+
+.btn-outline {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #A69A8D;
+}
+
+.field select {
+  color: var(--ink);
+}
+
+.booking-note strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.video-caption span {
+  color: var(--muted);
+}
+
+footer .brand {
+  color: var(--ink);
+}
+
+footer p,
+footer a:not(.brand) {
+  color: var(--muted);
 }
 
 /* RESPONSIVE */
@@ -611,10 +712,10 @@ footer p, footer a {
 <main>
   <section class="hero wrap" id="home">
     <div class="hero-copy">
-      <div class="eyebrow">Portrait · Family · Stories</div>
-      <h1>Life, softly<br><em>remembered.</em></h1>
-      <p>Timeless portraits and heartfelt family stories, captured with intention and elegance.</p>
-      <a class="btn" href="#booking">Reserve a session</a>
+      <div class="eyebrow">Portraits · Family · Moments</div>
+      <h1>Life, softly<br><em>captured.</em></h1>
+      <p>Real connection. Beautiful light. Photographs that bring you back to how it felt.</p>
+      <a class="btn" href="#booking">Let’s plan your session</a>
     </div>
     <div class="hero-image">
       <img
@@ -628,8 +729,8 @@ footer p, footer a {
     <div class="wrap">
       <div class="section-intro">
         <div class="eyebrow">Selected work</div>
-        <h2>Stories in photographs.</h2>
-        <p>A collection of portraits and family moments, preserved with a natural and timeless aesthetic.</p>
+        <h2>A little piece<br>of your story.</h2>
+        <p>Take a look around. Each frame is a reminder that the simplest moments often mean the most.</p>
       </div>
 
       <div class="gallery-filters" aria-label="Filter photographs">
@@ -669,7 +770,7 @@ footer p, footer a {
           <figcaption>Little moments<span class="caption-small">Family session</span></figcaption>
         </button>
       </div>
-      <p class="gallery-note">These are sample photographs. Replace them with your own work before publishing your portfolio.</p>
+      <p class="gallery-note">Concept imagery is used in this demo presentation. Replace it with licensed client or photographer images before using the site commercially.</p>
     </div>
   </section>
 
@@ -680,10 +781,10 @@ footer p, footer a {
         alt="Photographer portrait"
         loading="lazy">
       <div class="about-copy">
-        <div class="eyebrow">Behind the lens</div>
-        <h2>Beauty in the<br><em>unspoken.</em></h2>
-        <p>I believe the most meaningful photographs are not about perfection. They are about connection, tenderness, and the small details that make every story unique.</p>
-        <p>My approach is relaxed and thoughtful, creating space for you to feel comfortable and simply be yourself.</p>
+        <div class="eyebrow">A little about the studio</div>
+        <h2>Less posing.<br><em>More feeling.</em></h2>
+        <p>The best photographs happen when you feel at ease. No pressure to be perfect — just room to be yourself, connect, laugh, and enjoy the moment.</p>
+        <p>We’ll take our time, find beautiful light, and create images that feel honest, warm, and unmistakably yours.</p>
         <a class="btn btn-outline" href="#booking">Let's create together</a>
       </div>
     </div>
@@ -692,9 +793,9 @@ footer p, footer a {
   <section class="section video-section" id="films">
     <div class="wrap">
       <div class="section-intro">
-        <div class="eyebrow">Moving memories</div>
-        <h2>Behind the scenes.</h2>
-        <p>A glimpse into the atmosphere, the details, and the moments between photographs.</p>
+        <div class="eyebrow">Beyond the photograph</div>
+        <h2>The moments<br><em>in between.</em></h2>
+        <p>A little look at the energy of a session — the laughter, the details, and everything that happens between frames.</p>
       </div>
 
       <div class="video-grid">
@@ -725,16 +826,16 @@ footer p, footer a {
         </div>
       </div>
 
-      <p class="gallery-note">Add your MP4 files to the videos folder in your GitHub repository. The filenames must match the paths above.</p>
+      <p class="gallery-note">Demo video area — add your own licensed MP4 clips to the videos folder when they are ready.</p>
     </div>
   </section>
 
   <section class="section booking" id="booking">
     <div class="wrap booking-grid">
       <div class="booking-copy">
-        <div class="eyebrow">Begin your story</div>
-        <h2>Reserve your<br><em>moment.</em></h2>
-        <p>Tell me a little about the session you have in mind. Your request will open in WhatsApp so we can discuss availability and details personally.</p>
+        <div class="eyebrow">Your turn</div>
+        <h2>Let’s make<br><em>something lasting.</em></h2>
+        <p>Tell me what you have in mind. Share a few details below and your message will open in WhatsApp — then we can plan the session together.</p>
         <div class="booking-note">
           <strong>Portrait sessions</strong><br>
           A personal, considered session focused on you.<br><br>
@@ -792,10 +893,10 @@ footer p, footer a {
 
   <section class="contact" id="contact">
     <div class="wrap">
-      <div class="eyebrow">Let's connect</div>
-      <h2>Every story deserves<br><em>to be remembered.</em></h2>
-      <p>For photography enquiries, session details, and collaborations, get in touch.</p>
-      <a class="btn" id="contactWhatsApp" href="#booking">Contact via WhatsApp</a>
+      <div class="eyebrow">The first hello</div>
+      <h2>Shall we create<br><em>your next favourite memory?</em></h2>
+      <p>Questions, ideas, or ready to book? I’d love to hear what you’re dreaming up.</p>
+      <a class="btn" id="contactWhatsApp" href="#booking">Say hello on WhatsApp</a>
     </div>
   </section>
 </main>
