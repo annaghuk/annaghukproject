@@ -41,31 +41,11 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
-}
-
-/* Custom Cursor */
-.cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--cyan);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.2s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease);
-  transform: translate(-50%, -50%);
-}
-
-.cursor.hover {
-  width: 50px;
-  height: 50px;
-  background: var(--cyan-glow);
 }
 
 img, video { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
-button, input, select, textarea { font: inherit; color: inherit; border: none; outline: none; background: transparent; cursor: none; }
+button, input, select, textarea { font: inherit; color: inherit; border: none; outline: none; background: transparent; }
 
 .wrap {
   width: min(1440px, 100%);
@@ -159,6 +139,7 @@ header {
   text-transform: uppercase;
   position: relative;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .nav-links a:hover { color: var(--cyan); }
@@ -166,7 +147,7 @@ header {
 .menu-toggle {
   display: none;
   font-size: 28px;
-  cursor: none;
+  cursor: pointer;
   color: var(--white);
 }
 
@@ -221,7 +202,7 @@ header {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   transition: all 0.4s var(--ease);
-  cursor: none;
+  cursor: pointer;
   position: relative;
   overflow: hidden;
 }
@@ -430,7 +411,7 @@ header {
   background: transparent;
   color: var(--cyan);
   font-size: 20px;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
@@ -467,7 +448,7 @@ header {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.3s ease;
   color: var(--white);
 }
@@ -490,7 +471,7 @@ header {
   border: none;
   padding: 0;
   background: transparent;
-  cursor: none;
+  cursor: pointer;
   overflow: hidden;
   text-align: left;
   border-radius: 4px;
@@ -896,7 +877,7 @@ footer a:hover { color: var(--cyan); }
   height: 50px;
   border-radius: 50%;
   font-size: 28px;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
@@ -922,10 +903,6 @@ footer a:hover { color: var(--cyan); }
 }
 
 @media (max-width: 850px) {
-  body { cursor: auto; }
-  .cursor { display: none; }
-  button, input, select, textarea, a { cursor: pointer; }
-  
   .menu-toggle { display: block; }
   .nav-links {
     position: fixed;
@@ -970,9 +947,6 @@ footer a:hover { color: var(--cyan); }
 </head>
 
 <body>
-
-<!-- Custom Cursor -->
-<div class="cursor" id="cursor"></div>
 
 <header>
   <nav class="nav wrap" aria-label="Main navigation">
@@ -1356,4 +1330,159 @@ footer a:hover { color: var(--cyan); }
 <footer>
   <div class="wrap footer-inner">
     <a class="brand" href="#home">Studio Lumière<span>Photography</span></a>
-    <p>© <span id="year"></span>
+    <p>© <span id="year"></span> Studio Lumière. All rights reserved.</p>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photograph preview">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close photograph">×</button>
+  <img id="lightboxImage" src="" alt="Enlarged portfolio photograph">
+</div>
+
+<script>
+/* =========================================
+   WHATSAPP CONFIGURATION (EXACTLY AS PROVIDED)
+   ========================================= */
+const WHATSAPP_NUMBER = "37493606691";
+
+/* =========================================
+   SLIDESHOW
+   ========================================= */
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.getElementById('prevSlide');
+const nextBtn = document.getElementById('nextSlide');
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[index].classList.add('active');
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+
+// Auto-advance every 5 seconds
+setInterval(nextSlide, 5000);
+
+/* =========================================
+   MOBILE NAVIGATION
+   ========================================= */
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.textContent = isOpen ? "×" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+/* =========================================
+   GALLERY FILTERS
+   ========================================= */
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+    const category = button.dataset.filter;
+    galleryItems.forEach(item => {
+      item.hidden = category !== "all" && item.dataset.category !== category;
+    });
+  });
+});
+
+/* =========================================
+   LIGHTBOX
+   ========================================= */
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+
+galleryItems.forEach(item => {
+  item.addEventListener("click", () => {
+    lightboxImage.src = item.dataset.full;
+    lightboxImage.alt = item.querySelector("img").alt;
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  setTimeout(() => { lightboxImage.src = ""; }, 400);
+  document.body.style.overflow = "";
+}
+
+lightboxClose.addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", event => { if (event.target === lightbox) closeLightbox(); });
+document.addEventListener("keydown", event => { if (event.key === "Escape") closeLightbox(); });
+
+/* =========================================
+   BOOKING FORM LOGIC (EXACTLY AS PROVIDED)
+   ========================================= */
+const dateInput = document.getElementById("sessionDate");
+const today = new Date();
+const localToday = [
+  today.getFullYear(),
+  String(today.getMonth() + 1).padStart(2, "0"),
+  String(today.getDate()).padStart(2, "0")
+].join("-");
+dateInput.min = localToday;
+
+document.getElementById("bookingForm").addEventListener("submit", event => {
+  event.preventDefault();
+  if (!event.currentTarget.reportValidity()) return;
+
+  if (!/^\d{8,15}$/.test(WHATSAPP_NUMBER)) {
+    alert("Please check the WhatsApp number in the code.");
+    return;
+  }
+
+  const form = new FormData(event.currentTarget);
+  const message = [
+    "Hello Studio Lumière! I would like to request a photography booking.",
+    "",
+    "Session: " + form.get("sessionType"),
+    "Name: " + form.get("clientName"),
+    "Phone: " + form.get("clientPhone"),
+    "Preferred date: " + form.get("sessionDate"),
+    "Preferred time: " + form.get("sessionTime"),
+    "Additional details: " + (form.get("clientMessage") || "Not provided"),
+    "",
+    "I understand that the booking is not confirmed until we agree on availability."
+  ].join("\n");
+
+  const whatsappURL = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+  window.open(whatsappURL, "_blank", "noopener,noreferrer");
+});
+
+/* =========================================
+   FOOTER YEAR
+   ========================================= */
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
