@@ -2105,4 +2105,13 @@ const blogArticles = {
     content: `
       <p>When our clients first contacted us, their Cascade kitchen felt closed in and dated. Dark cabinets, poor lighting, and an inefficient layout made cooking a chore rather than a joy.</p>
       <p>Our goal was simple: transform this 38m² space into a bright, functional heart of the home. We started by removing the upper cabinets and replacing them with open shelving, instantly making the space feel larger and more airy.</p>
-      <p>We chose warm oak for the lower cabinets, paired with Carrara marble countertops and a
+      <p>We chose warm oak for the lower cabinets, paired with Carrara marble countertops and aif (article) {
+  blogModalImage.src = article.image;
+  blogModalCategory.textContent = article.category;
+  blogModalDate.textContent = article.date;
+  blogModalTitle.textContent = article.title;
+  blogModalText.innerHTML = article.content;
+  
+  blogModal.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
